@@ -28,7 +28,7 @@ namespace Microsoft.Bot.Sample.LuisBot
         [LuisIntent("MyIntent")]
         public async Task MyIntent(IDialogContext context, LuisResult result)
         {
-            await context.PostAsync($"yeahhhhhhhhh: {result.Query}"); //
+            await context.PostAsync($"ueeeeeeeeeeeeeeeeeeeeei: {result.Query}"); //
             context.Wait(MessageReceived);
         }
     }
