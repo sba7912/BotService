@@ -16,10 +16,10 @@ namespace Microsoft.Bot.Sample.LuisBot
         {
         }
 
-        [LuisIntent("None")]
+        [LuisIntent("テスト")]
         public async Task NoneIntent(IDialogContext context, LuisResult result)
         {
-            await context.PostAsync($"You have reached the none intent. You said: {result.Query}"); //
+            await context.PostAsync($"わかるわー"); //
             context.Wait(MessageReceived);
         }
 
@@ -28,8 +28,9 @@ namespace Microsoft.Bot.Sample.LuisBot
         [LuisIntent("MyIntent")]
         public async Task MyIntent(IDialogContext context, LuisResult result)
         {
-            await context.PostAsync($"ueeeeeeeeeeeeeeeeeeeeei: {result.Query}"); //
+            await context.PostAsync($"へいへいほー"); //
             context.Wait(MessageReceived);
         }
+
     }
 }
