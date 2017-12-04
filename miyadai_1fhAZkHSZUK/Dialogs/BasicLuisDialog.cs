@@ -1,4 +1,4 @@
-using System;
+Ôªøusing System;
 using System.Configuration;
 using System.Threading.Tasks;
 
@@ -16,7 +16,7 @@ namespace Microsoft.Bot.Sample.LuisBot
         {
         }
 
-        [LuisIntent("ÉeÉXÉg")]
+        [LuisIntent("„ÉÜ„Çπ„Éà")]
         public async Task NoneIntent(IDialogContext context, LuisResult result)
         {
             await context.PostAsync($"I think so too."); //
@@ -25,10 +25,10 @@ namespace Microsoft.Bot.Sample.LuisBot
 
         // Go to https://luis.ai and create a new intent, then train/publish your luis app.
         // Finally replace "MyIntent" with the name of your newly created intent in the following handler
-        [LuisIntent("ÉeÉXÉg2")]
+        [LuisIntent("„ÉÜ„Çπ„Éà2")]
         public async Task MyIntent(IDialogContext context, LuisResult result)
         {
-            await context.PostAsync($"Ç÷Ç¢Ç÷Ç¢ÇŸÅ["); //
+            await context.PostAsync($"„Å∏„ÅÑ„Å∏„ÅÑ„Åª„Éº"); //
             context.Wait(MessageReceived);
         }
 
