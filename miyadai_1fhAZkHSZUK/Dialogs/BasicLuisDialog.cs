@@ -19,7 +19,7 @@ namespace Microsoft.Bot.Sample.LuisBot
         [LuisIntent("テスト")]
         public async Task NoneIntent(IDialogContext context, LuisResult result)
         {
-            await context.PostAsync($"わかるわー"); //
+            await context.PostAsync($"I think so too."); //
             context.Wait(MessageReceived);
         }
 
