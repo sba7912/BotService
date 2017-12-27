@@ -20,10 +20,10 @@ namespace Microsoft.Bot.Sample.LuisBot
         public async Task NoneIntent(IDialogContext context, LuisResult result)
         {
             await context.PostAsync($"初めてSSIDにパソコンなどの端末を接続するとセキュリティコードを求められます。/r/n " +
-                $"「miyazaki-u」と打ち込んでください。"
+                $"「miyazaki-u」と打ち込んでください。" +
                 $"正しいコードを入力して接続すると自動的にIPアドレスを取得してネットワーク接続が行われます。" +
-                $"その後、IEやFirefoxなどのブラウザを開いて、ネットワーク認証を行うことで接続が完了します。"
-                $"本学教職員は特に申請は不要です。"
+                $"その後、IEやFirefoxなどのブラウザを開いて、ネットワーク認証を行うことで接続が完了します。" +
+                $"本学教職員は特に申請は不要です。" +
                 $"学外者については、宮大FreeSpotもしくはEduroamを利用してください。" +
                 $"詳しくはhttps://www.cc.miyazaki-u.ac.jp/service/internal/wlan.php"); //
             context.Wait(MessageReceived);
