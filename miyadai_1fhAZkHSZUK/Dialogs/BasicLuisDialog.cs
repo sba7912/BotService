@@ -209,7 +209,7 @@ namespace Microsoft.Bot.Sample.LuisBot
         // Go to https://luis.ai and create a new intent, then train/publish your luis app.
         // Finally replace "MyIntent" with the name of your newly created intent in the following handler
         [LuisIntent("None")]
-        public async Task MyIntent(IDialogContext context, LuisResult result)
+        public async Task hahaha(IDialogContext context, LuisResult result)
         {
             await context.PostAsync($"該当なっしん"); //
             context.Wait(MessageReceived);
