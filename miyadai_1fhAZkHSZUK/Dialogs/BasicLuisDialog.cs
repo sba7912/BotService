@@ -124,7 +124,7 @@ namespace Microsoft.Bot.Sample.LuisBot
         }
 
         [LuisIntent("SSL-VPNサービス＿申請")]
-        public async Task SSL-VPN_abstract(IDialogContext context, LuisResult result)
+        public async Task SSL_VPN_abstract(IDialogContext context, LuisResult result)
         {
             await context.PostAsync($"SSL-VPNを利用するには接続するパソコンに専用のソフトウェアをインストールする必要があります。" +
                 $"※インストールの際は必ず「VPNのみ(VPN Only)」を選択してください。"); //
@@ -142,7 +142,7 @@ namespace Microsoft.Bot.Sample.LuisBot
         }
 
         [LuisIntent("SSL-VPNサービス＿概要")]
-        public async Task SSL-VPN_abstrast(IDialogContext context, LuisResult result)
+        public async Task SSL_VPN_abstrast(IDialogContext context, LuisResult result)
         {
             await context.PostAsync($"学外から木花キャンパスにある情報システムに対してセキュアにアクセスする手段として、宮崎大学統一認証アカウント（MID）保有者に対してSSL-VPN（Secure Sockets Layer Virtual Private Network）サービスを提供します。" +
                 $"これにより、宮崎大学の学内専用Webサイトの閲覧や情報基盤センターのオンラインストレージ等をSSL - VPNを経由して利用できます。" +
