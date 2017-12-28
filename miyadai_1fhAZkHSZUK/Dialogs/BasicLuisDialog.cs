@@ -19,7 +19,7 @@ namespace Microsoft.Bot.Sample.LuisBot
         [LuisIntent("無線ネットワーク")]
         public async Task WireLess(IDialogContext context, LuisResult result)
         {
-            await context.PostAsync($"初めてSSIDにパソコンなどの端末を接続するとセキュリティコードを求められます。/r/n " +
+            await context.PostAsync($"初めてSSIDにパソコンなどの端末を接続するとセキュリティコードを求められます。" \r\n+
                 $"「miyazaki-u」と打ち込んでください。" +
                 $"正しいコードを入力して接続すると自動的にIPアドレスを取得してネットワーク接続が行われます。" +
                 $"その後、IEやFirefoxなどのブラウザを開いて、ネットワーク認証を行うことで接続が完了します。" +
