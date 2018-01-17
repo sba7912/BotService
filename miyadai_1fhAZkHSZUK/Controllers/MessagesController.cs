@@ -264,7 +264,7 @@ namespace Microsoft.Bot.Sample.LuisBot
                                     
                                     //await stateClient.BotState.DeleteStateForUserAsync(activity.ChannelId, activity.From.Id);
                                     buttonflag = true;
-                                    //break;
+                                    break;
                                 }
                             }
 
@@ -273,7 +273,7 @@ namespace Microsoft.Bot.Sample.LuisBot
                             {
                                 await LUIS(activity);
                             }
-                            else
+                           /* else
                             {
                                 //Activity replyToConversation = menu1Func(activity);
                                 await connector.Conversations.ReplyToActivityAsync(replyToConversation);
@@ -285,7 +285,7 @@ namespace Microsoft.Bot.Sample.LuisBot
 
                                 //このサンプルでは階層３までで終わりのため、UsrDataを削除する
                                 await stateClient.BotState.DeleteStateForUserAsync(activity.ChannelId, activity.From.Id);
-                            }
+                            }*/
                         }
 
                         //ボタンで設定していないワードがきたときはLUISに渡す。
