@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.Http;
 using System.Web.Routing;
 
-namespace LUISapp
+namespace SimpleEchoBot
 {
     public class WebApiApplication : System.Web.HttpApplication
     {
