@@ -24,9 +24,10 @@ namespace Microsoft.Bot.Sample.LuisBot
         public List<string> getMenu1List()
         {
             List<string> MenuList = new List<string>();
-            MenuList.Add("【インフラ】PC・ネットワーク関連");
-            MenuList.Add("Aシステム関連");
-            MenuList.Add("Bシステム関連");
+            MenuList.Add("認証・ID関係");
+            MenuList.Add("情報ネットワーク関係");
+            MenuList.Add("Software関係");
+            MenuList.Add("情報システム関係");
             MenuList.Add("その他");
             return MenuList;
         }
@@ -36,21 +37,49 @@ namespace Microsoft.Bot.Sample.LuisBot
             switch (Menu1Select)
             {
                 case 0:
-                    MenuList.Add("VPN関連");
-                    MenuList.Add("無線LAN(Wifi)・有線LAN関連");
+                    MenuList.Add("•宮崎大学統一認証アカウント(MID)");
+                    MenuList.Add("情報基盤センター利用申請");
+                    MenuList.Add("学認ID");
                     break;
                 case 1:
-                    MenuList.Add("電話で対応してほしい");
-                    MenuList.Add("Chatで対応してほしい");
+                    MenuList.Add("有線ネットワーク");
+                    MenuList.Add("無線ネットワーク");
+                    MenuList.Add("固定IPアドレス");
+                    MenuList.Add("ファイアウォール通信許可申請");
+                    MenuList.Add("SSL-VPNサービス");
+                    MenuList.Add("ゲストネットワーク利用");
+                    MenuList.Add("eduroam");
+                    MenuList.Add("宮大FreeSpot");
                     break;
                 case 2:
-                    MenuList.Add("電話で対応してほしい");
-                    MenuList.Add("Chatで対応してほしい");
+                    MenuList.Add("Microsoft包括ライセンス");
+                    MenuList.Add("宮崎大学ウイルスソフト包括");
+                    MenuList.Add("Solidworks 3DCAD");
                     break;
                 case 3:
-                    MenuList.Add("電話で対応してほしい");
-                    MenuList.Add("Chatで対応してほしい");
+                    MenuList.Add("オンラインストレージ");
+                    MenuList.Add("宮大どこプリ");
+                    MenuList.Add("電子メール");
+                    MenuList.Add("実習室システム");
+                    MenuList.Add("メーリングリスト");
+                    MenuList.Add("学生一斉メール");
+                    MenuList.Add("Web公開サービス(個人)");
+                    MenuList.Add("Web公開サービス(組織)");
+                    MenuList.Add("Web公開サービス(学生)");
+                    MenuList.Add("大判プリンタ");
+                    MenuList.Add("仮想サーバ貸出");
+                    MenuList.Add("サーバ証明書発行サービス(UPKI電子証明書発行)");
+                    MenuList.Add("DNS・名前解決サービス");
+                    MenuList.Add("メールゲートウェイ(アンチウイルス / スパム)");
                     break;
+                case 4:
+                    MenuList.Add("定期メンテナンス【学内制限】");
+                    MenuList.Add("業務依頼サービス利用");
+                    MenuList.Add("テレビ会議システム");
+                    MenuList.Add("Web会議システム(Vidyo)");
+                    MenuList.Add("ハウジングサービス");
+                    break;
+        
                 default:
                     break;
             }
