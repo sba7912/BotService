@@ -273,19 +273,19 @@ namespace Microsoft.Bot.Sample.LuisBot
                             {
                                 await LUIS(activity);
                             }
-                           /* else
+                            else
                             {
-                                //Activity replyToConversation = menu1Func(activity);
+                              /*  //Activity replyToConversation = menu1Func(activity);
                                 await connector.Conversations.ReplyToActivityAsync(replyToConversation);
 
                                 //メニュー階層を3にする
                                 userData.SetProperty<int>("MenuState", 3);
                                 await stateClient.BotState.SetUserDataAsync(activity.ChannelId, activity.From.Id, userData);
-
+                                */
 
                                 //このサンプルでは階層３までで終わりのため、UsrDataを削除する
                                 await stateClient.BotState.DeleteStateForUserAsync(activity.ChannelId, activity.From.Id);
-                            }*/
+                            }
                         }
 
                         //ボタンで設定していないワードがきたときはLUISに渡す。
