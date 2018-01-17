@@ -262,7 +262,7 @@ namespace Microsoft.Bot.Sample.LuisBot
                                     userData.SetProperty<int>("Menu2Select", item.i);
                                     await LUIS(activity);
                                     buttonflag = true;
-                                    break;
+                                    //break;
                                 }
                             }
 
