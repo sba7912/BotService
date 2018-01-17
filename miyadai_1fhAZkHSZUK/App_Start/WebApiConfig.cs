@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http;
 
-namespace LUISApp
+namespace LUISapp
 {
     public static class WebApiConfig
     {
