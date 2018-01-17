@@ -145,7 +145,7 @@ namespace Microsoft.Bot.Sample.LuisBot
                         DateTime nowtime = DateTime.Now;
                         TimeSpan duration = nowtime - DateTime.Parse(SentGreetingTime);
                         //TImeSpan TimeSpan(Int32, Int32, Int32)	  TimeSpan(時間数,分数,秒数)
-                        TimeSpan interval = new TimeSpan(1, 0, 0);
+                        TimeSpan interval = new TimeSpan(0, 0, 30);
                         if (duration > interval)
                         {
                             overtimeflg = true;
