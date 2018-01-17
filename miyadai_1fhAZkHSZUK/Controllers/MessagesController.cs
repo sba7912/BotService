@@ -9,7 +9,7 @@ using Microsoft.Bot.Connector;
 using Newtonsoft.Json;
 using System.Collections.Generic;
 using System.Threading;
-using Microsoft.Bot.Sample.HelpBot;
+using Microsoft.Bot.Sample.LuisBot;
 using Microsoft.Bot.Builder.Dialogs;
 using System.Diagnostics;
 using Microsoft.Rest;
@@ -299,7 +299,7 @@ namespace Microsoft.Bot.Sample.LuisBot
 
                     // get the user data object
                     case ActivityTypes.Message:
-                        await Conversation.SendAsync(activity, () => new HelpBotDialog());
+                        await Conversation.SendAsync(activity, () => new BasicLuisDialog());
                         break;
 
                     case ActivityTypes.ConversationUpdate:
