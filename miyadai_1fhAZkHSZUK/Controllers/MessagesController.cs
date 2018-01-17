@@ -258,10 +258,11 @@ namespace Microsoft.Bot.Sample.LuisBot
                                 if (activity.Text == item.v)
                                 {
                                     //replyToConversation = menuFunc2(activity, getMenu3List(Menu1Select, item.i));
+                                    await LUIS(activity);
                                     //メニュー階層2で何番を選んだか保存
                                     userData.SetProperty<int>("Menu2Select", item.i);
-                                    await LUIS(activity);
-                                    await stateClient.BotState.DeleteStateForUserAsync(activity.ChannelId, activity.From.Id);
+                                    
+                                    //await stateClient.BotState.DeleteStateForUserAsync(activity.ChannelId, activity.From.Id);
                                     buttonflag = true;
                                     break;
                                 }
