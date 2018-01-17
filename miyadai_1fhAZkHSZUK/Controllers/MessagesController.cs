@@ -239,7 +239,7 @@ namespace Microsoft.Bot.Sample.LuisBot
                                 await connector.Conversations.ReplyToActivityAsync(replyToConversation);
 
                                 //メニュー階層を2にする
-                                userData.SetProperty<int>("MenuState", 2);
+                                overtimeflg.SetProperty<int>("MenuState", 2);
                                 await stateClient.BotState.SetUserDataAsync(activity.ChannelId, activity.From.Id, userData);
                             }
                         }
@@ -261,8 +261,9 @@ namespace Microsoft.Bot.Sample.LuisBot
                                     //メニュー階層2で何番を選んだか保存
                                     userData.SetProperty<int>("Menu2Select", item.i);
                                     await LUIS(activity);
+                                    await stateClient.BotState.DeleteStateForUserAsync(activity.ChannelId, activity.From.Id);
                                     buttonflag = true;
-                                    //break;
+                                    break;
                                 }
                             }
 
