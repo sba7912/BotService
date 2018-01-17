@@ -37,7 +37,7 @@ namespace Microsoft.Bot.Sample.LuisBot
             switch (Menu1Select)
             {
                 case 0:
-                    MenuList.Add("•宮崎大学統一認証アカウント(MID)");
+                    MenuList.Add("宮崎大学統一認証アカウント(MID)");
                     MenuList.Add("情報基盤センター利用申請");
                     MenuList.Add("学認ID");
                     break;
@@ -349,7 +349,7 @@ namespace Microsoft.Bot.Sample.LuisBot
 
         private Activity Greeting(Activity activity,List<string> MenuList)
         {
-            Activity replyToConversation = activity.CreateReply("こんにちは (sun) \n\nまずお問合わせの内容を一言で教えてください。\n\n(例：VPNが繋がらない。Aシステムのログインパスワードを忘れた。)");
+            Activity replyToConversation = activity.CreateReply("こんにちは。情報基盤センターです。どういったお問い合わせでしょうか。下からお選びください");
             replyToConversation.Recipient = activity.From;
             replyToConversation.Type = "message";
             replyToConversation.Attachments = new List<Attachment>();
@@ -370,7 +370,7 @@ namespace Microsoft.Bot.Sample.LuisBot
 
             HeroCard plCard = new HeroCard()
             {
-                Title = "もしくは以下からお選びください。",
+                Title = "該当する項目をお選びください",
                 Buttons = cardButtons
             };
             Attachment plAttachment = plCard.ToAttachment();
