@@ -264,7 +264,7 @@ namespace Microsoft.Bot.Sample.LuisBot
                                     
                                     //await stateClient.BotState.DeleteStateForUserAsync(activity.ChannelId, activity.From.Id);
                                     buttonflag = true;
-                                    break;
+                                    //break;
                                 }
                             }
 
