@@ -360,12 +360,12 @@ namespace Microsoft.Bot.Sample.LuisBot
 
                             Activity replyToConversation = activity;
 
-                            foreach (var item in getMenu3List(Menu2Select).Select((v, i) => new { v, i }))
+                            foreach (var item in getMenu3List(Menu1Select,Menu2Select).Select((v, i) => new { v, i }))
                             {
                                 if (activity.Text == item.v)
                                 {
-                                    replyToConversation = menuFunc3(activity, getMenu3List(Menu2Select, item.i));
-                                    //await LUIS(activity);
+                                    //replyToConversation = menuFunc3(activity, getMenu3List(Menu2Select, item.i));
+                                    await LUIS(activity);
                                     //メニュー階層3で何番を選んだか保存
                                     userData.SetProperty<int>("Menu3Select", item.i);
 
