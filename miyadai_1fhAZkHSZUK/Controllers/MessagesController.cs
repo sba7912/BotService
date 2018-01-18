@@ -246,10 +246,9 @@ namespace Microsoft.Bot.Sample.LuisBot
                         }
                         else if (activity.Text == "戻る" )
                         {
-                            //メニュー階層を
+                            //1個前のメニュー階層に戻る
                             userData.SetProperty<int>("MenuState", MenuState-1);
                             await stateClient.BotState.SetUserDataAsync(activity.ChannelId, activity.From.Id, userData);
-                            break;
                         }
                         else if (activity.Text == "電話で対応してほしい")
                         {
