@@ -94,6 +94,10 @@ namespace Microsoft.Bot.Sample.LuisBot
         public List<string> getMenu3List(int Menu1Select, int Menu2Select)
         {
             List<string> MenuList = new List<string>();
+            //State管理
+            //StateClient stateClient = activity.GetStateClient();
+            //BotData userData = await stateClient.BotState.GetUserDataAsync(activity.ChannelId, activity.From.Id);
+
             switch (Menu1Select)
             {
                 case 0:
@@ -118,8 +122,8 @@ namespace Microsoft.Bot.Sample.LuisBot
                             break;
                         case 3: //戻る選んだ人
                                 //メニュー階層を1にする
-                            userData.SetProperty<int>("MenuState", 1);
-                            await stateClient.BotState.SetUserDataAsync(activity.ChannelId, activity.From.Id, userData);
+                            //userData.SetProperty<int>("MenuState", 1);
+                            //await stateClient.BotState.SetUserDataAsync(activity.ChannelId, activity.From.Id, userData);
                             break;
                     }
                     break;
