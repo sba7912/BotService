@@ -244,29 +244,14 @@ namespace Microsoft.Bot.Sample.LuisBot
                             Task result = stateSentGreeting(activity, stateClient, userData);
 
                         }
-                        else if (activity.Text == "戻り" )
+                        else if (activity.Text == "戻る" )
                         {
-                            Activity replyToConversation = activity;
 
-                            bool buttonflag = false;
-
-                            foreach (var item in getMenu1List().Select((v, i) => new { v, i }))
-                            {
-                                if (activity.Text == item.v)
-                                {
-                                    replyToConversation = menuFunc(activity, getMenu2List(item.i));
-                                    //メニュー階層1で何番を選んだか保存
-                                    userData.SetProperty<int>("Menu1Select", item.i);
-
-                                    buttonflag = true;
-                                    break;
-                                }
-                            }
                             //1個前のメニュー階層に戻る
                             //Activity replyToConversation = activity;
-                            await connector.Conversations.ReplyToActivityAsync(replyToConversation);
+                            //await connector.Conversations.ReplyToActivityAsync(replyToConversation);
                             userData.SetProperty<int>("MenuState", MenuState-1);
-                            await stateClient.BotState.SetUserDataAsync(activity.ChannelId, activity.From.Id, userData);
+                            //await stateClient.BotState.SetUserDataAsync(activity.ChannelId, activity.From.Id, userData);
 
                         }
                         else if (activity.Text == "電話で対応してほしい")
