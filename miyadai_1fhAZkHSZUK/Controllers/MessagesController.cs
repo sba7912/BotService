@@ -248,8 +248,9 @@ namespace Microsoft.Bot.Sample.LuisBot
                         {
 
                             //1個前のメニュー階層に戻る
-                            //Activity replyToConversation = activity;
-                            //await connector.Conversations.ReplyToActivityAsync(replyToConversation);
+                            Activity replyToConversation = activity;
+                            replyToConversation = menuFunc(activity, getMenu1List());
+                            await connector.Conversations.ReplyToActivityAsync(replyToConversation);
                             userData.SetProperty<int>("MenuState",1);
                             await stateClient.BotState.SetUserDataAsync(activity.ChannelId, activity.From.Id, userData);
 
