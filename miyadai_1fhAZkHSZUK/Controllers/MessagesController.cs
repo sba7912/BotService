@@ -172,38 +172,6 @@ namespace Microsoft.Bot.Sample.LuisBot
             return MenuList;
         }
 
-
-
-        public List<string> getMenu3List(int Menu1Select, int Menu2Select)
-        {
-            List<string> MenuList = new List<string>();
-            switch (Menu1Select)
-            {
-                case 0:
-                    switch (Menu2Select)
-                    {
-                        case 0:
-                            MenuList.Add("VPN");
-                            break;
-                        case 1:
-                            MenuList.Add("LAN");
-                            break;
-                        default:
-                            break;
-                    }
-                    break;
-                case 1:
-                    break;
-                case 2:
-                    break;
-                default:
-                    break;
-            }
-            return MenuList;
-        }
-
-
-
         /// <summary>
         /// POST: api/Messages
         /// Receive a message from a user and reply to it
