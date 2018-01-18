@@ -31,6 +31,7 @@ namespace Microsoft.Bot.Sample.LuisBot
             MenuList.Add("その他");
             return MenuList;
         }
+
         public List<string> getMenu2List(int Menu1Select)
         {
             List<string> MenuList = new List<string>();
@@ -242,6 +243,13 @@ namespace Microsoft.Bot.Sample.LuisBot
                             //最初の一度だけこのダイアログがでるようにするため、UserDataに挨拶したことを保存しておく
                             Task result = stateSentGreeting(activity, stateClient, userData);
 
+                        }
+                        else if (activity.Text == "戻る" )
+                        {
+                            //メニュー階層を
+                            userData.SetProperty<int>("MenuState", MenuState-1);
+                            await stateClient.BotState.SetUserDataAsync(activity.ChannelId, activity.From.Id, userData);
+                            break;
                         }
                         else if (activity.Text == "電話で対応してほしい")
                         {
@@ -558,6 +566,7 @@ namespace Microsoft.Bot.Sample.LuisBot
 
             return replyToConversation;
         }
+
 
         private async Task stateSentGreeting(Activity activity, StateClient stateClient, BotData userData)
         {
