@@ -244,7 +244,7 @@ namespace Microsoft.Bot.Sample.LuisBot
                             Task result = stateSentGreeting(activity, stateClient, userData);
 
                         }
-                        else if (activity.Text == "戻る" )
+                        else if (activity.Text == "戻り" )
                         {
                             Activity replyToConversation = activity;
 
@@ -254,7 +254,7 @@ namespace Microsoft.Bot.Sample.LuisBot
                             {
                                 if (activity.Text == item.v)
                                 {
-                                    replyToConversation = menuFunc(activity, getMenu2List(item.i));
+                                    replyToConversation = menuFunc(activity, getMenu1List(item.i));
                                     //メニュー階層1で何番を選んだか保存
                                     userData.SetProperty<int>("Menu1Select", item.i);
 
