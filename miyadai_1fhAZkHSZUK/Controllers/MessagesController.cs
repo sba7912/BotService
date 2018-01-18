@@ -318,8 +318,8 @@ namespace Microsoft.Bot.Sample.LuisBot
                             {
                                 if (activity.Text == item.v)
                                 {
-                                    //replyToConversation = menuFunc2(activity, getMenu3List(Menu1Select, item.i));
-                                    await LUIS(activity);
+                                    replyToConversation = menuFunc2(activity, getMenu3List(Menu1Select, item.i));
+                                    //await LUIS(activity);
                                     //メニュー階層2で何番を選んだか保存
                                     userData.SetProperty<int>("Menu2Select", item.i);
 
@@ -522,6 +522,37 @@ namespace Microsoft.Bot.Sample.LuisBot
             return replyToConversation;
         }
         private Activity menuFunc2(Activity activity, List<string> MenuList)
+        {
+            Activity replyToConversation = activity.CreateReply(activity.Text + "についてですね。");
+            replyToConversation.Recipient = activity.From;
+            replyToConversation.Type = "message";
+            replyToConversation.Attachments = new List<Attachment>();
+            List<CardAction> cardButtons = new List<CardAction>();
+
+            CardAction plButton = new CardAction();
+
+            foreach (string buttonData in MenuList)
+            {
+                plButton = new CardAction()
+                {
+                    Value = buttonData,
+                    Type = "imBack",
+                    Title = buttonData
+                };
+                cardButtons.Add(plButton);
+            }
+
+            HeroCard plCard = new HeroCard()
+            {
+                Title = "以下からお選びください。",
+                Buttons = cardButtons
+            };
+            Attachment plAttachment = plCard.ToAttachment();
+            replyToConversation.Attachments.Add(plAttachment);
+
+            return replyToConversation;
+        }
+        private Activity menuFunc3(Activity activity, List<string> MenuList)
         {
             Activity replyToConversation = activity.CreateReply(activity.Text + "については[こちら](https://www.google.co.jp/search?q=" + MenuList[0] + "のトラブル)");
 
