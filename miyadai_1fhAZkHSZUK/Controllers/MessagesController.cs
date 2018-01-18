@@ -249,6 +249,7 @@ namespace Microsoft.Bot.Sample.LuisBot
                             //1個前のメニュー階層に戻る
                             userData.SetProperty<int>("MenuState", MenuState-1);
                             await stateClient.BotState.SetUserDataAsync(activity.ChannelId, activity.From.Id, userData);
+                            await connector.Conversations.ReplyToActivityAsync(replyToConversation);
                         }
                         else if (activity.Text == "電話で対応してほしい")
                         {
