@@ -430,18 +430,7 @@ namespace Microsoft.Bot.Sample.LuisBot
                     {
                         await LUIS(activity);
                     }
-                    
-                    //会話の開始。挨拶から。
-                    else
-                    {
-                        Activity replyToConversation = Greeting(activity, getMenu1List());
-                        await connector.Conversations.ReplyToActivityAsync(replyToConversation);
-
-                        //最初の一度だけこのダイアログがでるようにするため、UserDataに挨拶したことを保存しておく
-                        Task result = stateSentGreeting(activity, stateClient, userData);
-
-                    }
-
+                   
                 }
                 catch (HttpOperationException err)
                 {
