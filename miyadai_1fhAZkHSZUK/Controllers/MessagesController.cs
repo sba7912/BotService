@@ -177,6 +177,7 @@ namespace Microsoft.Bot.Sample.LuisBot
             return MenuList;
         }
 
+        /*
         public List<string> satisfaction()
         {
             List<string> MenuList = new List<string>();
@@ -184,7 +185,7 @@ namespace Microsoft.Bot.Sample.LuisBot
             MenuList.Add("解決していない");
             return MenuList;
         }
-
+        */
 
         /// <summary>
         /// POST: api/Messages
