@@ -464,7 +464,7 @@ namespace Microsoft.Bot.Sample.LuisBot
                     case ActivityTypes.Message:
 
                         await Conversation.SendAsync(activity, () => new BasicLuisDialog());
-                        replyToConversation = menuFunc(activity, satisfaction());
+                        replyToConversation = menuFunc(activity, getcustomerList());
                         await connector.Conversations.ReplyToActivityAsync(replyToConversation);
                         await stateClient.BotState.SetUserDataAsync(activity.ChannelId, activity.From.Id, userData);
                         break;
