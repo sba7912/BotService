@@ -177,11 +177,19 @@ namespace Microsoft.Bot.Sample.LuisBot
             return MenuList;
         }
 
-        public List<string> getcustomerList()
+        public List<string> getcustomer1List()
         {
             List<string> MenuList = new List<string>();
             MenuList.Add("解決した");
             MenuList.Add("解決していない");
+            return MenuList;
+        }
+
+        public List<string> getcustomer2List()
+        {
+            List<string> MenuList = new List<string>();
+            MenuList.Add("電話で対応してほしい");
+            MenuList.Add("メールで対応してほしい");
             return MenuList;
         }
 
@@ -251,6 +259,23 @@ namespace Microsoft.Bot.Sample.LuisBot
 
                             //最初の一度だけこのダイアログがでるようにするため、UserDataに挨拶したことを保存しておく
                             Task result = stateSentGreeting(activity, stateClient, userData);
+
+                        }
+                        if (activity.Text == "解決した")
+                        {
+                            //最初の状態に戻すため、usrDataを削除する
+                            await stateClient.BotState.DeleteStateForUserAsync(activity.ChannelId, activity.From.Id);
+
+                            Activity replyToConversation = activity.CreateReply("お問い合わせありがとうございました！");
+                            await connector.Conversations.ReplyToActivityAsync(replyToConversation);
+
+                        }
+                        if (activity.Text == "解決していない")
+                        {
+                            Activity replyToConversation = activity;
+                            replyToConversation = menuFunc(activity, getMenu2List());
+                            await connector.Conversations.ReplyToActivityAsync(replyToConversation);
+                            await stateClient.BotState.SetUserDataAsync(activity.ChannelId, activity.From.Id, userData);
 
                         }
                         else if (activity.Text == "戻る")
@@ -464,7 +489,7 @@ namespace Microsoft.Bot.Sample.LuisBot
                     case ActivityTypes.Message:
 
                         await Conversation.SendAsync(activity, () => new BasicLuisDialog());
-                        replyToConversation = menuFunc(activity, getcustomerList());
+                        replyToConversation = menuFunc(activity, getcustomer1List());
                         await connector.Conversations.ReplyToActivityAsync(replyToConversation);
                         await stateClient.BotState.SetUserDataAsync(activity.ChannelId, activity.From.Id, userData);
                         break;
