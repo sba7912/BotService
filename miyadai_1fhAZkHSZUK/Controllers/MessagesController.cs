@@ -260,7 +260,7 @@ namespace Microsoft.Bot.Sample.LuisBot
                             Activity replyToConversation = activity;
                             replyToConversation = menuFunc(activity, getMenu1List());
                             await connector.Conversations.ReplyToActivityAsync(replyToConversation);
-                            userData.SetProperty<int>("MenuState", 1);
+                            userData.SetProperty<int>("MenuState",1);
                             await stateClient.BotState.SetUserDataAsync(activity.ChannelId, activity.From.Id, userData);
 
                         }
@@ -448,14 +448,14 @@ namespace Microsoft.Bot.Sample.LuisBot
         {
             try
             {
-                //Connectorからのデータ入出力
+              /*  //Connectorからのデータ入出力
                 ConnectorClient connector = new ConnectorClient(new Uri(activity.ServiceUrl));
 
                 //State管理
                 StateClient stateClient = activity.GetStateClient();
 
                 BotData userData = await stateClient.BotState.GetUserDataAsync(activity.ChannelId, activity.From.Id);
-                Activity replyToConversation = activity;
+                Activity replyToConversation = activity;*/
                 // one of these will have an interface and process it
                 switch (activity.GetActivityType())
                 {
@@ -464,9 +464,9 @@ namespace Microsoft.Bot.Sample.LuisBot
                     case ActivityTypes.Message:
 
                         await Conversation.SendAsync(activity, () => new BasicLuisDialog());
-                        replyToConversation = menuFunc(activity, satisfaction());
+                       /* replyToConversation = menuFunc(activity, satisfaction());
                         await connector.Conversations.ReplyToActivityAsync(replyToConversation);
-                        await stateClient.BotState.SetUserDataAsync(activity.ChannelId, activity.From.Id, userData);
+                        await stateClient.BotState.SetUserDataAsync(activity.ChannelId, activity.From.Id, userData);*/
                         break;
                     case ActivityTypes.ConversationUpdate:
                     case ActivityTypes.ContactRelationUpdate:
