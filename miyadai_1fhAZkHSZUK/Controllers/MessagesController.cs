@@ -177,15 +177,15 @@ namespace Microsoft.Bot.Sample.LuisBot
             return MenuList;
         }
 
-        /*
-        public List<string> satisfaction()
+        
+        public List<string> satisfactionList()
         {
             List<string> MenuList = new List<string>();
             MenuList.Add("解決した");
             MenuList.Add("解決していない");
             return MenuList;
         }
-        */
+        
 
         /// <summary>
         /// POST: api/Messages
