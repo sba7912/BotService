@@ -180,10 +180,10 @@ namespace Microsoft.Bot.Sample.LuisBot
         
         public List<string> satisfactionList()
         {
-            List<string> MenuList = new List<string>();
-            MenuList.Add("解決した");
-            MenuList.Add("解決していない");
-            return MenuList;
+            List<string> MenuList2 = new List<string>();
+            MenuList2.Add("解決した");
+            MenuList2.Add("解決していない");
+            return MenuList2;
         }
         
 
