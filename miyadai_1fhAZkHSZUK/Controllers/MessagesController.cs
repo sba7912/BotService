@@ -261,7 +261,7 @@ namespace Microsoft.Bot.Sample.LuisBot
                             Task result = stateSentGreeting(activity, stateClient, userData);
 
                         }
-                        if (activity.Text == "解決した")
+                        else if (activity.Text == "解決した")
                         {
                             //最初の状態に戻すため、usrDataを削除する
                             await stateClient.BotState.DeleteStateForUserAsync(activity.ChannelId, activity.From.Id);
@@ -270,7 +270,7 @@ namespace Microsoft.Bot.Sample.LuisBot
                             await connector.Conversations.ReplyToActivityAsync(replyToConversation);
 
                         }
-                        if (activity.Text == "解決していない")
+                        else if (activity.Text == "解決していない")
                         {
                             Activity replyToConversation = activity;
                             replyToConversation = menuFunc(activity, getcustomer2List());
