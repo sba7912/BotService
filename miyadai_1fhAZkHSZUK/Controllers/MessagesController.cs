@@ -271,7 +271,7 @@ namespace Microsoft.Bot.Sample.LuisBot
                             await connector.Conversations.ReplyToActivityAsync(replyToConversation);
 
                             //メニュー階層1で何番を選んだか保存
-                            userData.SetProperty<string>("DirectAccessMe", "Tell");
+                            //userData.SetProperty<string>("DirectAccessMe", "Tell");
                             await stateClient.BotState.SetUserDataAsync(activity.ChannelId, activity.From.Id, userData);
                         }
                         else if (activity.Text == "メールで対応してほしい")
