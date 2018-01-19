@@ -273,7 +273,7 @@ namespace Microsoft.Bot.Sample.LuisBot
                         if (activity.Text == "解決していない")
                         {
                             Activity replyToConversation = activity;
-                            replyToConversation = menuFunc(activity, getMenu2List());
+                            replyToConversation = menuFunc(activity, getcustomer2List());
                             await connector.Conversations.ReplyToActivityAsync(replyToConversation);
                             await stateClient.BotState.SetUserDataAsync(activity.ChannelId, activity.From.Id, userData);
 
