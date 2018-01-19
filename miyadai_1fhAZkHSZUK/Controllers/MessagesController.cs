@@ -292,7 +292,7 @@ namespace Microsoft.Bot.Sample.LuisBot
                         else if (activity.Text == "電話で対応してほしい")
                         {
 
-                            Activity replyToConversation = activity.CreateReply("・・・・・番です 	(call) ");
+                            Activity replyToConversation = activity.CreateReply("(0985)58-2867へとお問い合わせください");
                             await connector.Conversations.ReplyToActivityAsync(replyToConversation);
 
                             //メニュー階層1で何番を選んだか保存
@@ -302,7 +302,7 @@ namespace Microsoft.Bot.Sample.LuisBot
                         else if (activity.Text == "メールで対応してほしい")
                         {
 
-                            Activity replyToConversation = activity.CreateReply("メールアドレスはquerycc.miyazaki-u.ac.jpです。");
+                            Activity replyToConversation = activity.CreateReply("query@cc.miyazaki-u.ac.jpへとお問い合わせください");
                             await connector.Conversations.ReplyToActivityAsync(replyToConversation);
 
                             //最初の状態に戻すため、usrDataを削除する
