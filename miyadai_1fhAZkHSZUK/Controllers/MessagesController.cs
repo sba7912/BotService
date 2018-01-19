@@ -455,13 +455,14 @@ namespace Microsoft.Bot.Sample.LuisBot
                 StateClient stateClient = activity.GetStateClient();
 
                 BotData userData = await stateClient.BotState.GetUserDataAsync(activity.ChannelId, activity.From.Id);
+                Activity replyToConversation = activity;
                 // one of these will have an interface and process it
                 switch (activity.GetActivityType())
                 {
 
                     // get the user data object
                     case ActivityTypes.Message:
-                        Activity replyToConversation = activity;
+
                         await Conversation.SendAsync(activity, () => new BasicLuisDialog());
                         replyToConversation = menuFunc(activity, satisfaction());
                         await connector.Conversations.ReplyToActivityAsync(replyToConversation);
