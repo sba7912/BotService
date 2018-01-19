@@ -448,7 +448,7 @@ namespace Microsoft.Bot.Sample.LuisBot
         {
             try
             {
-              / //Connectorからのデータ入出力
+               //Connectorからのデータ入出力
                 ConnectorClient connector = new ConnectorClient(new Uri(activity.ServiceUrl));
 
                 //State管理
@@ -464,9 +464,9 @@ namespace Microsoft.Bot.Sample.LuisBot
                     case ActivityTypes.Message:
 
                         await Conversation.SendAsync(activity, () => new BasicLuisDialog());
-                       /* replyToConversation = menuFunc(activity, satisfaction());
+                        replyToConversation = menuFunc(activity, satisfaction());
                         await connector.Conversations.ReplyToActivityAsync(replyToConversation);
-                        await stateClient.BotState.SetUserDataAsync(activity.ChannelId, activity.From.Id, userData);*/
+                        await stateClient.BotState.SetUserDataAsync(activity.ChannelId, activity.From.Id, userData);
                         break;
                     case ActivityTypes.ConversationUpdate:
                     case ActivityTypes.ContactRelationUpdate:
