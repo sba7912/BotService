@@ -177,6 +177,15 @@ namespace Microsoft.Bot.Sample.LuisBot
             return MenuList;
         }
 
+        public List<string> satisfaction()
+        {
+            List<string> MenuList = new List<string>();
+            MenuList.Add("解決した");
+            MenuList.Add("解決していない");
+            return MenuList;
+        }
+
+
         /// <summary>
         /// POST: api/Messages
         /// Receive a message from a user and reply to it
@@ -258,30 +267,23 @@ namespace Microsoft.Bot.Sample.LuisBot
                         else if (activity.Text == "電話で対応してほしい")
                         {
 
-                            Activity replyToConversation = activity.CreateReply("電話番号を教えてください 	(call) ");
+                            Activity replyToConversation = activity.CreateReply("・・・・・番です 	(call) ");
                             await connector.Conversations.ReplyToActivityAsync(replyToConversation);
 
                             //メニュー階層1で何番を選んだか保存
                             userData.SetProperty<string>("DirectAccessMe", "Tell");
                             await stateClient.BotState.SetUserDataAsync(activity.ChannelId, activity.From.Id, userData);
                         }
-                        else if (activity.Text == "Chatで対応してほしい")
+                        else if (activity.Text == "メールで対応してほしい")
                         {
 
-                            Activity replyToConversation = activity.CreateReply("15分後が担当者がChatで話しかけます。(bow) \n\nご連絡ありがとうございました。");
+                            Activity replyToConversation = activity.CreateReply("メールアドレスはquerycc.miyazaki-u.ac.jpです。");
                             await connector.Conversations.ReplyToActivityAsync(replyToConversation);
 
                             //最初の状態に戻すため、usrDataを削除する
                             await stateClient.BotState.DeleteStateForUserAsync(activity.ChannelId, activity.From.Id);
                         }
-                        else if (DirectAccessMe == "Tell")
-                        {
-                            Activity replyToConversation = activity.CreateReply("13分後に担当者が「" + activity.Text + "」に電話いたします。(bow) \n\nご連絡ありがとうございました。");
-                            await connector.Conversations.ReplyToActivityAsync(replyToConversation);
-
-                            //最初の状態に戻すため、usrDataを削除する
-                            await stateClient.BotState.DeleteStateForUserAsync(activity.ChannelId, activity.From.Id);
-                        }
+                        
                         //メニュー階層が1の場合
                         else if (MenuState == 1)
                         {
@@ -345,6 +347,7 @@ namespace Microsoft.Bot.Sample.LuisBot
                             if (buttonflag != true)
                             {
                                 await LUIS(activity);
+
                             }
                             else
                             {
@@ -452,8 +455,9 @@ namespace Microsoft.Bot.Sample.LuisBot
                     // get the user data object
                     case ActivityTypes.Message:
                         await Conversation.SendAsync(activity, () => new BasicLuisDialog());
-                        break;
-
+                                replyToConversation = menuFunc(activity, satisfaction());
+                        await connector.Conversations.ReplyToActivityAsync(replyToConversation);
+                        await stateClient.BotState.SetUserDataAsync(activity.ChannelId, activity.From.Id, userData);
                     case ActivityTypes.ConversationUpdate:
                     case ActivityTypes.ContactRelationUpdate:
                     case ActivityTypes.Typing:
