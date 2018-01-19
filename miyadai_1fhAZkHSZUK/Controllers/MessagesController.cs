@@ -123,8 +123,8 @@ namespace Microsoft.Bot.Sample.LuisBot
                             break;
                         case 3: //戻る選んだ人
                                 //メニュー階層を1にする
-                            //userData.SetProperty<int>("MenuState", 1);
-                            //await stateClient.BotState.SetUserDataAsync(activity.ChannelId, activity.From.Id, userData);
+                                //userData.SetProperty<int>("MenuState", 1);
+                                //await stateClient.BotState.SetUserDataAsync(activity.ChannelId, activity.From.Id, userData);
                             break;
                     }
                     break;
@@ -253,14 +253,14 @@ namespace Microsoft.Bot.Sample.LuisBot
                             Task result = stateSentGreeting(activity, stateClient, userData);
 
                         }
-                        else if (activity.Text == "戻る" )
+                        else if (activity.Text == "戻る")
                         {
 
                             //1個前のメニュー階層に戻る
                             Activity replyToConversation = activity;
                             replyToConversation = menuFunc(activity, getMenu1List());
                             await connector.Conversations.ReplyToActivityAsync(replyToConversation);
-                            userData.SetProperty<int>("MenuState",1);
+                            userData.SetProperty<int>("MenuState", 1);
                             await stateClient.BotState.SetUserDataAsync(activity.ChannelId, activity.From.Id, userData);
 
                         }
@@ -283,7 +283,7 @@ namespace Microsoft.Bot.Sample.LuisBot
                             //最初の状態に戻すため、usrDataを削除する
                             await stateClient.BotState.DeleteStateForUserAsync(activity.ChannelId, activity.From.Id);
                         }
-                        
+
                         //メニュー階層が1の場合
                         else if (MenuState == 1)
                         {
@@ -448,14 +448,22 @@ namespace Microsoft.Bot.Sample.LuisBot
         {
             try
             {
+                //Connectorからのデータ入出力
+                ConnectorClient connector = new ConnectorClient(new Uri(activity.ServiceUrl));
+
+                //State管理
+                StateClient stateClient = activity.GetStateClient();
+
+                BotData userData = await stateClient.BotState.GetUserDataAsync(activity.ChannelId, activity.From.Id);
                 // one of these will have an interface and process it
                 switch (activity.GetActivityType())
                 {
 
                     // get the user data object
                     case ActivityTypes.Message:
+                        Activity replyToConversation = activity;
                         await Conversation.SendAsync(activity, () => new BasicLuisDialog());
-                                replyToConversation = menuFunc(activity, satisfaction());
+                        replyToConversation = menuFunc(activity, satisfaction());
                         await connector.Conversations.ReplyToActivityAsync(replyToConversation);
                         await stateClient.BotState.SetUserDataAsync(activity.ChannelId, activity.From.Id, userData);
                     case ActivityTypes.ConversationUpdate:
