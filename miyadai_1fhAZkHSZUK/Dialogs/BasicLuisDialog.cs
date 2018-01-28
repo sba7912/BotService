@@ -18,7 +18,6 @@ namespace Microsoft.Bot.Sample.LuisBot
 
         public async Task WireLess(IDialogContext context, LuisResult result)
 
-
         [LuisIntent("")]
         public async Task IPadress_request(IDialogContext context, LuisResult result)
         {
