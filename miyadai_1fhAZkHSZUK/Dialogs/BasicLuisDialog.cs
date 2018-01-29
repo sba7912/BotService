@@ -16,8 +16,6 @@ namespace Microsoft.Bot.Sample.LuisBot
     {
     }
 
-        public async Task WireLess(IDialogContext context, LuisResult result);
-
 
 
     [LuisIntent("MID_概要")]
