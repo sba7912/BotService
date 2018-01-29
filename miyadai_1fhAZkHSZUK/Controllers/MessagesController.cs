@@ -92,7 +92,8 @@ namespace Microsoft.Bot.Sample.LuisBot
             return MenuList;
         }
 
-        public List<string> getMenu3List(int Menu1Select, int Menu2Select)
+        /*
+       public List<string> getMenu3List(int Menu1Select, int Menu2Select)
         {
             List<string> MenuList = new List<string>();
             //State管理
@@ -175,7 +176,7 @@ namespace Microsoft.Bot.Sample.LuisBot
                     break;
             }
             return MenuList;
-        }
+        }*/
 
         public List<string> getcustomer1List()
         {
@@ -468,6 +469,10 @@ namespace Microsoft.Bot.Sample.LuisBot
             var response = Request.CreateResponse(HttpStatusCode.OK);
             return response;
         }
+
+
+
+
 
         private async Task LUIS(Activity activity)
         {
