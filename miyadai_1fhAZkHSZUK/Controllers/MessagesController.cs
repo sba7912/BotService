@@ -358,7 +358,7 @@ namespace Microsoft.Bot.Sample.LuisBot
                             {
                                 if (activity.Text == item.v)
                                 {
-                                    replyToConversation = menuFunc2(activity, getMenu3List(Menu1Select, item.i));
+                                    //replyToConversation = menuFunc2(activity, getMenu3List(Menu1Select, item.i));
                                     //await LUIS(activity);
                                     //メニュー階層2で何番を選んだか保存
                                     userData.SetProperty<int>("Menu2Select", item.i);
@@ -389,6 +389,7 @@ namespace Microsoft.Bot.Sample.LuisBot
                                 //await stateClient.BotState.DeleteStateForUserAsync(activity.ChannelId, activity.From.Id);
                             }
                         }
+                       /*
                         //メニュー階層が3の場合
                         else if (MenuState == 3)
                         {
@@ -423,19 +424,19 @@ namespace Microsoft.Bot.Sample.LuisBot
                             }
                             else
                             {
-                                /*        Activity replyToConversation = menu1Func(activity);
-                                     await connector.Conversations.ReplyToActivityAsync(replyToConversation);
+                                     //Activity replyToConversation = menu1Func(activity);
+                                     //await connector.Conversations.ReplyToActivityAsync(replyToConversation);
 
                                    //メニュー階層を3にする
-                                      userData.SetProperty<int>("MenuState", 3);
-                                      await stateClient.BotState.SetUserDataAsync(activity.ChannelId, activity.From.Id, userData);
-                                      */
+                                      //userData.SetProperty<int>("MenuState", 3);
+                                      //await stateClient.BotState.SetUserDataAsync(activity.ChannelId, activity.From.Id, userData);
+                                      
 
                                 //このサンプルでは階層３までで終わりのため、UsrDataを削除する
                                 await stateClient.BotState.DeleteStateForUserAsync(activity.ChannelId, activity.From.Id);
                             }
                         }
-
+                        */
                         //ボタンで設定していないワードがきたときはLUISに渡す。
                         else
                         {
