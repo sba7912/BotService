@@ -16,7 +16,7 @@ namespace Microsoft.Bot.Sample.LuisBot
     {
     }
 
-    public async Task WireLess(IDialogContext context, LuisResult result)
+        public async Task WireLess(IDialogContext context, LuisResult result);
 
 
 
@@ -129,7 +129,7 @@ namespace Microsoft.Bot.Sample.LuisBot
     {
       await context.PostAsync($"学外から木花キャンパスネットワークに対しての通信は原則遮断しています。\r\n" +
       $"学外から木花キャンパスのネットワークに接続している機器に対して接続が必要な場合は、オンライン申請を行うことで例外的に通信が許可されます。\r\n" +
-      $"例えば次のような場合に申請が必要となります。\r\n
+      $"例えば次のような場合に申請が必要となります。\r\n"+
       $"以下の情報が必要です。\r\n" +
       $"接続元IPv4アドレス\r\n" +
       $"接続先(学内)IPv4アドレス\r\n" +
@@ -144,7 +144,7 @@ namespace Microsoft.Bot.Sample.LuisBot
     {
       await context.PostAsync($"学外から木花キャンパスネットワークに対しての通信は原則遮断しています。\r\n" +
       $"学外から木花キャンパスのネットワークに接続している機器に対して接続が必要な場合は、オンライン申請を行うことで例外的に通信が許可されます。\r\n" +
-      $"例えば次のような場合に申請が必要となります。\r\n
+      $"例えば次のような場合に申請が必要となります。\r\n"+
       $"以下の情報が必要です。\r\n" +
       $"接続元IPv4アドレス\r\n" +
       $"接続先(学内)IPv4アドレス\r\n" +
@@ -272,8 +272,8 @@ namespace Microsoft.Bot.Sample.LuisBot
       [LuisIntent("宮大どこプリ＿利用")]
       public async Task IPadress_request(IDialogContext context, LuisResult result)
       {
-        await context.PostAsync($"パソコンにドライバーのインストールが必要です。\r\n"
-        $"パソコンに合わせたドライバーをダウンロードして、インストールしてください。"); /
+        await context.PostAsync($"パソコンにドライバーのインストールが必要です。\r\n"+
+        $"パソコンに合わせたドライバーをダウンロードして、インストールしてください。"); 
         context.Wait(MessageReceived);
       }
 
@@ -283,8 +283,8 @@ namespace Microsoft.Bot.Sample.LuisBot
       [LuisIntent("電子メール")]
       public async Task IPadress_request(IDialogContext context, LuisResult result)
       {
-        await context.PostAsync($"メールソフト(Outlook,Thunderbirdなど)での送受信以外に、Webブラウザで送受信可能なWebメールも利用可能です。\r\n"
-        $"教職員用メール：https://wm.cc.miyazaki-u.ac.jp/cgi-bin/index.cgi\r\n"
+        await context.PostAsync($"メールソフト(Outlook,Thunderbirdなど)での送受信以外に、Webブラウザで送受信可能なWebメールも利用可能です。\r\n"+
+        $"教職員用メール：https://wm.cc.miyazaki-u.ac.jp/cgi-bin/index.cgi\r\n"+
         $"学生用メール：https://wm.student.miyazaki-u.ac.jp/cgi-bin/index.cgi"); //
         context.Wait(MessageReceived);
       }
@@ -293,12 +293,12 @@ namespace Microsoft.Bot.Sample.LuisBot
       [LuisIntent("実習室システム")]
       public async Task IPadress_request(IDialogContext context, LuisResult result)
       {
-        await context.PostAsync($"センター内実習室Aに授業や自習で利用できるパソコン（Windows8.1）を配置しています。\r\n"
-        $"宮崎大学統一認証アカウント(MID)を保有している方ならどなたでも自由に利用できます。\r\n"
-        $"PCで利用できるアプリケーションは以下のとおりです。\r\n"
-        $"Microsoft Office\r\n"
-        $"Adobe Design Std CS5\r\n"
-        $"SolidWorks 2014\r\n"
+        await context.PostAsync($"センター内実習室Aに授業や自習で利用できるパソコン（Windows8.1）を配置しています。\r\n"+
+        $"宮崎大学統一認証アカウント(MID)を保有している方ならどなたでも自由に利用できます。\r\n"+
+        $"PCで利用できるアプリケーションは以下のとおりです。\r\n"+
+        $"Microsoft Office\r\n"+
+        $"Adobe Design Std CS5\r\n"+
+        $"SolidWorks 2014\r\n"+
         $"Visual Studio2013"); //
         context.Wait(MessageReceived);
       }
@@ -308,7 +308,7 @@ namespace Microsoft.Bot.Sample.LuisBot
       [LuisIntent("メーリングリスト")]
       public async Task IPadress_request(IDialogContext context, LuisResult result)
       {
-        await context.PostAsync($"ある特定の宛先に電子メールを送ると、その電子メールはあらかじめ登録されている人全員に配送されるサービスです。\r\n"
+        await context.PostAsync($"ある特定の宛先に電子メールを送ると、その電子メールはあらかじめ登録されている人全員に配送されるサービスです。\r\n"+
         $"メーリングリスト申請者（管理者）は教職員に限りますが、利用者の追加・削除はWeb管理画面から自由に行えます。"); //
         context.Wait(MessageReceived);
       }
@@ -317,8 +317,8 @@ namespace Microsoft.Bot.Sample.LuisBot
       [LuisIntent("学生一斉メール")]
       public async Task IPadress_request(IDialogContext context, LuisResult result)
       {
-        await context.PostAsync($"ある特定の宛先に電子メールを送ると、その電子メールはあらかじめ登録されている人全員に配送されるサービスです。\r\n"
-        $"メーリングリスト申請者（管理者）は教職員に限りますが、利用者の追加・削除はWeb管理画面から自由に行えます。\r\n"
+        await context.PostAsync($"ある特定の宛先に電子メールを送ると、その電子メールはあらかじめ登録されている人全員に配送されるサービスです。\r\n"+
+        $"メーリングリスト申請者（管理者）は教職員に限りますが、利用者の追加・削除はWeb管理画面から自由に行えます。\r\n"+
         $"添付ファイルをつけることができません。ウェブサイト上に添付ファイルを設置し、URLを本文中に記載するようにしてください。"); //
         context.Wait(MessageReceived);
       }
@@ -328,14 +328,14 @@ namespace Microsoft.Bot.Sample.LuisBot
       [LuisIntent("大判プリンタ")]
       public async Task IPadress_request(IDialogContext context, LuisResult result)
       {
-        await context.PostAsync($"大判プリンタ（EPSON, MAXART F10000）１台を導入しており、下表用紙の印刷が可能です。\r\n"
-        $"なお、予算振替が可能な方、もしくは申請者が許可した方も利用可能ですが、その場合は申請者から利用料が徴収されます。\r\n"
-        $"情報基盤センターに直接お越しいただき、予約に空きがあればすぐに印刷が可能ですが、事前に空き状況の確認も兼ねて情報基盤センター（内線2867）までご連絡ください。\r\n"
-        $"下記の印刷可能なファイル一覧のフォーマットをUSBメモリ等で持参し、各自で印刷を行います。\r\n"
-        $"○印刷可能なファイル\r\n"
-        $"PDF\r\n"
-        $"Word\r\n"
-        $"Excel\r\n"
+        await context.PostAsync($"大判プリンタ（EPSON, MAXART F10000）１台を導入しており、下表用紙の印刷が可能です。\r\n"+
+        $"なお、予算振替が可能な方、もしくは申請者が許可した方も利用可能ですが、その場合は申請者から利用料が徴収されます。\r\n"+
+        $"情報基盤センターに直接お越しいただき、予約に空きがあればすぐに印刷が可能ですが、事前に空き状況の確認も兼ねて情報基盤センター（内線2867）までご連絡ください。\r\n"+
+        $"下記の印刷可能なファイル一覧のフォーマットをUSBメモリ等で持参し、各自で印刷を行います。\r\n"+
+        $"○印刷可能なファイル\r\n"+
+        $"PDF\r\n"+
+        $"Word\r\n"+
+        $"Excel\r\n"+
         $"PowerPoint"); //
         context.Wait(MessageReceived);
       }
@@ -344,7 +344,7 @@ namespace Microsoft.Bot.Sample.LuisBot
       [LuisIntent("仮想サーバ貸出")]
       public async Task IPadress_request(IDialogContext context, LuisResult result)
       {
-        await context.PostAsync($"学内に多数存在するサーバを集約することにより、ハードウェアに係るコストを削減し、効率的・有効的なサーバの運用を図ることを目的として、仮想サーバの貸出を行なっています。\r\n"
+        await context.PostAsync($"学内に多数存在するサーバを集約することにより、ハードウェアに係るコストを削減し、効率的・有効的なサーバの運用を図ることを目的として、仮想サーバの貸出を行なっています。\r\n"+
         $"貸出対象は、学部・学科・研究室単位で、責任者および技術的管理者が明確である必要があります。"); //
         context.Wait(MessageReceived);
       }
@@ -353,9 +353,9 @@ namespace Microsoft.Bot.Sample.LuisBot
       [LuisIntent("サーバ証明書発行サービス")]
       public async Task IPadress_request(IDialogContext context, LuisResult result)
       {
-        await context.PostAsync($"宮崎大学は、国立情報学研究所が提供するUPKI電子証明書発行サービスに参加しており、以下の電子証明書が利用者負担なしで発行可能です。\r\n"
-        $"サーバ証明書(RSA2048bit)\r\n"
-        $"クライアント証明書\r\n"
+        await context.PostAsync($"宮崎大学は、国立情報学研究所が提供するUPKI電子証明書発行サービスに参加しており、以下の電子証明書が利用者負担なしで発行可能です。\r\n"+
+        $"サーバ証明書(RSA2048bit)\r\n"+
+        $"クライアント証明書\r\n"+
         $"コード署名用証明書"); //
         context.Wait(MessageReceived);
       }
@@ -365,15 +365,15 @@ namespace Microsoft.Bot.Sample.LuisBot
       [LuisIntent("DNS・名前解決サービス")]
       public async Task IPadress_request(IDialogContext context, LuisResult result)
       {
-        await context.PostAsync($"DNS(Domain Name System/Service)とは、インターネット上でのネットワークとホストのアドレスと名前を組織的に秩序付けるシステムです。\r\n"
-        $"電子メールやWebサイト閲覧などインターネットを利用するときには、通信するホストやネットワークのIPアドレスが使われますが、そのアドレスとホストの名前を対応づけるのに使われます。\r\n"
-        $"DNSは階層構造を持ったドメインとよばれる単位でNS(Name Server)によって運用されます。\r\n"
-        $"宮崎大学のドメイン名は以下のとおりです。\r\n"
-        $"宮崎大学ドメイン名：MIYAZAKI-U.AC.JP\r\n"
-        $"MIYAZAKI-U.JP\r\n"
-        $"Name Server：CNS1.CC.MIYAZAKI-U.AC.JP\r\n"
-        $"CNS1.CC.MIYAZAKI-U.JP\r\n"
-        $"CNS2.CC.MIYAZAKI-U.AC.JP\r\n"
+        await context.PostAsync($"DNS(Domain Name System/Service)とは、インターネット上でのネットワークとホストのアドレスと名前を組織的に秩序付けるシステムです。\r\n"+
+        $"電子メールやWebサイト閲覧などインターネットを利用するときには、通信するホストやネットワークのIPアドレスが使われますが、そのアドレスとホストの名前を対応づけるのに使われます。\r\n"+
+        $"DNSは階層構造を持ったドメインとよばれる単位でNS(Name Server)によって運用されます。\r\n"+
+        $"宮崎大学のドメイン名は以下のとおりです。\r\n"+
+        $"宮崎大学ドメイン名：MIYAZAKI-U.AC.JP\r\n"+
+        $"MIYAZAKI-U.JP\r\n"+
+        $"Name Server：CNS1.CC.MIYAZAKI-U.AC.JP\r\n"+
+        $"CNS1.CC.MIYAZAKI-U.JP\r\n"+
+        $"CNS2.CC.MIYAZAKI-U.AC.JP\r\n"+
         $"CNS2.CC.MIYAZAKI-U.JP"); //
         context.Wait(MessageReceived);
       }
@@ -383,7 +383,7 @@ namespace Microsoft.Bot.Sample.LuisBot
       [LuisIntent("メールゲートウェイ")]
       public async Task IPadress_request(IDialogContext context, LuisResult result)
       {
-        await context.PostAsync($"メールゲートウェイでは、悪意のある既知のIPアドレスから送信された電子メールの検査や添付ファイルのウイルス検査、スパムメールの検査を行っています。\r\n"
+        await context.PostAsync($"メールゲートウェイでは、悪意のある既知のIPアドレスから送信された電子メールの検査や添付ファイルのウイルス検査、スパムメールの検査を行っています。\r\n"+
         $"検査は送受信ともに行われます。"); //
         context.Wait(MessageReceived);
       }
@@ -393,13 +393,13 @@ namespace Microsoft.Bot.Sample.LuisBot
       [LuisIntent("業務依頼サービス利用")]
       public async Task IPadress_request(IDialogContext context, LuisResult result)
       {
-        await context.PostAsync($"各種業務の依頼・サービスの利用について申請を受け付けています。\r\n"
-        $"学内外ネットワークの臨時接続(クローズド,オープン,SINET L2VPNなど)\r\n"
-        $"情報システムの移設・委託(ハウジング,ホスティング)\r\n"
-        $"データ提供(MID情報,統計情報など)\r\n"
-        $"システム構築・導入に関する相談または支援\r\n"
-        $"プログラム開発\r\n"
-        $"業務・システム最適化\r\n"
+        await context.PostAsync($"各種業務の依頼・サービスの利用について申請を受け付けています。\r\n"+
+        $"学内外ネットワークの臨時接続(クローズド,オープン,SINET L2VPNなど)\r\n"+
+        $"情報システムの移設・委託(ハウジング,ホスティング)\r\n"+
+        $"データ提供(MID情報,統計情報など)\r\n"+
+        $"システム構築・導入に関する相談または支援\r\n"+
+        $"プログラム開発\r\n"+
+        $"業務・システム最適化\r\n"+
         $"情報関連の教育研修"); //
         context.Wait(MessageReceived);
       }
@@ -409,9 +409,9 @@ namespace Microsoft.Bot.Sample.LuisBot
       [LuisIntent("テレビ会議システム")]
       public async Task IPadress_request(IDialogContext context, LuisResult result)
       {
-        await context.PostAsync($"テレビ会議専用機として下記の製品を保有しており、貸出も行っています。\r\n"
-        $"ソニー製　HDビデオ会議システム　PCS-XG80（持ち運び可）２台\r\n"
-        $"ソニー製　HDビデオ会議システム　PCS-XG55（常設）１台\r\n"
+        await context.PostAsync($"テレビ会議専用機として下記の製品を保有しており、貸出も行っています。\r\n"+
+        $"ソニー製　HDビデオ会議システム　PCS-XG80（持ち運び可）２台\r\n"+
+        $"ソニー製　HDビデオ会議システム　PCS-XG55（常設）１台\r\n"+
         $"Polycom製　HDX7000（常設）１台"); //
         context.Wait(MessageReceived);
       }
@@ -421,9 +421,9 @@ namespace Microsoft.Bot.Sample.LuisBot
       [LuisIntent("Web会議システム")]
       public async Task IPadress_request(IDialogContext context, LuisResult result)
       {
-        await context.PostAsync($"マルチデバイス（PC、タブレット、スマートフォン）に対応したWeb会議システム（Vidyo）を提供しています。\r\n"
-        $"基本的には専用ソフトウェアをインストールすることで会議を行いますが、TV会議専用装置を使用して接続することも可能です。\r\n"
-        $"最大３０拠点（専用装置は３台まで）の同時接続が可能です。\r\n"
+        await context.PostAsync($"マルチデバイス（PC、タブレット、スマートフォン）に対応したWeb会議システム（Vidyo）を提供しています。\r\n"+
+        $"基本的には専用ソフトウェアをインストールすることで会議を行いますが、TV会議専用装置を使用して接続することも可能です。\r\n"+
+        $"最大３０拠点（専用装置は３台まで）の同時接続が可能です。\r\n"+
         $"なお、利用は先着順の予約制です。"); //
         context.Wait(MessageReceived);
       }
@@ -433,8 +433,8 @@ namespace Microsoft.Bot.Sample.LuisBot
       [LuisIntent("ハウジングサービス")]
       public async Task IPadress_request(IDialogContext context, LuisResult result)
       {
-        await context.PostAsync($"研究室などに設置されている重要なサーバ機を情報基盤センター内に設置できるスペースを用意しております。\r\n"
-        $"情報基盤センターは、無停電電源装置や3日間電源供給できる自家発電機を有しております。\r\n"
+        await context.PostAsync($"研究室などに設置されている重要なサーバ機を情報基盤センター内に設置できるスペースを用意しております。\r\n"+
+        $"情報基盤センターは、無停電電源装置や3日間電源供給できる自家発電機を有しております。\r\n"+
         $"また、入退室管理や監視カメラなどの環境監視、耐震対策も行っていますので安心・安全な環境で運用できます。"); //
         context.Wait(MessageReceived);
       }
