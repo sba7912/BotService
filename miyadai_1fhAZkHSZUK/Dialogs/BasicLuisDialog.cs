@@ -21,7 +21,7 @@ namespace Microsoft.Bot.Sample.LuisBot
 
 
     [LuisIntent("MID_概要")]
-    public async Task IPadress_request(IDialogContext context, LuisResult result)
+    public async Task MID_overview(IDialogContext context, LuisResult result)
     {
       await context.PostAsync($"利用者の利便性向上を図るために異なる情報システムにおいて統一的に利用できる認証基盤として宮崎大学統一認証アカウント（通称：ＭＩＤ）の運用を行っています。\r\n" +
       $"平成２２年度より運用を開始しており、本学における全学的な情報システムの利用者認証について、ほとんどの情報システムでＭＩＤ認証を利用しています。" ); //
@@ -30,7 +30,7 @@ namespace Microsoft.Bot.Sample.LuisBot
 
 
     [LuisIntent("MID_新規発行")]
-    public async Task IPadress_request(IDialogContext context, LuisResult result)
+    public async Task MID_issue(IDialogContext context, LuisResult result)
     {
       await context.PostAsync($"大学所属の教職員および学生の新規発行の申請は不要です。人事情報・教務情報を元に自動的に発行します。\r\n" +
       $"もし採用・入学後にＭＩＤが届かない場合は、お手数ですが情報基盤センターまでお問い合わせ下さい。\r\n" +
@@ -41,7 +41,7 @@ namespace Microsoft.Bot.Sample.LuisBot
 
 
     [LuisIntent("MID_パスワード忘れ")]
-    public async Task IPadress_request(IDialogContext context, LuisResult result)
+    public async Task MID_forgetPass(IDialogContext context, LuisResult result)
     {
       await context.PostAsync($"教職員については、情報基盤センターもしくは医学部医療情報部にお問い合わせください。\r\n" +
       $"学生の方がパスワードを忘れた際は、パスワード再発行の申請が必要です。申請書に記入の上、情報基盤センターまでお越しください。"); //
@@ -51,7 +51,7 @@ namespace Microsoft.Bot.Sample.LuisBot
 
 
     [LuisIntent("情報基盤センター＿概要")]
-    public async Task IPadress_request(IDialogContext context, LuisResult result)
+    public async Task Center_overview(IDialogContext context, LuisResult result)
     {
       await context.PostAsync($"本学の教職員（ＭＩＤを保持しない方、組織用など）もしくは共同研究者などの学外者に対して、情報基盤センター一般利用者アカウントを発行しています。\r\n" +
       $"本アカウントは以下の情報システムで利用できます。\r\n" +
@@ -63,7 +63,7 @@ namespace Microsoft.Bot.Sample.LuisBot
 
 
     [LuisIntent("学認ID＿概要")]
-    public async Task IPadress_request(IDialogContext context, LuisResult result)
+    public async Task ID_overview(IDialogContext context, LuisResult result)
     {
       await context.PostAsync($"学認認証フェデレーションとは、学術e-リソースを利用する大学、学術e-リソースを提供する機関・出版社等から構成された連合体のことです。\r\n" +
       $"各機関はフェデレーションが定めた規定（ポリシー）を信頼しあうことで、相互に認証連携を実現することが可能となります。（学認サイトより引用）\r\n" +
@@ -73,7 +73,7 @@ namespace Microsoft.Bot.Sample.LuisBot
 
 
     [LuisIntent("学認ID_申請")]
-    public async Task IPadress_request(IDialogContext context, LuisResult result)
+    public async Task ID_application(IDialogContext context, LuisResult result)
     {
       await context.PostAsync($"学認IDの利用は本学の教職員・学生に限ります。\r\n" +
       $"【教職員】\r\n" +
@@ -114,7 +114,7 @@ namespace Microsoft.Bot.Sample.LuisBot
     }
 
     [LuisIntent("固定IPアドレス")]
-    public async Task IPadress_abstract(IDialogContext context, LuisResult result)
+    public async Task IPadress(IDialogContext context, LuisResult result)
     {
       await context.PostAsync($"プリンターなどのネットワーク認証ができない機器やサーバ用途などで固定IPアドレスが必要な機器などについては、固定IPアドレスを発行しています。\r\n" +
       $"申請には、情報コンセント番号と機器のMACアドレスが必要です。\r\n" +
@@ -125,7 +125,7 @@ namespace Microsoft.Bot.Sample.LuisBot
 
 
     [LuisIntent("ファイアウォール＿申請1")]
-    public async Task FireWall_request(IDialogContext context, LuisResult result)
+    public async Task FireWall_request1(IDialogContext context, LuisResult result)
     {
       await context.PostAsync($"学外から木花キャンパスネットワークに対しての通信は原則遮断しています。\r\n" +
       $"学外から木花キャンパスのネットワークに接続している機器に対して接続が必要な場合は、オンライン申請を行うことで例外的に通信が許可されます。\r\n" +
@@ -140,7 +140,7 @@ namespace Microsoft.Bot.Sample.LuisBot
     }
 
     [LuisIntent("ファイアウォール＿申請2")]
-    public async Task FireWall_request(IDialogContext context, LuisResult result)
+    public async Task FireWall_request2(IDialogContext context, LuisResult result)
     {
       await context.PostAsync($"学外から木花キャンパスネットワークに対しての通信は原則遮断しています。\r\n" +
       $"学外から木花キャンパスのネットワークに接続している機器に対して接続が必要な場合は、オンライン申請を行うことで例外的に通信が許可されます。\r\n" +
@@ -156,7 +156,7 @@ namespace Microsoft.Bot.Sample.LuisBot
 
 
     [LuisIntent("SSL-VPNサービス")]
-    public async Task SSL_VPN_abstrast(IDialogContext context, LuisResult result)
+    public async Task SSL_VPN(IDialogContext context, LuisResult result)
     {
       await context.PostAsync($"SSL-VPNサービスは学外から木花キャンパスにある情報システムに対してセキュアにアクセスする手段です。\r\n" +
       $"これにより、宮崎大学の学内専用Webサイトの閲覧や情報基盤センターのオンラインストレージ等をSSL-VPNを経由して利用できます。\r\n" +
@@ -166,7 +166,7 @@ namespace Microsoft.Bot.Sample.LuisBot
 
 
     [LuisIntent("ゲストネットワーク利用")]
-    public async Task GuestNet_request(IDialogContext context, LuisResult result)
+    public async Task GuestNet(IDialogContext context, LuisResult result)
     {
       await context.PostAsync($"本学教職員以外の学外者が本学の情報システムを利用するにあたって、木花キャンパスの情報ネットワーク(有線・無線)での接続が必要な場合に限り、ネットワーク認証専用のゲスト用アカウントを臨時で発行しています。\r\n" +
       $"インターネットを利用するだけの目的であれば、「eduroam」または「FreeSpot」をご利用下さい。\r\n" +
@@ -182,7 +182,7 @@ namespace Microsoft.Bot.Sample.LuisBot
 
 
     [LuisIntent("eduroam")]
-    public async Task eduroam(IDialogContext context, LuisResult result)
+    public async Task Eduroam(IDialogContext context, LuisResult result)
     {
       await context.PostAsync($"宮崎大学では、木花キャンパスの無線LANの以下のSSIDで利用可能です。\r\n" +
       $"その他の利用可能なサイトは、関連リンクの「eduroam基地局マップ」をご覧ください。\r\n" +
@@ -207,7 +207,7 @@ namespace Microsoft.Bot.Sample.LuisBot
 
 
       [LuisIntent("宮崎大学ウイルスソフト包括")]
-      public async Task IPadress_request(IDialogContext context, LuisResult result)
+      public async Task VirusSoft(IDialogContext context, LuisResult result)
       {
         await context.PostAsync($"平成25年4月より,宮崎大学ウイルス対策ソフトの包括ライセンスを開始し, インストール台数の制限が無く, 大学構成員であれば個人用途の端末でも利用することができます. \r\n" +
         $"【利用の範囲】\r\n" +
@@ -223,7 +223,7 @@ namespace Microsoft.Bot.Sample.LuisBot
 
 
       [LuisIntent("オンラインストレージ＿概要")]
-      public async Task IPadress_request(IDialogContext context, LuisResult result)
+      public async Task OnlineStrage_overview(IDialogContext context, LuisResult result)
       {
         await context.PostAsync($"情報基盤センター内に設置したストレージ上でDropboxなどと同様にファイルの保管や共有、大容量ファイル交換に利用できます。\r\n" +
         $"ただし、情報漏えいを防ぐため学外への公開はできません。(SSL-VPNを介して学外から接続は可能)\r\n" +
@@ -235,7 +235,7 @@ namespace Microsoft.Bot.Sample.LuisBot
 
 
       [LuisIntent("オンラインストレージ＿利用")]
-      public async Task IPadress_request(IDialogContext context, LuisResult result)
+      public async Task OnlineStrage_use(IDialogContext context, LuisResult result)
       {
         await context.PostAsync($"宮崎大学統一認証アカウント(MID)保有者はWebブラウザかアプリケーション(Windows限定)から利用可能です。\r\n" +
         $"•https://fshare.ccad.miyazaki-u.ac.jp/（学内制限）"); //
@@ -246,7 +246,7 @@ namespace Microsoft.Bot.Sample.LuisBot
 
 
       [LuisIntent("宮大どこプリ＿場所")]
-      public async Task IPadress_request(IDialogContext context, LuisResult result)
+      public async Task Print_place(IDialogContext context, LuisResult result)
       {
         await context.PostAsync($"宮大どこプリに対応したプリンターは木花キャンパスの以下の場所に設置されています。\r\n" +
         $"•工学部B棟B207\r\n" +
@@ -260,7 +260,7 @@ namespace Microsoft.Bot.Sample.LuisBot
 
 
       [LuisIntent("宮大どこプリ＿量 ")]
-      public async Task IPadress_request(IDialogContext context, LuisResult result)
+      public async Task Print_number(IDialogContext context, LuisResult result)
       {
         await context.PostAsync($"とりあえず放置。"); //
         context.Wait(MessageReceived);
@@ -270,7 +270,7 @@ namespace Microsoft.Bot.Sample.LuisBot
 
 
       [LuisIntent("宮大どこプリ＿利用")]
-      public async Task IPadress_request(IDialogContext context, LuisResult result)
+      public async Task Print_use(IDialogContext context, LuisResult result)
       {
         await context.PostAsync($"パソコンにドライバーのインストールが必要です。\r\n"+
         $"パソコンに合わせたドライバーをダウンロードして、インストールしてください。"); 
@@ -281,7 +281,7 @@ namespace Microsoft.Bot.Sample.LuisBot
 
 
       [LuisIntent("電子メール")]
-      public async Task IPadress_request(IDialogContext context, LuisResult result)
+      public async Task Mail(IDialogContext context, LuisResult result)
       {
         await context.PostAsync($"メールソフト(Outlook,Thunderbirdなど)での送受信以外に、Webブラウザで送受信可能なWebメールも利用可能です。\r\n"+
         $"教職員用メール：https://wm.cc.miyazaki-u.ac.jp/cgi-bin/index.cgi\r\n"+
@@ -291,7 +291,7 @@ namespace Microsoft.Bot.Sample.LuisBot
 
 
       [LuisIntent("実習室システム")]
-      public async Task IPadress_request(IDialogContext context, LuisResult result)
+      public async Task PracticeRoom(IDialogContext context, LuisResult result)
       {
         await context.PostAsync($"センター内実習室Aに授業や自習で利用できるパソコン（Windows8.1）を配置しています。\r\n"+
         $"宮崎大学統一認証アカウント(MID)を保有している方ならどなたでも自由に利用できます。\r\n"+
@@ -306,7 +306,7 @@ namespace Microsoft.Bot.Sample.LuisBot
 
 
       [LuisIntent("メーリングリスト")]
-      public async Task IPadress_request(IDialogContext context, LuisResult result)
+      public async Task MailingList(IDialogContext context, LuisResult result)
       {
         await context.PostAsync($"ある特定の宛先に電子メールを送ると、その電子メールはあらかじめ登録されている人全員に配送されるサービスです。\r\n"+
         $"メーリングリスト申請者（管理者）は教職員に限りますが、利用者の追加・削除はWeb管理画面から自由に行えます。"); //
@@ -315,7 +315,7 @@ namespace Microsoft.Bot.Sample.LuisBot
 
 
       [LuisIntent("学生一斉メール")]
-      public async Task IPadress_request(IDialogContext context, LuisResult result)
+      public async Task AllStudentMail(IDialogContext context, LuisResult result)
       {
         await context.PostAsync($"ある特定の宛先に電子メールを送ると、その電子メールはあらかじめ登録されている人全員に配送されるサービスです。\r\n"+
         $"メーリングリスト申請者（管理者）は教職員に限りますが、利用者の追加・削除はWeb管理画面から自由に行えます。\r\n"+
@@ -326,7 +326,7 @@ namespace Microsoft.Bot.Sample.LuisBot
 
 
       [LuisIntent("大判プリンタ")]
-      public async Task IPadress_request(IDialogContext context, LuisResult result)
+      public async Task BigPrint(IDialogContext context, LuisResult result)
       {
         await context.PostAsync($"大判プリンタ（EPSON, MAXART F10000）１台を導入しており、下表用紙の印刷が可能です。\r\n"+
         $"なお、予算振替が可能な方、もしくは申請者が許可した方も利用可能ですが、その場合は申請者から利用料が徴収されます。\r\n"+
@@ -342,7 +342,7 @@ namespace Microsoft.Bot.Sample.LuisBot
 
 
       [LuisIntent("仮想サーバ貸出")]
-      public async Task IPadress_request(IDialogContext context, LuisResult result)
+      public async Task VirtualServer(IDialogContext context, LuisResult result)
       {
         await context.PostAsync($"学内に多数存在するサーバを集約することにより、ハードウェアに係るコストを削減し、効率的・有効的なサーバの運用を図ることを目的として、仮想サーバの貸出を行なっています。\r\n"+
         $"貸出対象は、学部・学科・研究室単位で、責任者および技術的管理者が明確である必要があります。"); //
@@ -351,7 +351,7 @@ namespace Microsoft.Bot.Sample.LuisBot
 
 
       [LuisIntent("サーバ証明書発行サービス")]
-      public async Task IPadress_request(IDialogContext context, LuisResult result)
+      public async Task ServerSertificate(IDialogContext context, LuisResult result)
       {
         await context.PostAsync($"宮崎大学は、国立情報学研究所が提供するUPKI電子証明書発行サービスに参加しており、以下の電子証明書が利用者負担なしで発行可能です。\r\n"+
         $"サーバ証明書(RSA2048bit)\r\n"+
@@ -363,7 +363,7 @@ namespace Microsoft.Bot.Sample.LuisBot
 
 
       [LuisIntent("DNS・名前解決サービス")]
-      public async Task IPadress_request(IDialogContext context, LuisResult result)
+      public async Task DNS(IDialogContext context, LuisResult result)
       {
         await context.PostAsync($"DNS(Domain Name System/Service)とは、インターネット上でのネットワークとホストのアドレスと名前を組織的に秩序付けるシステムです。\r\n"+
         $"電子メールやWebサイト閲覧などインターネットを利用するときには、通信するホストやネットワークのIPアドレスが使われますが、そのアドレスとホストの名前を対応づけるのに使われます。\r\n"+
@@ -381,7 +381,7 @@ namespace Microsoft.Bot.Sample.LuisBot
 
 
       [LuisIntent("メールゲートウェイ")]
-      public async Task IPadress_request(IDialogContext context, LuisResult result)
+      public async Task MailGateWay(IDialogContext context, LuisResult result)
       {
         await context.PostAsync($"メールゲートウェイでは、悪意のある既知のIPアドレスから送信された電子メールの検査や添付ファイルのウイルス検査、スパムメールの検査を行っています。\r\n"+
         $"検査は送受信ともに行われます。"); //
@@ -391,7 +391,7 @@ namespace Microsoft.Bot.Sample.LuisBot
 
 
       [LuisIntent("業務依頼サービス利用")]
-      public async Task IPadress_request(IDialogContext context, LuisResult result)
+      public async Task BusinessRequest(IDialogContext context, LuisResult result)
       {
         await context.PostAsync($"各種業務の依頼・サービスの利用について申請を受け付けています。\r\n"+
         $"学内外ネットワークの臨時接続(クローズド,オープン,SINET L2VPNなど)\r\n"+
@@ -407,7 +407,7 @@ namespace Microsoft.Bot.Sample.LuisBot
 
 
       [LuisIntent("テレビ会議システム")]
-      public async Task IPadress_request(IDialogContext context, LuisResult result)
+      public async Task TVMeeting(IDialogContext context, LuisResult result)
       {
         await context.PostAsync($"テレビ会議専用機として下記の製品を保有しており、貸出も行っています。\r\n"+
         $"ソニー製　HDビデオ会議システム　PCS-XG80（持ち運び可）２台\r\n"+
@@ -419,7 +419,7 @@ namespace Microsoft.Bot.Sample.LuisBot
 
 
       [LuisIntent("Web会議システム")]
-      public async Task IPadress_request(IDialogContext context, LuisResult result)
+      public async Task WebMeeting(IDialogContext context, LuisResult result)
       {
         await context.PostAsync($"マルチデバイス（PC、タブレット、スマートフォン）に対応したWeb会議システム（Vidyo）を提供しています。\r\n"+
         $"基本的には専用ソフトウェアをインストールすることで会議を行いますが、TV会議専用装置を使用して接続することも可能です。\r\n"+
@@ -431,7 +431,7 @@ namespace Microsoft.Bot.Sample.LuisBot
 
 
       [LuisIntent("ハウジングサービス")]
-      public async Task IPadress_request(IDialogContext context, LuisResult result)
+      public async Task Housing(IDialogContext context, LuisResult result)
       {
         await context.PostAsync($"研究室などに設置されている重要なサーバ機を情報基盤センター内に設置できるスペースを用意しております。\r\n"+
         $"情報基盤センターは、無停電電源装置や3日間電源供給できる自家発電機を有しております。\r\n"+
