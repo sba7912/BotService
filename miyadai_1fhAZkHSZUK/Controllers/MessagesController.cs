@@ -287,8 +287,8 @@ namespace Microsoft.Bot.Sample.LuisBot
                             Activity replyToConversation = activity;
 
                             replyToConversation = menuFunc(activity);
-                            await LUIS(replyToConversation);
                             await connector.Conversations.ReplyToActivityAsync(replyToConversation);
+                            await LUIS(activity);
 
                             //メニュー階層を2にする
                             userData.SetProperty<int>("MenuState", 2);
