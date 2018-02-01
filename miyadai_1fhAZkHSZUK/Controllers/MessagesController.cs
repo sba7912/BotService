@@ -293,9 +293,9 @@ namespace Microsoft.Bot.Sample.LuisBot
                         {
                             Activity replyToConversation = activity;
 
-
-                            await LUIS(activity);
                             replyToConversation = menuFunc(activity);
+                            await LUIS(activity);
+
                             await connector.Conversations.ReplyToActivityAsync(replyToConversation);
 
                             //メニュー階層を2にする
@@ -412,13 +412,13 @@ namespace Microsoft.Bot.Sample.LuisBot
             try
             {
                 //Connectorからのデータ入出力
-                ConnectorClient connector = new ConnectorClient(new Uri(activity.ServiceUrl));
+                /*ConnectorClient connector = new ConnectorClient(new Uri(activity.ServiceUrl));
 
                 //State管理
                 StateClient stateClient = activity.GetStateClient();
 
                 BotData userData = await stateClient.BotState.GetUserDataAsync(activity.ChannelId, activity.From.Id);
-                Activity replyToConversation = activity;
+                Activity replyToConversation = activity;*/
                 // one of these will have an interface and process it
                 switch (activity.GetActivityType())
                 {
