@@ -271,9 +271,6 @@ namespace Microsoft.Bot.Sample.LuisBot
 
                             Activity replyToConversation = activity.CreateReply("(0985)58-2867へとお問い合わせください");
                             await connector.Conversations.ReplyToActivityAsync(replyToConversation);
-                            userData.SetProperty<int>("MenuState", 1);
-                            await stateClient.BotState.SetUserDataAsync(activity.ChannelId, activity.From.Id, userData);
-
                         }
                         else if (activity.Text == "メールで対応してほしい")
                         {
@@ -282,8 +279,6 @@ namespace Microsoft.Bot.Sample.LuisBot
 
                             Activity replyToConversation = activity.CreateReply("query@cc.miyazaki-u.ac.jpへとお問い合わせください");
                             await connector.Conversations.ReplyToActivityAsync(replyToConversation);
-                            userData.SetProperty<int>("MenuState", 1);
-                            await stateClient.BotState.SetUserDataAsync(activity.ChannelId, activity.From.Id, userData);
                         }
 
                         //メニュー階層が1の場合
@@ -456,7 +451,7 @@ namespace Microsoft.Bot.Sample.LuisBot
 
         private Activity menuFunc(Activity activity)
         {
-            Activity replyToConversation = activity.CreateReply(activity.Text + "についてですね。");
+            Activity replyToConversation = activity.CreateReply(activity.Text + "についてですね。1");
             replyToConversation.Recipient = activity.From;
             replyToConversation.Type = "message";
 
@@ -464,7 +459,7 @@ namespace Microsoft.Bot.Sample.LuisBot
         }
         private Activity menuFunc2(Activity activity, List<string> MenuList)
         {
-            Activity replyToConversation = activity.CreateReply(activity.Text + "についてですね。");
+            Activity replyToConversation = activity.CreateReply(activity.Text + "についてですね。2");
             replyToConversation.Recipient = activity.From;
             replyToConversation.Type = "message";
             replyToConversation.Attachments = new List<Attachment>();
