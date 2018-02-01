@@ -236,14 +236,15 @@ namespace Microsoft.Bot.Sample.LuisBot
       public async Task OnlineStrage_use(IDialogContext context, LuisResult result)
       {
         await context.PostAsync($"宮崎大学統一認証アカウント(MID)保有者はWebブラウザかアプリケーション(Windows限定)から利用可能です。\r\n" +
-        $"•https://fshare.ccad.miyazaki-u.ac.jp/（学内制限）"); //
+         $"Activity replyToConversation = activity.CreateReply([詳しくはこちら（学内制限）](https://fshare.ccad.miyazaki-u.ac.jp/)");
         context.Wait(MessageReceived);
       }
 
 
+     
 
 
-      [LuisIntent("宮大どこプリ＿場所")]
+        [LuisIntent("宮大どこプリ＿場所")]
       public async Task Print_place(IDialogContext context, LuisResult result)
       {
         await context.PostAsync($"宮大どこプリに対応したプリンターは木花キャンパスの以下の場所に設置されています。\r\n" +
