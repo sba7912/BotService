@@ -266,22 +266,24 @@ namespace Microsoft.Bot.Sample.LuisBot
                         }
                         else if (activity.Text == "電話で対応してほしい")
                         {
+                            //最初の状態に戻すため、UsrDataを削除する
+                            await stateClient.BotState.DeleteStateForUserAsync(activity.ChannelId, activity.From.Id);
 
                             Activity replyToConversation = activity.CreateReply("(0985)58-2867へとお問い合わせください");
                             await connector.Conversations.ReplyToActivityAsync(replyToConversation);
-
-                            //メニュー階層1で何番を選んだか保存
-                            //userData.SetProperty<string>("DirectAccessMe", "Tell");
+                            userData.SetProperty<int>("MenuState", 1);
                             await stateClient.BotState.SetUserDataAsync(activity.ChannelId, activity.From.Id, userData);
+
                         }
                         else if (activity.Text == "メールで対応してほしい")
                         {
+                            //最初の状態に戻すため、UsrDataを削除する
+                            await stateClient.BotState.DeleteStateForUserAsync(activity.ChannelId, activity.From.Id);
 
                             Activity replyToConversation = activity.CreateReply("query@cc.miyazaki-u.ac.jpへとお問い合わせください");
                             await connector.Conversations.ReplyToActivityAsync(replyToConversation);
-
-                            //最初の状態に戻すため、usrDataを削除する
-                            await stateClient.BotState.DeleteStateForUserAsync(activity.ChannelId, activity.From.Id);
+                            userData.SetProperty<int>("MenuState", 1);
+                            await stateClient.BotState.SetUserDataAsync(activity.ChannelId, activity.From.Id, userData);
                         }
 
                         //メニュー階層が1の場合
@@ -358,8 +360,6 @@ namespace Microsoft.Bot.Sample.LuisBot
                             {
                                 await connector.Conversations.ReplyToActivityAsync(replyToConversation);
 
-                                //メニュー階層を3にする
-                                userData.SetProperty<int>("MenuState", 3);
                                 await stateClient.BotState.SetUserDataAsync(activity.ChannelId, activity.From.Id, userData);
 
 
