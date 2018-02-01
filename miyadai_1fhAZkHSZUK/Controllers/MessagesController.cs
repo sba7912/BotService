@@ -294,7 +294,7 @@ namespace Microsoft.Bot.Sample.LuisBot
                             Activity replyToConversation = activity;
 
                             replyToConversation = menuFunc(activity);
-
+                            await LUIS(activity);
                             //Activity replyToConversation = menu1Func(activity);
                             await connector.Conversations.ReplyToActivityAsync(replyToConversation);
 
@@ -339,7 +339,7 @@ namespace Microsoft.Bot.Sample.LuisBot
 
                             Activity replyToConversation = activity;
 
-                            foreach (var item in getcustomer1List.Select((v, i) => new { v, i }))
+                            foreach (var item in getcustomer1List().Select((v, i) => new { v, i }))
                             {
                                 if (activity.Text == item.v)
                                 {
@@ -461,7 +461,6 @@ namespace Microsoft.Bot.Sample.LuisBot
             Activity replyToConversation = activity.CreateReply(activity.Text + "についてですね。");
             replyToConversation.Recipient = activity.From;
             replyToConversation.Type = "message";
-            LUIS(activity);
 
             return replyToConversation;
         }
