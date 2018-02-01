@@ -21,6 +21,7 @@ namespace Microsoft.Bot.Sample.LuisBot
     {
 
         ////TOP Menu
+        /*
         public List<string> getMenu1List()
         {
             List<string> MenuList = new List<string>();
@@ -92,7 +93,7 @@ namespace Microsoft.Bot.Sample.LuisBot
             return MenuList;
         }
 
-        /*
+        
        public List<string> getMenu3List(int Menu1Select, int Menu2Select)
         {
             List<string> MenuList = new List<string>();
@@ -240,29 +241,7 @@ namespace Microsoft.Bot.Sample.LuisBot
                         //メニュー階層のどこにいるか取り出し
                         string DirectAccessMe = userData.GetProperty<string>("DirectAccessMe");
 
-                        if (activity.Text == "reset" || activity.Text == "リセット" || activity.Text == "りせっと")
-                        {
-                            //最初の状態に戻すため、usrDataを削除する
-                            await stateClient.BotState.DeleteStateForUserAsync(activity.ChannelId, activity.From.Id);
-
-                            Activity replyToConversation = activity.CreateReply("リセットしました (punch) ");
-                            await connector.Conversations.ReplyToActivityAsync(replyToConversation);
-
-                        }
-                        else if (activity.Text == "Hello" || activity.Text == "こんにちは" || activity.Text == "コンニチハ")
-                        {
-                            //「こんにちは」という文言が来た場合は、最初の状態に戻す
-                            //最初の状態に戻すため、usrDataを削除する
-                            await stateClient.BotState.DeleteStateForUserAsync(activity.ChannelId, activity.From.Id);
-
-                            Activity replyToConversation = Greeting(activity, getMenu1List());
-                            await connector.Conversations.ReplyToActivityAsync(replyToConversation);
-
-                            //最初の一度だけこのダイアログがでるようにするため、UserDataに挨拶したことを保存しておく
-                            Task result = stateSentGreeting(activity, stateClient, userData);
-
-                        }
-                        else if (activity.Text == "解決した")
+                        if (activity.Text == "解決した")
                         {
                             //最初の状態に戻すため、usrDataを削除する
                             await stateClient.BotState.DeleteStateForUserAsync(activity.ChannelId, activity.From.Id);
@@ -276,17 +255,6 @@ namespace Microsoft.Bot.Sample.LuisBot
                             Activity replyToConversation = activity;
                             replyToConversation = menuFunc(activity, getcustomer2List());
                             await connector.Conversations.ReplyToActivityAsync(replyToConversation);
-                            await stateClient.BotState.SetUserDataAsync(activity.ChannelId, activity.From.Id, userData);
-
-                        }
-                        else if (activity.Text == "戻る")
-                        {
-
-                            //1個前のメニュー階層に戻る
-                            Activity replyToConversation = activity;
-                            replyToConversation = menuFunc(activity, getMenu1List());
-                            await connector.Conversations.ReplyToActivityAsync(replyToConversation);
-                            userData.SetProperty<int>("MenuState",1);
                             await stateClient.BotState.SetUserDataAsync(activity.ChannelId, activity.From.Id, userData);
 
                         }
@@ -389,54 +357,6 @@ namespace Microsoft.Bot.Sample.LuisBot
                                 await stateClient.BotState.DeleteStateForUserAsync(activity.ChannelId, activity.From.Id);
                             }
                         }
-                       /*
-                        //メニュー階層が3の場合
-                        else if (MenuState == 3)
-                        {
-                            bool buttonflag = false;
-
-                            //メニュー階層1で何番を選んだか取り出し
-                            int Menu1Select = userData.GetProperty<int>("Menu1Select");
-                            //メニュー階層2で何番を選んだか取り出し
-                            int Menu2Select = userData.GetProperty<int>("Menu2Select");
-
-                            Activity replyToConversation = activity;
-
-                            foreach (var item in getMenu3List(Menu1Select, Menu2Select).Select((v, i) => new { v, i }))
-                            {
-                                if (activity.Text == item.v)
-                                {
-                                    //replyToConversation = menuFunc3(activity, getMenu3List(Menu2Select, item.i));
-                                    await LUIS(activity);
-                                    //メニュー階層3で何番を選んだか保存
-                                    userData.SetProperty<int>("Menu3Select", item.i);
-
-                                    //await stateClient.BotState.DeleteStateForUserAsync(activity.ChannelId, activity.From.Id);
-                                    buttonflag = true;
-                                    break;
-                                }
-                            }
-
-                            //ボタンが押されなかった時はLUISを呼ぶ
-                            if (buttonflag != true)
-                            {
-                                await LUIS(activity);
-                            }
-                            else
-                            {
-                                     //Activity replyToConversation = menu1Func(activity);
-                                     //await connector.Conversations.ReplyToActivityAsync(replyToConversation);
-
-                                   //メニュー階層を3にする
-                                      //userData.SetProperty<int>("MenuState", 3);
-                                      //await stateClient.BotState.SetUserDataAsync(activity.ChannelId, activity.From.Id, userData);
-                                      
-
-                                //このサンプルでは階層３までで終わりのため、UsrDataを削除する
-                                await stateClient.BotState.DeleteStateForUserAsync(activity.ChannelId, activity.From.Id);
-                            }
-                        }
-                        */
                         //ボタンで設定していないワードがきたときはLUISに渡す。
                         else
                         {
