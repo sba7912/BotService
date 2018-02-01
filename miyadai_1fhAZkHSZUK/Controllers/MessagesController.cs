@@ -293,9 +293,9 @@ namespace Microsoft.Bot.Sample.LuisBot
                         {
                             Activity replyToConversation = activity;
 
-                            //replyToConversation = menuFunc(activity);
+
                             await LUIS(activity);
-                            //Activity replyToConversation = menu1Func(activity);
+                            replyToConversation = menuFunc(activity);
                             await connector.Conversations.ReplyToActivityAsync(replyToConversation);
 
                             //メニュー階層を2にする
