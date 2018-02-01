@@ -190,11 +190,11 @@ namespace Microsoft.Bot.Sample.LuisBot
         public List<string> getcustomer2List(int Menu1Select)
         {
             List<string> MenuList = new List<string>();
-            if (Menu1Select == 1)
-            {
+            //if (Menu1Select == 1)
+            //{
                 MenuList.Add("電話で対応してほしい");
                 MenuList.Add("メールで対応してほしい");
-            }
+            //}
             return MenuList;
         }
 
@@ -251,9 +251,7 @@ namespace Microsoft.Bot.Sample.LuisBot
 
                             Activity replyToConversation = activity.CreateReply("お問い合わせありがとうございました！");
                             await connector.Conversations.ReplyToActivityAsync(replyToConversation);
-                            userData.SetProperty<int>("MenuState", 1);
-                            await stateClient.BotState.SetUserDataAsync(activity.ChannelId, activity.From.Id, userData);
-
+                           
                         }
                         else if (activity.Text == "解決していない")
                         {
