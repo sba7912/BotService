@@ -187,11 +187,14 @@ namespace Microsoft.Bot.Sample.LuisBot
             return MenuList;
         }
 
-        public List<string> getcustomer2List()
+        public List<string> getcustomer2List(int Menu1Select)
         {
             List<string> MenuList = new List<string>();
-            MenuList.Add("電話で対応してほしい");
-            MenuList.Add("メールで対応してほしい");
+            if (Menu1Select == 1)
+            {
+                MenuList.Add("電話で対応してほしい");
+                MenuList.Add("メールで対応してほしい");
+            }
             return MenuList;
         }
 
@@ -248,6 +251,8 @@ namespace Microsoft.Bot.Sample.LuisBot
 
                             Activity replyToConversation = activity.CreateReply("お問い合わせありがとうございました！");
                             await connector.Conversations.ReplyToActivityAsync(replyToConversation);
+                            userData.SetProperty<int>("MenuState", 1);
+                            await stateClient.BotState.SetUserDataAsync(activity.ChannelId, activity.From.Id, userData);
 
                         }
                         else if (activity.Text == "解決していない")
@@ -255,6 +260,7 @@ namespace Microsoft.Bot.Sample.LuisBot
                             Activity replyToConversation = activity;
                             replyToConversation = menuFunc(activity, getcustomer2List());
                             await connector.Conversations.ReplyToActivityAsync(replyToConversation);
+                            userData.SetProperty<int>("MenuState", 3);
                             await stateClient.BotState.SetUserDataAsync(activity.ChannelId, activity.From.Id, userData);
 
                         }
@@ -283,55 +289,60 @@ namespace Microsoft.Bot.Sample.LuisBot
                         {
                             Activity replyToConversation = activity;
 
-                            bool buttonflag = false;
+                            replyToConversation = menuFunc(activity);
 
-                            foreach (var item in getMenu1List().Select((v, i) => new { v, i }))
-                            {
-                                if (activity.Text == item.v)
-                                {
-                                    replyToConversation = menuFunc(activity, getMenu2List(item.i));
-                                    //メニュー階層1で何番を選んだか保存
-                                    userData.SetProperty<int>("Menu1Select", item.i);
+                            //Activity replyToConversation = menu1Func(activity);
+                            await connector.Conversations.ReplyToActivityAsync(replyToConversation);
 
-                                    buttonflag = true;
-                                    break;
-                                }
-                            }
-                            //ボタンが押されなかった時はLUISを呼ぶ
-                            if (buttonflag != true)
-                            {
-                                await LUIS(activity);
-                            }
-                            else
-                            {
-                                //Activity replyToConversation = menu1Func(activity);
-                                await connector.Conversations.ReplyToActivityAsync(replyToConversation);
+                            //メニュー階層を2にする
+                            userData.SetProperty<int>("MenuState", 2);
+                            await stateClient.BotState.SetUserDataAsync(activity.ChannelId, activity.From.Id, userData);
 
-                                //メニュー階層を2にする
-                                userData.SetProperty<int>("MenuState", 2);
-                                await stateClient.BotState.SetUserDataAsync(activity.ChannelId, activity.From.Id, userData);
-                            }
                         }
                         //メニュー階層が2の場合
                         else if (MenuState == 2)
                         {
                             bool buttonflag = false;
 
-                            //メニュー階層1で何番を選んだか取り出し
-                            int Menu1Select = userData.GetProperty<int>("Menu1Select");
+                            Activity replyToConversation = activity;
+
+                            replyToConversation = menuFunc2(activity, getcustomer1List());
+                            buttonflag = true;
+
+                            //ボタンが押されなかった時はLUISを呼ぶ
+                            if (buttonflag != true)
+                            {
+                                await LUIS(activity);
+
+                            }
+                            else
+                            {
+                                await connector.Conversations.ReplyToActivityAsync(replyToConversation);
+
+                                //メニュー階層を3にする
+                                //userData.SetProperty<int>("MenuState", 3);
+                                await stateClient.BotState.SetUserDataAsync(activity.ChannelId, activity.From.Id, userData);
+
+
+                                //このサンプルでは階層３までで終わりのため、UsrDataを削除する
+                                //await stateClient.BotState.DeleteStateForUserAsync(activity.ChannelId, activity.From.Id);
+                            }
+                        }                        //メニュー階層が2の場合
+                        else if (MenuState == 3)
+                        {
+                            bool buttonflag = false;
+
 
                             Activity replyToConversation = activity;
 
-                            foreach (var item in getMenu2List(Menu1Select).Select((v, i) => new { v, i }))
+                            foreach (var item in getcustomer1List.Select((v, i) => new { v, i }))
                             {
                                 if (activity.Text == item.v)
                                 {
-                                    //replyToConversation = menuFunc2(activity, getMenu3List(Menu1Select, item.i));
-                                   await LUIS(activity);
+                                    replyToConversation = menuFunc2(activity, getcustomer2List(item.v));
                                     //メニュー階層2で何番を選んだか保存
                                     userData.SetProperty<int>("Menu2Select", item.i);
 
-                                    //await stateClient.BotState.DeleteStateForUserAsync(activity.ChannelId, activity.From.Id);
                                     buttonflag = true;
                                     break;
                                 }
@@ -345,7 +356,6 @@ namespace Microsoft.Bot.Sample.LuisBot
                             }
                             else
                             {
-                                //Activity replyToConversation = menu1Func(activity);
                                 await connector.Conversations.ReplyToActivityAsync(replyToConversation);
 
                                 //メニュー階層を3にする
@@ -354,7 +364,7 @@ namespace Microsoft.Bot.Sample.LuisBot
 
 
                                 //このサンプルでは階層３までで終わりのため、UsrDataを削除する
-                                await stateClient.BotState.DeleteStateForUserAsync(activity.ChannelId, activity.From.Id);
+                                //await stateClient.BotState.DeleteStateForUserAsync(activity.ChannelId, activity.From.Id);
                             }
                         }
                         //ボタンで設定していないワードがきたときはLUISに渡す。
@@ -366,7 +376,7 @@ namespace Microsoft.Bot.Sample.LuisBot
                     //会話の開始。挨拶から。
                     else
                     {
-                        Activity replyToConversation = Greeting(activity, getMenu1List());
+                        Activity replyToConversation = Greeting(activity);
                         await connector.Conversations.ReplyToActivityAsync(replyToConversation);
 
                         //最初の一度だけこのダイアログがでるようにするため、UserDataに挨拶したことを保存しておく
@@ -399,7 +409,7 @@ namespace Microsoft.Bot.Sample.LuisBot
         {
             try
             {
-               //Connectorからのデータ入出力
+                //Connectorからのデータ入出力
                 ConnectorClient connector = new ConnectorClient(new Uri(activity.ServiceUrl));
 
                 //State管理
@@ -435,66 +445,25 @@ namespace Microsoft.Bot.Sample.LuisBot
 
         }
 
-        private Activity Greeting(Activity activity, List<string> MenuList)
+        private Activity Greeting(Activity activity)
         {
-            Activity replyToConversation = activity.CreateReply("こんにちは。情報基盤センターです。どういったお問い合わせでしょうか。下からお選びください");
+            Activity replyToConversation = activity.CreateReply("こんにちは。情報基盤センターです。どういったお問い合わせでしょうか。");
             replyToConversation.Recipient = activity.From;
             replyToConversation.Type = "message";
             replyToConversation.Attachments = new List<Attachment>();
-            List<CardAction> cardButtons = new List<CardAction>();
 
-            CardAction plButton = new CardAction();
-
-            foreach (string buttonData in MenuList)
-            {
-                plButton = new CardAction()
-                {
-                    Value = buttonData,
-                    Type = "imBack",
-                    Title = buttonData
-                };
-                cardButtons.Add(plButton);
-            }
-
-            HeroCard plCard = new HeroCard()
-            {
-                Title = "該当する項目をお選びください",
-                Buttons = cardButtons
-            };
             Attachment plAttachment = plCard.ToAttachment();
             replyToConversation.Attachments.Add(plAttachment);
 
             return replyToConversation;
         }
 
-        private Activity menuFunc(Activity activity, List<string> MenuList)
+        private Activity menuFunc(Activity activity)
         {
             Activity replyToConversation = activity.CreateReply(activity.Text + "についてですね。");
             replyToConversation.Recipient = activity.From;
             replyToConversation.Type = "message";
-            replyToConversation.Attachments = new List<Attachment>();
-            List<CardAction> cardButtons = new List<CardAction>();
-
-            CardAction plButton = new CardAction();
-
-            foreach (string buttonData in MenuList)
-            {
-                plButton = new CardAction()
-                {
-                    Value = buttonData,
-                    Type = "imBack",
-                    Title = buttonData
-                };
-                cardButtons.Add(plButton);
-            }
-
-            HeroCard plCard = new HeroCard()
-            {
-                Title = "以下からお選びください。",
-                Buttons = cardButtons
-            };
-            Attachment plAttachment = plCard.ToAttachment();
-            replyToConversation.Attachments.Add(plAttachment);
+            await LUIS(activity);
 
             return replyToConversation;
         }
