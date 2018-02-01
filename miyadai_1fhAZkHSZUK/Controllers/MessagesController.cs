@@ -293,7 +293,7 @@ namespace Microsoft.Bot.Sample.LuisBot
                         {
                             Activity replyToConversation = activity;
 
-                            replyToConversation = menuFunc(activity);
+                            //replyToConversation = menuFunc(activity);
                             await LUIS(activity);
                             //Activity replyToConversation = menu1Func(activity);
                             await connector.Conversations.ReplyToActivityAsync(replyToConversation);
