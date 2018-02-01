@@ -343,7 +343,7 @@ namespace Microsoft.Bot.Sample.LuisBot
                             {
                                 if (activity.Text == item.v)
                                 {
-                                    replyToConversation = menuFunc2(activity, getcustomer2List(item.v));
+                                    replyToConversation = menuFunc2(activity, getcustomer2List(item.i));
                                     //メニュー階層2で何番を選んだか保存
                                     userData.SetProperty<int>("Menu2Select", item.i);
 
