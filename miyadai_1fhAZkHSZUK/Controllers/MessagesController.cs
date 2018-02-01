@@ -258,7 +258,9 @@ namespace Microsoft.Bot.Sample.LuisBot
                         else if (activity.Text == "解決していない")
                         {
                             Activity replyToConversation = activity;
-                            replyToConversation = menuFunc(activity, getcustomer2List());
+                            //メニュー階層1で何番を選んだか取り出し
+                            int Menu1Select = userData.GetProperty<int>("Menu1Select");
+                            replyToConversation = menuFunc2(activity, getcustomer2List(Menu1Select));
                             await connector.Conversations.ReplyToActivityAsync(replyToConversation);
                             userData.SetProperty<int>("MenuState", 3);
                             await stateClient.BotState.SetUserDataAsync(activity.ChannelId, activity.From.Id, userData);
@@ -425,9 +427,9 @@ namespace Microsoft.Bot.Sample.LuisBot
                     case ActivityTypes.Message:
 
                         await Conversation.SendAsync(activity, () => new BasicLuisDialog());
-                        replyToConversation = menuFunc(activity, getcustomer1List());
-                        await connector.Conversations.ReplyToActivityAsync(replyToConversation);
-                        await stateClient.BotState.SetUserDataAsync(activity.ChannelId, activity.From.Id, userData);
+                        //replyToConversation = menuFunc(activity, getcustomer1List());
+                        //await connector.Conversations.ReplyToActivityAsync(replyToConversation);
+                        //await stateClient.BotState.SetUserDataAsync(activity.ChannelId, activity.From.Id, userData);
                         break;
                     case ActivityTypes.ConversationUpdate:
                     case ActivityTypes.ContactRelationUpdate:
@@ -450,10 +452,6 @@ namespace Microsoft.Bot.Sample.LuisBot
             Activity replyToConversation = activity.CreateReply("こんにちは。情報基盤センターです。どういったお問い合わせでしょうか。");
             replyToConversation.Recipient = activity.From;
             replyToConversation.Type = "message";
-            replyToConversation.Attachments = new List<Attachment>();
-
-            Attachment plAttachment = plCard.ToAttachment();
-            replyToConversation.Attachments.Add(plAttachment);
 
             return replyToConversation;
         }
@@ -463,7 +461,7 @@ namespace Microsoft.Bot.Sample.LuisBot
             Activity replyToConversation = activity.CreateReply(activity.Text + "についてですね。");
             replyToConversation.Recipient = activity.From;
             replyToConversation.Type = "message";
-            await LUIS(activity);
+            LUIS(activity);
 
             return replyToConversation;
         }
