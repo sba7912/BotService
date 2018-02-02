@@ -197,7 +197,7 @@ namespace Microsoft.Bot.Sample.LuisBot
                             //ボタンが押されなかった時はLUISを呼ぶ
                             if (buttonflag != true)
                             {
-                                await LUIS(activity);
+                                //await LUIS(activity);
 
                             }
                             else
