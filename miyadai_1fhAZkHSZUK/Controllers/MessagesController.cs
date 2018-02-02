@@ -145,7 +145,7 @@ namespace Microsoft.Bot.Sample.LuisBot
                             await connector.Conversations.ReplyToActivityAsync(replyToConversation);
                         }
                         //メニュー階層が2の場合
-                        else if (MenuState == 2)
+                        /*else if (MenuState == 2)
                         {
                             bool buttonflag = false;
 
@@ -173,7 +173,7 @@ namespace Microsoft.Bot.Sample.LuisBot
                                 //このサンプルでは階層３までで終わりのため、UsrDataを削除する
                                 //await stateClient.BotState.DeleteStateForUserAsync(activity.ChannelId, activity.From.Id);
                             }
-                        }                        //メニュー階層が2の場合
+                        }              */          //メニュー階層が2の場合
                         else if (MenuState == 3)
                         {
                             bool buttonflag = false;
