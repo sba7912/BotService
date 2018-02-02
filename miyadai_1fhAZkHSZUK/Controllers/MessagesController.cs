@@ -145,7 +145,7 @@ namespace Microsoft.Bot.Sample.LuisBot
                             await connector.Conversations.ReplyToActivityAsync(replyToConversation);
                         }
                         //メニュー階層が2の場合
-                        else if (MenuState == 2)
+                       /* else if (MenuState == 2)
                         {
                             bool buttonflag = false;
 
@@ -211,10 +211,11 @@ namespace Microsoft.Bot.Sample.LuisBot
                                 //await stateClient.BotState.DeleteStateForUserAsync(activity.ChannelId, activity.From.Id);
                             }
                         }
+                        */
                         //ボタンで設定していないワードがきたときはLUISに渡す。
                         else
                         {
-                            await LUIS(activity);
+                            //await LUIS(activity);
                         }
                     }
                     //会話の開始。挨拶から。
@@ -222,7 +223,7 @@ namespace Microsoft.Bot.Sample.LuisBot
                     {
                         Activity replyToConversation = Greeting(activity);
                         await connector.Conversations.ReplyToActivityAsync(replyToConversation);
-                        userData.SetProperty<int>("MenuState", 1);
+                        //userData.SetProperty<int>("MenuState", 1);
                         //最初の一度だけこのダイアログがでるようにするため、UserDataに挨拶したことを保存しておく
                         Task result = stateSentGreeting(activity, stateClient, userData);
 
