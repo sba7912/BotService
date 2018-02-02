@@ -188,7 +188,7 @@ namespace Microsoft.Bot.Sample.LuisBot
             $"○ＩＤ／パスワード：\r\n" +
             $"【教職員】@ccメールアドレス／MIDのパスワード\r\n" +
             $"【学生】@studentメールアドレス／MIDのパスワード" +
-            $"Activity replyToConversation = activity.CreateReply([詳しくはこちら（学内制限）](https://fshare.ccad.miyazaki-u.ac.jp/)"); //
+            $"[詳しくはこちら（学内制限）](https://fshare.ccad.miyazaki-u.ac.jp/)"); //
             context.Wait(MessageReceived);
         }
 
