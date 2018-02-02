@@ -175,42 +175,43 @@ namespace Microsoft.Bot.Sample.LuisBot
       $"利用の１週間前までに申請を行って下さい。アカウント数によっては、発行が遅くなる場合があります。\r\n" +
       $"〇利用にあたって：\r\n" +
       $"申請者の責任の下でアカウントの管理およびネットワーク接続を行って下さい。"); //
-      context.Wait(MessageReceived);
-    }
+            context.Wait(MessageReceived);
+        }
 
 
-    [LuisIntent("eduroam")]
-    public async Task Eduroam(IDialogContext context, LuisResult result)
-    {
-      await context.PostAsync($"宮崎大学では、木花キャンパスの無線LANの以下のSSIDで利用可能です。\r\n" +
-      $"その他の利用可能なサイトは、関連リンクの「eduroam基地局マップ」をご覧ください。\r\n" +
-      $"○ＳＳＩＤ：「eduroam」\r\n" +
-      $"○ＩＤ／パスワード：\r\n" +
-      $"【教職員】@ccメールアドレス／MIDのパスワード\r\n" +
-      $"【学生】@studentメールアドレス／MIDのパスワード"); //
-      context.Wait(MessageReceived);
-    }
+        [LuisIntent("eduroam")]
+        public async Task Eduroam(IDialogContext context, LuisResult result)
+        {
+            await context.PostAsync($"宮崎大学では、木花キャンパスの無線LANの以下のSSIDで利用可能です。\r\n" +
+            $"その他の利用可能なサイトは、関連リンクの「eduroam基地局マップ」をご覧ください。\r\n" +
+            $"○ＳＳＩＤ：「eduroam」\r\n" +
+            $"○ＩＤ／パスワード：\r\n" +
+            $"【教職員】@ccメールアドレス／MIDのパスワード\r\n" +
+            $"【学生】@studentメールアドレス／MIDのパスワード" +
+            $"Activity replyToConversation = activity.CreateReply([詳しくはこちら（学内制限）](https://fshare.ccad.miyazaki-u.ac.jp/)"); //
+            context.Wait(MessageReceived);
+        }
 
 
 
-    [LuisIntent("宮大FreeSpot")]
-    public async Task FreeSpot(IDialogContext context, LuisResult result)
-    {
-      await context.PostAsync($"木花キャンパスの、ユーザ認証を必要としない無線LANです。\r\n" +
+        [LuisIntent("宮大FreeSpot")]
+        public async Task FreeSpot(IDialogContext context, LuisResult result)
+        {
+            await context.PostAsync($"木花キャンパスの、ユーザ認証を必要としない無線LANです。\r\n" +
       $"学内制限がかかった情報システムには接続できません。\r\n" +
       $"ＳＳＩＤ：「FreeSpot」"); //
-      context.Wait(MessageReceived);
-    }
+            context.Wait(MessageReceived);
+        }
 
 
 
-      [LuisIntent("宮崎大学ウイルスソフト包括")]
-      public async Task VirusSoft(IDialogContext context, LuisResult result)
-      {
-        await context.PostAsync($"平成25年4月より,宮崎大学ウイルス対策ソフトの包括ライセンスを開始し, インストール台数の制限が無く, 大学構成員であれば個人用途の端末でも利用することができます. \r\n" +
-        $"【利用の範囲】\r\n" +
-        $" •宮崎大学の構成員\r\n" +
-        $"•附属幼稚園・小学校・中学校の教職員（附属学校園児・児童・生徒は除く） \r\n" +
+        [LuisIntent("宮崎大学ウイルスソフト包括")]
+        public async Task VirusSoft(IDialogContext context, LuisResult result)
+        {
+            await context.PostAsync($"平成25年4月より,宮崎大学ウイルス対策ソフトの包括ライセンスを開始し, インストール台数の制限が無く, 大学構成員であれば個人用途の端末でも利用することができます. \r\n" +
+            $"【利用の範囲】\r\n" +
+            $" •宮崎大学の構成員\r\n" +
+            $"•附属幼稚園・小学校・中学校の教職員（附属学校園児・児童・生徒は除く） \r\n" +
         $"【利用可能な端末の範囲】\r\n" +
         $" •大学内の端末\r\n" +
         $"•附属学校内の端末\r\n" +
@@ -399,7 +400,8 @@ namespace Microsoft.Bot.Sample.LuisBot
         $"システム構築・導入に関する相談または支援\r\n"+
         $"プログラム開発\r\n"+
         $"業務・システム最適化\r\n"+
-        $"情報関連の教育研修"); //
+        $"情報関連の教育研修 等\r\n" +
+        $"こちらより申請してください：http://himuka.cc.miyazaki-u.ac.jp/E-application/login.php"); //
         context.Wait(MessageReceived);
       }
 
