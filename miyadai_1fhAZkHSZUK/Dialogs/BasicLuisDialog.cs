@@ -14,9 +14,8 @@ namespace Microsoft.Bot.Sample.LuisBot
     {
         public BasicLuisDialog() : base(new LuisService(new LuisModelAttribute(
             ConfigurationManager.AppSettings["LuisAppId"],
-            ConfigurationManager.AppSettings["LuisAPIKey"],
-    
-            domain: ConfigurationManager.AppSettings["LuisAPIHostName"])))
+            ConfigurationManager.AppSettings["LuisAPIKey"]
+            )))
         {
         }
 
