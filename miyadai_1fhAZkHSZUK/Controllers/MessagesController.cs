@@ -296,7 +296,7 @@ namespace Microsoft.Bot.Sample.LuisBot
                             userData.SetProperty<int>("MenuState", 2);
                             replyToConversation = activity.CreateReply("zakio");
                             await connector.Conversations.ReplyToActivityAsync(replyToConversation);
-                            await stateClient.BotState.SetUserDataAsync(activity.ChannelId, activity.From.Id, userData);
+                            //await stateClient.BotState.SetUserDataAsync(activity.ChannelId, activity.From.Id, userData);
 
                         }
                         //メニュー階層が2の場合
