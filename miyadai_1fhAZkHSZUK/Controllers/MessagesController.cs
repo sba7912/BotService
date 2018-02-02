@@ -126,7 +126,7 @@ namespace Microsoft.Bot.Sample.LuisBot
                         }
 
                         //メニュー階層が1の場合
-                        else if (MenuState == 2)
+                        else if (MenuState == 1)
                         {
                             Activity replyToConversation = activity;
 
@@ -139,13 +139,13 @@ namespace Microsoft.Bot.Sample.LuisBot
                             replyToConversation = activity.CreateReply("ozaki");
                             await connector.Conversations.ReplyToActivityAsync(replyToConversation);
                             //メニュー階層を2にする
-                            userData.SetProperty<int>("MenuState", 3);
+                            userData.SetProperty<int>("MenuState", 2);
                             await stateClient.BotState.SetUserDataAsync(activity.ChannelId, activity.From.Id, userData);
                             replyToConversation = activity.CreateReply("zakio");
                             await connector.Conversations.ReplyToActivityAsync(replyToConversation);
                         }
                         //メニュー階層が2の場合
-                        else if (MenuState == 3)
+                        else if (MenuState == 2)
                         {
                             bool buttonflag = false;
 
@@ -166,7 +166,7 @@ namespace Microsoft.Bot.Sample.LuisBot
                                 await connector.Conversations.ReplyToActivityAsync(replyToConversation);
 
                                 //メニュー階層を3にする
-                                userData.SetProperty<int>("MenuState", 4);
+                                userData.SetProperty<int>("MenuState", 3);
                                 await stateClient.BotState.SetUserDataAsync(activity.ChannelId, activity.From.Id, userData);
 
 
@@ -175,7 +175,7 @@ namespace Microsoft.Bot.Sample.LuisBot
                             }
                         }       
                         //メニュー階層が3の場合
-                        else if (MenuState == 4)
+                        else if (MenuState == 3)
                         {
                             bool buttonflag = false;
 
@@ -302,8 +302,8 @@ namespace Microsoft.Bot.Sample.LuisBot
         private Activity menuFunc(Activity activity)
         {
             Activity replyToConversation = activity.CreateReply(activity.Text + "についてですね。1");
-            replyToConversation.Recipient = activity.From;
-            replyToConversation.Type = "message";
+            //replyToConversation.Recipient = activity.From;
+            //replyToConversation.Type = "message";
 
             return replyToConversation;
         }
