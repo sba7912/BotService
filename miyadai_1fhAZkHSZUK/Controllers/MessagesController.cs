@@ -288,7 +288,7 @@ namespace Microsoft.Bot.Sample.LuisBot
 
                             //replyToConversation = menuFunc(activity);
                             //await connector.Conversations.ReplyToActivityAsync(replyToConversation);
-                            replyToConversation.Type = "message";
+                            //replyToConversation.Type = "message";
                             await LUIS(activity);
                             replyToConversation = activity.CreateReply("ozaki");
                             await connector.Conversations.ReplyToActivityAsync(replyToConversation);
@@ -296,7 +296,7 @@ namespace Microsoft.Bot.Sample.LuisBot
                             userData.SetProperty<int>("MenuState", 2);
                             replyToConversation = activity.CreateReply("zakio");
                             await connector.Conversations.ReplyToActivityAsync(replyToConversation);
-                            //await stateClient.BotState.SetUserDataAsync(activity.ChannelId, activity.From.Id, userData);
+                            await stateClient.BotState.SetUserDataAsync(activity.ChannelId, activity.From.Id, userData);
 
                         }
                         //メニュー階層が2の場合
@@ -305,7 +305,8 @@ namespace Microsoft.Bot.Sample.LuisBot
                             bool buttonflag = false;
 
                             Activity replyToConversation = activity;
-
+                            replyToConversation = activity.CreateReply("zakio2nd");
+                            await connector.Conversations.ReplyToActivityAsync(replyToConversation);
                             replyToConversation = menuFunc2(activity, getcustomer1List());
                             buttonflag = true;
 
