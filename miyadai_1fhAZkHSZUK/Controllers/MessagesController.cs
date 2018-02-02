@@ -128,21 +128,14 @@ namespace Microsoft.Bot.Sample.LuisBot
                         //メニュー階層が1の場合
                         else if (MenuState == 1)
                         {
+                            bool buttonflag = false;
                             Activity replyToConversation = activity;
-
-                            replyToConversation = menuFunc(activity);
-                            //await connector.Conversations.ReplyToActivityAsync(replyToConversation);
-                            //replyToConversation.Type = "message";
-                            replyToConversation = activity.CreateReply(activity.Text);
-                            await connector.Conversations.ReplyToActivityAsync(replyToConversation);
-                            //await LUIS(activity);
-                            replyToConversation = activity.CreateReply("ozaki");
-                            await connector.Conversations.ReplyToActivityAsync(replyToConversation);
+                            await LUIS(activity);
+                            replyToConversation = menuFunc2(activity, getcustomer1List());
+                       
                             //メニュー階層を2にする
                             userData.SetProperty<int>("MenuState", 2);
                             await stateClient.BotState.SetUserDataAsync(activity.ChannelId, activity.From.Id, userData);
-                            replyToConversation = activity.CreateReply("zakio");
-                            await connector.Conversations.ReplyToActivityAsync(replyToConversation);
                         }
                         //メニュー階層が2の場合
                         else if (MenuState == 2)
@@ -150,8 +143,6 @@ namespace Microsoft.Bot.Sample.LuisBot
                             bool buttonflag = false;
 
                             Activity replyToConversation = activity;
-                            replyToConversation = activity.CreateReply("zakio2nd");
-                            await connector.Conversations.ReplyToActivityAsync(replyToConversation);
                             replyToConversation = menuFunc2(activity, getcustomer1List());
                             buttonflag = true;
 
