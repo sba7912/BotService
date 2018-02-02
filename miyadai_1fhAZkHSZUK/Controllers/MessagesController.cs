@@ -21,163 +21,7 @@ namespace Microsoft.Bot.Sample.LuisBot
     {
 
         ////TOP Menu
-        /*
-        public List<string> getMenu1List()
-        {
-            List<string> MenuList = new List<string>();
-            MenuList.Add("認証・ID関係");
-            MenuList.Add("情報ネットワーク関係");
-            MenuList.Add("Software関係");
-            MenuList.Add("情報システム関係");
-            MenuList.Add("その他");
-            return MenuList;
-        }
 
-        public List<string> getMenu2List(int Menu1Select)
-        {
-            List<string> MenuList = new List<string>();
-            switch (Menu1Select)
-            {
-                case 0:
-                    MenuList.Add("宮崎大学統一認証アカウント(MID)");
-                    MenuList.Add("情報基盤センター利用申請");
-                    MenuList.Add("学認ID");
-                    MenuList.Add("戻る");
-                    break;
-                case 1:
-                    MenuList.Add("有線ネットワーク");
-                    MenuList.Add("無線ネットワーク");
-                    MenuList.Add("固定IPアドレス");
-                    MenuList.Add("ファイアウォール通信許可申請");
-                    MenuList.Add("SSL-VPNサービス");
-                    MenuList.Add("ゲストネットワーク利用");
-                    MenuList.Add("eduroam");
-                    MenuList.Add("宮大FreeSpot");
-                    MenuList.Add("戻る");
-                    break;
-                case 2:
-                    MenuList.Add("Microsoft包括ライセンス");
-                    MenuList.Add("宮崎大学ウイルスソフト包括");
-                    MenuList.Add("Solidworks 3DCAD");
-                    MenuList.Add("戻る");
-                    break;
-                case 3:
-                    MenuList.Add("オンラインストレージ");
-                    MenuList.Add("宮大どこプリ");
-                    MenuList.Add("電子メール");
-                    MenuList.Add("実習室システム");
-                    MenuList.Add("メーリングリスト");
-                    MenuList.Add("学生一斉メール");
-                    MenuList.Add("Web公開サービス(個人)");
-                    MenuList.Add("Web公開サービス(組織)");
-                    MenuList.Add("Web公開サービス(学生)");
-                    MenuList.Add("大判プリンタ");
-                    MenuList.Add("仮想サーバ貸出");
-                    MenuList.Add("サーバ証明書発行サービス(UPKI電子証明書発行)");
-                    MenuList.Add("DNS・名前解決サービス");
-                    MenuList.Add("メールゲートウェイ(アンチウイルス / スパム)");
-                    MenuList.Add("戻る");
-                    break;
-                case 4:
-                    MenuList.Add("定期メンテナンス【学内制限】");
-                    MenuList.Add("業務依頼サービス利用");
-                    MenuList.Add("テレビ会議システム");
-                    MenuList.Add("Web会議システム(Vidyo)");
-                    MenuList.Add("ハウジングサービス");
-                    MenuList.Add("戻る");
-                    break;
-
-                default:
-                    break;
-            }
-            return MenuList;
-        }
-
-        
-       public List<string> getMenu3List(int Menu1Select, int Menu2Select)
-        {
-            List<string> MenuList = new List<string>();
-            //State管理
-            //StateClient stateClient = activity.GetStateClient();
-            //BotData userData = await stateClient.BotState.GetUserDataAsync(activity.ChannelId, activity.From.Id);
-
-            switch (Menu1Select)
-            {
-                case 0:
-                    switch (Menu2Select)
-                    {
-                        case 0: //MID選んだ人
-                            MenuList.Add("宮崎大学統一認証アカウント(MID)_概要");
-                            MenuList.Add("宮崎大学統一認証アカウント(MID)_利用");
-                            MenuList.Add("戻る");
-                            break;
-                        case 1:　//情報基盤センター利用申請選んだ人
-                            MenuList.Add("宮崎大学統一認証アカウント(MID)");
-                            MenuList.Add("情報基盤センター利用申請");
-                            MenuList.Add("学認ID");
-                            MenuList.Add("戻る");
-                            break;
-                        case 2: //学認ID選んだ人
-                            MenuList.Add("宮崎大学統一認証アカウント(MID)");
-                            MenuList.Add("情報基盤センター利用申請");
-                            MenuList.Add("学認ID");
-                            MenuList.Add("戻る");
-                            break;
-                        case 3: //戻る選んだ人
-                                //メニュー階層を1にする
-                                //userData.SetProperty<int>("MenuState", 1);
-                                //await stateClient.BotState.SetUserDataAsync(activity.ChannelId, activity.From.Id, userData);
-                            break;
-                    }
-                    break;
-                case 1:
-                    MenuList.Add("有線ネットワーク");
-                    MenuList.Add("無線ネットワーク");
-                    MenuList.Add("固定IPアドレス");
-                    MenuList.Add("ファイアウォール通信許可申請");
-                    MenuList.Add("SSL-VPNサービス");
-                    MenuList.Add("ゲストネットワーク利用");
-                    MenuList.Add("eduroam");
-                    MenuList.Add("宮大FreeSpot");
-                    MenuList.Add("戻る");
-                    break;
-                case 2:
-                    MenuList.Add("Microsoft包括ライセンス");
-                    MenuList.Add("宮崎大学ウイルスソフト包括");
-                    MenuList.Add("Solidworks 3DCAD");
-                    MenuList.Add("戻る");
-                    break;
-                case 3:
-                    MenuList.Add("オンラインストレージ");
-                    MenuList.Add("宮大どこプリ");
-                    MenuList.Add("電子メール");
-                    MenuList.Add("実習室システム");
-                    MenuList.Add("メーリングリスト");
-                    MenuList.Add("学生一斉メール");
-                    MenuList.Add("Web公開サービス(個人)");
-                    MenuList.Add("Web公開サービス(組織)");
-                    MenuList.Add("Web公開サービス(学生)");
-                    MenuList.Add("大判プリンタ");
-                    MenuList.Add("仮想サーバ貸出");
-                    MenuList.Add("サーバ証明書発行サービス(UPKI電子証明書発行)");
-                    MenuList.Add("DNS・名前解決サービス");
-                    MenuList.Add("メールゲートウェイ(アンチウイルス / スパム)");
-                    MenuList.Add("戻る");
-                    break;
-                case 4:
-                    MenuList.Add("定期メンテナンス【学内制限】");
-                    MenuList.Add("業務依頼サービス利用");
-                    MenuList.Add("テレビ会議システム");
-                    MenuList.Add("Web会議システム(Vidyo)");
-                    MenuList.Add("ハウジングサービス");
-                    MenuList.Add("戻る");
-                    break;
-
-                default:
-                    break;
-            }
-            return MenuList;
-        }*/
 
         public List<string> getcustomer1List()
         {
@@ -288,16 +132,15 @@ namespace Microsoft.Bot.Sample.LuisBot
 
                             //replyToConversation = menuFunc(activity);
                             //await connector.Conversations.ReplyToActivityAsync(replyToConversation);
-                            replyToConversation.Type = "message";
+                            //replyToConversation.Type = "message";
                             await LUIS(activity);
                             replyToConversation = activity.CreateReply("ozaki");
                             await connector.Conversations.ReplyToActivityAsync(replyToConversation);
                             //メニュー階層を2にする
                             userData.SetProperty<int>("MenuState", 2);
+                            await stateClient.BotState.SetUserDataAsync(activity.ChannelId, activity.From.Id, userData);
                             replyToConversation = activity.CreateReply("zakio");
                             await connector.Conversations.ReplyToActivityAsync(replyToConversation);
-                            await stateClient.BotState.SetUserDataAsync(activity.ChannelId, activity.From.Id, userData);
-
                         }
                         //メニュー階層が2の場合
                         else if (MenuState == 2)
@@ -376,9 +219,8 @@ namespace Microsoft.Bot.Sample.LuisBot
                     else
                     {
                         Activity replyToConversation = Greeting(activity);
-                        userData.SetProperty<int>("MenuState", 1);
                         await connector.Conversations.ReplyToActivityAsync(replyToConversation);
-
+                        userData.SetProperty<int>("MenuState", 1);
                         //最初の一度だけこのダイアログがでるようにするため、UserDataに挨拶したことを保存しておく
                         Task result = stateSentGreeting(activity, stateClient, userData);
 

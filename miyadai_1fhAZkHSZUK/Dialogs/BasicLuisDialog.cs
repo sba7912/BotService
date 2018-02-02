@@ -80,7 +80,7 @@ namespace Microsoft.Bot.Sample.LuisBot
             $"【教職員】\r\n" +
             $"情報基盤センター発行のメールアドレス（@cc）が必要です。発行を受けていない方は、先に情報基盤センター一般利用申請から申請を行ってください。\r\n" +
             $"【学生】\r\n" +
-            $"入学時に発行される情報基盤センター発行のメールアドレス（@student）を用意してください。"); //
+            $"入学時に発行される情報基盤センター発行のメールアドレス（@student）を用意してください。"); 
             context.Wait(MessageReceived);
         }
 
@@ -110,7 +110,7 @@ namespace Microsoft.Bot.Sample.LuisBot
             $"その後、IEやFirefoxなどのブラウザを開いて、ネットワーク認証を行うことで接続が完了します。\r\n" +
             $"本学教職員は特に申請は不要です。\r\n" +
             $"学外者については、宮大FreeSpotもしくはEduroamを利用してください。\r\n" +
-            $"詳しくは:(https://www.cc.miyazaki-u.ac.jp/service/internal/wlan.php)"); //
+            $"詳しくは:(https://www.cc.miyazaki-u.ac.jp/service/internal/wlan.php)"); 
             context.Wait(MessageReceived);
         }
 
@@ -120,7 +120,7 @@ namespace Microsoft.Bot.Sample.LuisBot
             await context.PostAsync($"プリンターなどのネットワーク認証ができない機器やサーバ用途などで固定IPアドレスが必要な機器などについては、固定IPアドレスを発行しています。\r\n" +
             $"申請には、情報コンセント番号と機器のMACアドレスが必要です。\r\n" +
             $"情報コンセント番号とは、各部屋にある有線LANの差込口に振られた英字3、数字3のユニークな番号です。\r\n" +
-            $"申請はこちら(学内制限):(http://himuka.cc.miyazaki-u.ac.jp/E-application/login.php)"); //
+            $"申請はこちら(学内制限):(http://himuka.cc.miyazaki-u.ac.jp/E-application/login.php)"); 
             context.Wait(MessageReceived);
         }
 
