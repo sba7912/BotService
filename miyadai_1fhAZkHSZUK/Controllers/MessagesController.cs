@@ -133,7 +133,7 @@ namespace Microsoft.Bot.Sample.LuisBot
                             replyToConversation = menuFunc(activity);
                             //await connector.Conversations.ReplyToActivityAsync(replyToConversation);
                             //replyToConversation.Type = "message";
-                            replyToConversation = activity.CreateReply(activity.text);
+                            replyToConversation = activity.CreateReply(activity.Text);
                             await connector.Conversations.ReplyToActivityAsync(replyToConversation);
                             await LUIS(activity);
                             replyToConversation = activity.CreateReply("ozaki");
