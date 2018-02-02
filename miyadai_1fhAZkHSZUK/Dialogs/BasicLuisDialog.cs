@@ -107,7 +107,7 @@ namespace Microsoft.Bot.Sample.LuisBot
       $"その後、IEやFirefoxなどのブラウザを開いて、ネットワーク認証を行うことで接続が完了します。\r\n" +
       $"本学教職員は特に申請は不要です。\r\n" +
       $"学外者については、宮大FreeSpotもしくはEduroamを利用してください。\r\n" +
-      $"詳しくはhttps://www.cc.miyazaki-u.ac.jp/service/internal/wlan.php"); //
+      $"詳しくは:(https://www.cc.miyazaki-u.ac.jp/service/internal/wlan.php)"); //
       context.Wait(MessageReceived);
     }
 
@@ -117,7 +117,7 @@ namespace Microsoft.Bot.Sample.LuisBot
       await context.PostAsync($"プリンターなどのネットワーク認証ができない機器やサーバ用途などで固定IPアドレスが必要な機器などについては、固定IPアドレスを発行しています。\r\n" +
       $"申請には、情報コンセント番号と機器のMACアドレスが必要です。\r\n" +
       $"情報コンセント番号とは、各部屋にある有線LANの差込口に振られた英字3、数字3のユニークな番号です。\r\n" +
-      $"申請はこちらhttp://himuka.cc.miyazaki-u.ac.jp/E-application/login.php（学内制限）"); //
+      $"申請はこちら(学内制限):(http://himuka.cc.miyazaki-u.ac.jp/E-application/login.php)"); //
       context.Wait(MessageReceived);
     }
 
@@ -187,8 +187,7 @@ namespace Microsoft.Bot.Sample.LuisBot
             $"○ＳＳＩＤ：「eduroam」\r\n" +
             $"○ＩＤ／パスワード：\r\n" +
             $"【教職員】@ccメールアドレス／MIDのパスワード\r\n" +
-            $"【学生】@studentメールアドレス／MIDのパスワード" +
-            $"[詳しくはこちら（学内制限）](https://fshare.ccad.miyazaki-u.ac.jp/)"); //
+            $"【学生】@studentメールアドレス／MIDのパスワード" ); //
             context.Wait(MessageReceived);
         }
 
@@ -236,8 +235,8 @@ namespace Microsoft.Bot.Sample.LuisBot
       [LuisIntent("オンラインストレージ＿利用")]
       public async Task OnlineStrage_use(IDialogContext context, LuisResult result)
       {
-        await context.PostAsync($"宮崎大学統一認証アカウント(MID)保有者はWebブラウザかアプリケーション(Windows限定)から利用可能です。\r\n" +
-         $"Activity replyToConversation = activity.CreateReply([詳しくはこちら（学内制限）](https://fshare.ccad.miyazaki-u.ac.jp/)");
+            await context.PostAsync($"宮崎大学統一認証アカウント(MID)保有者はWebブラウザかアプリケーション(Windows限定)から利用可能です。\r\n" +
+                       $"[詳しくはこちら（学内制限）](https://fshare.ccad.miyazaki-u.ac.jp/)");//
         context.Wait(MessageReceived);
       }
 
