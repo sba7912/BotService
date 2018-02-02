@@ -130,7 +130,7 @@ namespace Microsoft.Bot.Sample.LuisBot
                         {
                             Activity replyToConversation = activity;
 
-                            //replyToConversation = menuFunc(activity);
+                            replyToConversation = menuFunc(activity);
                             //await connector.Conversations.ReplyToActivityAsync(replyToConversation);
                             //replyToConversation.Type = "message";
                             await LUIS(activity);
