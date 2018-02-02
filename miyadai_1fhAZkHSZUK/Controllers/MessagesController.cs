@@ -289,13 +289,14 @@ namespace Microsoft.Bot.Sample.LuisBot
                             //replyToConversation = menuFunc(activity);
                             //await connector.Conversations.ReplyToActivityAsync(replyToConversation);
                             replyToConversation.Type = "message";
-                            Console.Write("ozaki");
                             await LUIS(activity);
-                            Console.Write("zakio");
+                            Activity replyToConversation = activity.CreateReply("ozaki");
+                            await connector.Conversations.ReplyToActivityAsync(replyToConversation);
                             //メニュー階層を2にする
                             userData.SetProperty<int>("MenuState", 2);
                             await stateClient.BotState.SetUserDataAsync(activity.ChannelId, activity.From.Id, userData);
-
+                            Activity replyToConversation = activity.CreateReply("zakio");
+                            await connector.Conversations.ReplyToActivityAsync(replyToConversation);
                         }
                         //メニュー階層が2の場合
                         else if (MenuState == 2)
