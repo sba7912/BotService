@@ -135,7 +135,7 @@ namespace Microsoft.Bot.Sample.LuisBot
                             //replyToConversation.Type = "message";
                             replyToConversation = activity.CreateReply(activity.Text);
                             await connector.Conversations.ReplyToActivityAsync(replyToConversation);
-                            await LUIS(activity);
+                            //await LUIS(activity);
                             replyToConversation = activity.CreateReply("ozaki");
                             await connector.Conversations.ReplyToActivityAsync(replyToConversation);
                             //メニュー階層を2にする
