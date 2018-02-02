@@ -145,7 +145,7 @@ namespace Microsoft.Bot.Sample.LuisBot
                             await connector.Conversations.ReplyToActivityAsync(replyToConversation);
                         }
                         //メニュー階層が2の場合
-                       /* else if (MenuState == 2)
+                        else if (MenuState == 2)
                         {
                             bool buttonflag = false;
 
@@ -211,7 +211,7 @@ namespace Microsoft.Bot.Sample.LuisBot
                                 //await stateClient.BotState.DeleteStateForUserAsync(activity.ChannelId, activity.From.Id);
                             }
                         }
-                        */
+                        
                         //ボタンで設定していないワードがきたときはLUISに渡す。
                         else
                         {
