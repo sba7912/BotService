@@ -288,7 +288,7 @@ namespace Microsoft.Bot.Sample.LuisBot
 
                             //replyToConversation = menuFunc(activity);
                             //await connector.Conversations.ReplyToActivityAsync(replyToConversation);
-                            //replyToConversation.Type = "message";
+                            replyToConversation.Type = "message";
                             await LUIS(activity);
                             replyToConversation = activity.CreateReply("ozaki");
                             await connector.Conversations.ReplyToActivityAsync(replyToConversation);
