@@ -140,7 +140,7 @@ namespace Microsoft.Bot.Sample.LuisBot
                             await connector.Conversations.ReplyToActivityAsync(replyToConversation);
                             //メニュー階層を2にする
                             //userData.SetProperty<int>("MenuState", 2);
-                            await stateClient.BotState.SetUserDataAsync(activity.ChannelId, activity.From.Id, userData);
+                            //await stateClient.BotState.SetUserDataAsync(activity.ChannelId, activity.From.Id, userData);
                             replyToConversation = activity.CreateReply("zakio");
                             await connector.Conversations.ReplyToActivityAsync(replyToConversation);
                         }
@@ -223,7 +223,6 @@ namespace Microsoft.Bot.Sample.LuisBot
                     {
                         Activity replyToConversation = Greeting(activity);
                         await connector.Conversations.ReplyToActivityAsync(replyToConversation);
-                        //userData.SetProperty<int>("MenuState", 1);
                         //最初の一度だけこのダイアログがでるようにするため、UserDataに挨拶したことを保存しておく
                         Task result = stateSentGreeting(activity, stateClient, userData);
 
