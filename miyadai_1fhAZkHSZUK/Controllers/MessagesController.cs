@@ -289,8 +289,9 @@ namespace Microsoft.Bot.Sample.LuisBot
                             //replyToConversation = menuFunc(activity);
                             //await connector.Conversations.ReplyToActivityAsync(replyToConversation);
                             replyToConversation.Type = "message";
+                            Console.Write("ozaki");
                             await LUIS(activity);
-
+                            Console.Write("zakio");
                             //メニュー階層を2にする
                             userData.SetProperty<int>("MenuState", 2);
                             await stateClient.BotState.SetUserDataAsync(activity.ChannelId, activity.From.Id, userData);
