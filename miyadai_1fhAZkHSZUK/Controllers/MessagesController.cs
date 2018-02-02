@@ -294,9 +294,10 @@ namespace Microsoft.Bot.Sample.LuisBot
                             await connector.Conversations.ReplyToActivityAsync(replyToConversation);
                             //メニュー階層を2にする
                             userData.SetProperty<int>("MenuState", 2);
-                            await stateClient.BotState.SetUserDataAsync(activity.ChannelId, activity.From.Id, userData);
                             replyToConversation = activity.CreateReply("zakio");
                             await connector.Conversations.ReplyToActivityAsync(replyToConversation);
+                            await stateClient.BotState.SetUserDataAsync(activity.ChannelId, activity.From.Id, userData);
+
                         }
                         //メニュー階層が2の場合
                         else if (MenuState == 2)
@@ -374,6 +375,7 @@ namespace Microsoft.Bot.Sample.LuisBot
                     else
                     {
                         Activity replyToConversation = Greeting(activity);
+                        userData.SetProperty<int>("MenuState", 1);
                         await connector.Conversations.ReplyToActivityAsync(replyToConversation);
 
                         //最初の一度だけこのダイアログがでるようにするため、UserDataに挨拶したことを保存しておく
