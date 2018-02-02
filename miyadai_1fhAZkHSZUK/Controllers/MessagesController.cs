@@ -139,13 +139,13 @@ namespace Microsoft.Bot.Sample.LuisBot
                             replyToConversation = activity.CreateReply("ozaki");
                             await connector.Conversations.ReplyToActivityAsync(replyToConversation);
                             //メニュー階層を2にする
-                            //userData.SetProperty<int>("MenuState", 2);
+                            userData.SetProperty<int>("MenuState", 2);
                             //await stateClient.BotState.SetUserDataAsync(activity.ChannelId, activity.From.Id, userData);
                             replyToConversation = activity.CreateReply("zakio");
                             await connector.Conversations.ReplyToActivityAsync(replyToConversation);
                         }
                         //メニュー階層が2の場合
-                        /*else if (MenuState == 2)
+                        else if (MenuState == 2)
                         {
                             bool buttonflag = false;
 
@@ -173,7 +173,8 @@ namespace Microsoft.Bot.Sample.LuisBot
                                 //このサンプルでは階層３までで終わりのため、UsrDataを削除する
                                 //await stateClient.BotState.DeleteStateForUserAsync(activity.ChannelId, activity.From.Id);
                             }
-                        }              */          //メニュー階層が2の場合
+                        }       
+                        //メニュー階層が3の場合
                         else if (MenuState == 3)
                         {
                             bool buttonflag = false;
