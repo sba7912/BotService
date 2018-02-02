@@ -139,7 +139,7 @@ namespace Microsoft.Bot.Sample.LuisBot
                             replyToConversation = activity.CreateReply("ozaki");
                             await connector.Conversations.ReplyToActivityAsync(replyToConversation);
                             //メニュー階層を2にする
-                            userData.SetProperty<int>("MenuState", 2);
+                            //userData.SetProperty<int>("MenuState", 2);
                             await stateClient.BotState.SetUserDataAsync(activity.ChannelId, activity.From.Id, userData);
                             replyToConversation = activity.CreateReply("zakio");
                             await connector.Conversations.ReplyToActivityAsync(replyToConversation);
