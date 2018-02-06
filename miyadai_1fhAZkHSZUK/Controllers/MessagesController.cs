@@ -132,6 +132,10 @@ namespace Microsoft.Bot.Sample.LuisBot
                             Activity replyToConversation = activity.CreateReply("利用者の利便性向上を図るために異なる情報システムにおいて統一的に利用できる認証基盤として宮崎大学統一認証アカウント（通称：ＭＩＤ）の運用を行っています。\r\n" +
                                 "平成２２年度より運用を開始しており、本学における全学的な情報システムの利用者認証について、ほとんどの情報システムでＭＩＤ認証を利用しています。");
                             await connector.Conversations.ReplyToActivityAsync(replyToConversation);
+
+                            replyToConversation = menuFunc2(activity, getcustomer1List());
+
+
                         }
 
 
@@ -260,26 +264,15 @@ namespace Microsoft.Bot.Sample.LuisBot
         {
             try
             {
-                //Connectorからのデータ入出力
-                /*ConnectorClient connector = new ConnectorClient(new Uri(activity.ServiceUrl));
-
-                //State管理
-                StateClient stateClient = activity.GetStateClient();
-
-                BotData userData = await stateClient.BotState.GetUserDataAsync(activity.ChannelId, activity.From.Id);
-                Activity replyToConversation = activity;*/
                 // one of these will have an interface and process it
                 switch (activity.GetActivityType())
                 {
 
                     // get the user data object
                     case ActivityTypes.Message:
-
-                        await Conversation.SendAsync(activity, () => new BasicLuisDialog());
-                        //replyToConversation = menuFunc(activity, getcustomer1List());
-                        //await connector.Conversations.ReplyToActivityAsync(replyToConversation);
-                        //await stateClient.BotState.SetUserDataAsync(activity.ChannelId, activity.From.Id, userData);
+                        await Conversation.SendAsync(activity, () => new HelpBotDialog());
                         break;
+
                     case ActivityTypes.ConversationUpdate:
                     case ActivityTypes.ContactRelationUpdate:
                     case ActivityTypes.Typing:
@@ -296,6 +289,8 @@ namespace Microsoft.Bot.Sample.LuisBot
 
         }
 
+
+
         private Activity Greeting(Activity activity)
         {
             Activity replyToConversation = activity.CreateReply(@"こんにちは。情報基盤センターです。どういったお問い合わせでしょうか。");
@@ -307,7 +302,7 @@ namespace Microsoft.Bot.Sample.LuisBot
 
         private Activity menuFunc(Activity activity)
         {
-            Activity replyToConversation = activity.CreateReply(activity.Text + "についてですね。1");
+            Activity replyToConversation = activity.CreateReply("解決しましたか？");
             //replyToConversation.Recipient = activity.From;
             //replyToConversation.Type = "message";
 
@@ -344,6 +339,10 @@ namespace Microsoft.Bot.Sample.LuisBot
 
             return replyToConversation;
         }
+
+
+
+
         private Activity menuFunc3(Activity activity, List<string> MenuList)
         {
             Activity replyToConversation = activity.CreateReply(activity.Text + "については[こちら](https://www.google.co.jp/search?q=" + MenuList[0] + "のトラブル)");
