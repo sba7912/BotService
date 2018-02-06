@@ -128,12 +128,12 @@ namespace Microsoft.Bot.Sample.LuisBot
                         {
                             //最初の状態に戻すため、UsrDataを削除する
                             await stateClient.BotState.DeleteStateForUserAsync(activity.ChannelId, activity.From.Id);
-
+                            // Activity replyToConversation = activity;
                             Activity replyToConversation = activity.CreateReply("宮崎大学統一認証アカウント(MID)は、利用者の利便性向上を図るために異なる情報システムにおいて統一的に利用できる認証基盤です。");
                             await connector.Conversations.ReplyToActivityAsync(replyToConversation);
-                           // Activity replyToConversation = activity;
+                           
                             replyToConversation = menuFunc2(activity, getcustomer1List());
-
+                            await connector.Conversations.ReplyToActivityAsync(replyToConversation);
 
                         }
 
