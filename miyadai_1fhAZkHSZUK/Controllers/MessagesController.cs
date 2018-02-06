@@ -132,7 +132,7 @@ namespace Microsoft.Bot.Sample.LuisBot
                             Activity replyToConversation = activity.CreateReply("宮崎大学統一認証アカウント(MID)は、利用者の利便性向上を図るために異なる情報システムにおいて統一的に利用できる認証基盤です。");
                             await connector.Conversations.ReplyToActivityAsync(replyToConversation);
                            
-                            replyToConversation = menuFunc(activity, getcustomer1List());
+                            replyToConversation = menuFunc3(activity, getcustomer1List());
                             await connector.Conversations.ReplyToActivityAsync(replyToConversation);
 
                         }
@@ -331,7 +331,38 @@ namespace Microsoft.Bot.Sample.LuisBot
         }
         private Activity menuFunc2(Activity activity, List<string> MenuList)
         {
-            Activity replyToConversation = activity.CreateReply(@"答えることが出来ず申し訳ございません。情報基盤センターへの直接のお問い合わせをお願いいたします。");
+            Activity replyToConversation = activity.CreateReply("答えることが出来ず申し訳ございません。情報基盤センターへの直接のお問い合わせをお願いいたします。");
+            replyToConversation.Recipient = activity.From;
+            replyToConversation.Type = "message";
+            replyToConversation.Attachments = new List<Attachment>();
+            List<CardAction> cardButtons = new List<CardAction>();
+
+            CardAction plButton = new CardAction();
+
+            foreach (string buttonData in MenuList)
+            {
+                plButton = new CardAction()
+                {
+                    Value = buttonData,
+                    Type = "imBack",
+                    Title = buttonData
+                };
+                cardButtons.Add(plButton);
+            }
+
+            HeroCard plCard = new HeroCard()
+            {
+                Title = "以下からお選びください。",
+                Buttons = cardButtons
+            };
+            Attachment plAttachment = plCard.ToAttachment();
+            replyToConversation.Attachments.Add(plAttachment);
+
+            return replyToConversation;
+        }
+        private Activity menuFunc3(Activity activity, List<string> MenuList)
+        {
+            Activity replyToConversation = activity.CreateReply("解決しましたか？");
             replyToConversation.Recipient = activity.From;
             replyToConversation.Type = "message";
             replyToConversation.Attachments = new List<Attachment>();
