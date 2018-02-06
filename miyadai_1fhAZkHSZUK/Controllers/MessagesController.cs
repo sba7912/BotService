@@ -393,15 +393,15 @@ namespace Microsoft.Bot.Sample.LuisBot
         }
 
 
-        /*
+        
 
-        private Activity menuFunc3(Activity activity, List<string> MenuList)
+        private Activity menuFunc4(Activity activity, List<string> MenuList)
         {
             Activity replyToConversation = activity.CreateReply(activity.Text + "については[こちら](https://www.google.co.jp/search?q=" + MenuList[0] + "のトラブル)");
 
             return replyToConversation;
         }
-        */
+        
 
         private async Task stateSentGreeting(Activity activity, StateClient stateClient, BotData userData)
         {
