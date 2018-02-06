@@ -134,7 +134,7 @@ namespace Microsoft.Bot.Sample.LuisBot
                             context.Wait(MessageReceived); ");
                             await connector.Conversations.ReplyToActivityAsync(replyToConversation);
                         }
-
+/*
 
                         //メニュー階層が1の場合
                         else if (MenuState == 1)
@@ -248,7 +248,7 @@ namespace Microsoft.Bot.Sample.LuisBot
             return response;
         }
 
-
+*/
 
 
 
