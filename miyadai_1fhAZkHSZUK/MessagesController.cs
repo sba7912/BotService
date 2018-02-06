@@ -21,66 +21,22 @@ namespace LUISapp
     {
 
         ////TOP Menu
-        public List<string> getMenu1List()
+        public List<string> getcustomer1List()
         {
             List<string> MenuList = new List<string>();
-            MenuList.Add("【インフラ】PC・ネットワーク関連");
-            MenuList.Add("Aシステム関連");
-            MenuList.Add("Bシステム関連");
-            MenuList.Add("その他");
+            MenuList.Add("解決した");
+            MenuList.Add("解決していない");
             return MenuList;
         }
-        public List<string> getMenu2List(int Menu1Select)
+
+        public List<string> getcustomer2List(int Menu1Select)
         {
             List<string> MenuList = new List<string>();
-            switch (Menu1Select)
-            {
-                case 0:
-                    MenuList.Add("VPN関連");
-                    MenuList.Add("無線LAN(Wifi)・有線LAN関連");
-                    break;
-                case 1:
-                    MenuList.Add("電話で対応してほしい");
-                    MenuList.Add("Chatで対応してほしい");
-                    break;
-                case 2:
-                    MenuList.Add("電話で対応してほしい");
-                    MenuList.Add("Chatで対応してほしい");
-                    break;
-                case 3:
-                    MenuList.Add("電話で対応してほしい");
-                    MenuList.Add("Chatで対応してほしい");
-                    break;
-                default:
-                    break;
-            }
-            return MenuList;
-        }
-        public List<string> getMenu3List(int Menu1Select,int Menu2Select)
-        {
-            List<string> MenuList = new List<string>();
-            switch (Menu1Select)
-            {
-                case 0:
-                    switch (Menu2Select)
-                    {
-                        case 0:
-                            MenuList.Add("VPN");
-                            break;
-                        case 1:
-                            MenuList.Add("LAN");
-                            break;
-                        default:
-                            break;
-                    }
-                    break;
-                case 1:
-                    break;
-                case 2:
-                    break;
-                default:
-                    break;
-            }
+            //if (Menu1Select == 1)
+            //{
+            MenuList.Add("電話で対応してほしい");
+            MenuList.Add("メールで対応してほしい");
+            //}
             return MenuList;
         }
 
@@ -187,13 +143,11 @@ namespace LUISapp
 
                             bool buttonflag = false;
 
-                            foreach (var item in getMenu1List().Select((v, i) => new { v, i }))
+                            foreach (var item in getcustomer1List().Select((v, i) => new { v, i }))
                             {
                                 if (activity.Text == item.v)
                                 {
-                                    replyToConversation = menuFunc(activity, getMenu2List(item.i));
-                                    //メニュー階層1で何番を選んだか保存
-                                    userData.SetProperty<int>("Menu1Select", item.i);
+                                    replyToConversation = menuFunc(activity, getcustomer1List(item.i));
 
                                     buttonflag = true;
                                     break;
@@ -219,16 +173,13 @@ namespace LUISapp
                         {
                             bool buttonflag = false;
 
-                            //メニュー階層1で何番を選んだか取り出し
-                            int Menu1Select = userData.GetProperty<int>("Menu1Select");
-
                             Activity replyToConversation = activity;
 
-                            foreach (var item in getMenu2List(Menu1Select).Select((v, i) => new { v, i }))
+                            foreach (var item in getcustomer2List(Menu1Select).Select((v, i) => new { v, i }))
                             {
                                 if (activity.Text == item.v)
                                 {
-                                    replyToConversation = menuFunc2(activity, getMenu3List(Menu1Select, item.i));
+                                    replyToConversation = menuFunc2(activity, getcustomer1List(Menu1Select, item.i));
                                     //メニュー階層2で何番を選んだか保存
                                     userData.SetProperty<int>("Menu2Select", item.i);
 
