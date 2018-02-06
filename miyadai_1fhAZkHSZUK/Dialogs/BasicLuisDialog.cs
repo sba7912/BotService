@@ -379,7 +379,7 @@ namespace Microsoft.Bot.Sample.LuisBot
 
 
 
-
+/*
         [LuisIntent("Solidworks 3DCAD")]
         public async Task 3DCAD(IDialogContext context, LuisResult result)
         {
@@ -389,7 +389,7 @@ namespace Microsoft.Bot.Sample.LuisBot
         }
 
 
-
+        */
 
 
 
