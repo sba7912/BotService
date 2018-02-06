@@ -36,8 +36,8 @@ namespace Microsoft.Bot.Sample.LuisBot
             List<string> MenuList = new List<string>();
             //if (Menu1Select == 1)
             //{
-                MenuList.Add("電話で対応してほしい");
-                MenuList.Add("メールで対応してほしい");
+            MenuList.Add("電話で対応してほしい");
+            MenuList.Add("メールで対応してほしい");
             //}
             return MenuList;
         }
@@ -95,7 +95,7 @@ namespace Microsoft.Bot.Sample.LuisBot
 
                             Activity replyToConversation = activity.CreateReply("お問い合わせありがとうございました！");
                             await connector.Conversations.ReplyToActivityAsync(replyToConversation);
-                           
+
                         }
                         else if (activity.Text == "解決していない")
                         {
@@ -222,19 +222,23 @@ namespace Microsoft.Bot.Sample.LuisBot
                                             }
                                             */
 
+
+
                         //会話の開始。挨拶から。
                         else
                         {
-                        Activity replyToConversation = Greeting(activity);
-                        await connector.Conversations.ReplyToActivityAsync(replyToConversation);
-                        //最初の一度だけこのダイアログがでるようにするため、UserDataに挨拶したことを保存しておく
-                        Task result = stateSentGreeting(activity, stateClient, userData);
+                            Activity replyToConversation = Greeting(activity);
+                            await connector.Conversations.ReplyToActivityAsync(replyToConversation);
+                            //最初の一度だけこのダイアログがでるようにするため、UserDataに挨拶したことを保存しておく
+                            Task result = stateSentGreeting(activity, stateClient, userData);
+                        }
 
                     }
 
+                }
 
 
-                
+
                 catch (HttpOperationException err)
                 {
                     // handle precondition failed error if someone else has modified your object
