@@ -129,8 +129,7 @@ namespace Microsoft.Bot.Sample.LuisBot
                             //最初の状態に戻すため、UsrDataを削除する
                             await stateClient.BotState.DeleteStateForUserAsync(activity.ChannelId, activity.From.Id);
 
-                            Activity replyToConversation = activity.CreateReply("宮崎大学統一認証アカウント(MID)は、利用者の利便性向上を図るために異なる情報システムにおいて統一的に利用できる認証基盤です。\r\n" +
-                                "平成２２年度より運用を開始しており、本学における全学的な情報システムの利用者認証について、ほとんどの情報システムでＭＩＤ認証を利用しています。");
+                            Activity replyToConversation = activity.CreateReply("宮崎大学統一認証アカウント(MID)は、利用者の利便性向上を図るために異なる情報システムにおいて統一的に利用できる認証基盤です。");
                             await connector.Conversations.ReplyToActivityAsync(replyToConversation);
                            // Activity replyToConversation = activity;
                             replyToConversation = menuFunc2(activity, getcustomer1List());
@@ -301,7 +300,7 @@ namespace Microsoft.Bot.Sample.LuisBot
 
         private Activity Greeting(Activity activity)
         {
-            Activity replyToConversation = activity.CreateReply(@"こんにちは。情報基盤センターです。どういったお問い合わせでしょうか。");
+            Activity replyToConversation = activity.CreateReply("こんにちは。情報基盤センターです。\r\nどういったお問い合わせでしょうか。");
             replyToConversation.Recipient = activity.From;
             replyToConversation.Type = "message";
 
