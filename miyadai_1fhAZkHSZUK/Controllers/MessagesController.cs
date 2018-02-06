@@ -298,7 +298,7 @@ namespace Microsoft.Bot.Sample.LuisBot
 
         private Activity Greeting(Activity activity)
         {
-            Activity replyToConversation = activity.CreateReply("こんにちは。情報基盤センターです。\r\nどういったお問い合わせでしょうか。");
+            Activity replyToConversation = activity.CreateReply(@"こんにちは。情報基盤センターです。どういったお問い合わせでしょうか。");
             replyToConversation.Recipient = activity.From;
             replyToConversation.Type = "message";
 
@@ -315,7 +315,7 @@ namespace Microsoft.Bot.Sample.LuisBot
         }
         private Activity menuFunc2(Activity activity, List<string> MenuList)
         {
-            Activity replyToConversation = activity.CreateReply(activity.Text + "についてですね。2");
+            Activity replyToConversation = activity.CreateReply(@"答えることが出来ず申し訳ございません。情報基盤センターへの直接のお問い合わせをお願いいたします。");
             replyToConversation.Recipient = activity.From;
             replyToConversation.Type = "message";
             replyToConversation.Attachments = new List<Attachment>();
