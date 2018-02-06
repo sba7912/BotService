@@ -137,6 +137,8 @@ namespace Microsoft.Bot.Sample.LuisBot
 
                         }
 
+                        /*
+
                         else if (activity.Text == "あはは")
                         {
                             Activity replyToConversation = activity;
@@ -149,7 +151,7 @@ namespace Microsoft.Bot.Sample.LuisBot
 
                         }
 
-                        /*
+                        
 
                          //メニュー階層が1の場合
                          else if (MenuState == 1)
