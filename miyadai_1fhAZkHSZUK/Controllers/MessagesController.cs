@@ -132,7 +132,7 @@ namespace Microsoft.Bot.Sample.LuisBot
                             Activity replyToConversation = activity.CreateReply("宮崎大学統一認証アカウント(MID)は、利用者の利便性向上を図るために異なる情報システムにおいて統一的に利用できる認証基盤です。");
                             await connector.Conversations.ReplyToActivityAsync(replyToConversation);
                            
-                            replyToConversation = menuFunc2(activity, getcustomer1List());
+                            replyToConversation = menuFunc(activity, getcustomer1List());
                             await connector.Conversations.ReplyToActivityAsync(replyToConversation);
 
                         }
