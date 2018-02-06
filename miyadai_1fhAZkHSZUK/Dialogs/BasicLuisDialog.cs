@@ -738,7 +738,7 @@ namespace Microsoft.Bot.Sample.LuisBot
                 $"•UPKI電子証明書自動発行支援システムサーバ証明書インストールマニュアルTomcat編(https://certs.nii.ac.jp/?action=repository_uri&item_id=6&file_id=22&file_no=3)\r\n" +
                 $"TSVファイルに問題がなければ、数日中にダウンロードサイトのURLが記載されたメールが届きます。\r\n" +
                 $"各自でアクセスして証明書をダウンロードしてサーバ等にインストールしてください。\r\n" +
-                $"情報基盤センターオンライン申請(http://himuka.cc.miyazaki-u.ac.jp/E-application/login.php)が利用できます。""); //
+                $"情報基盤センターオンライン申請(http://himuka.cc.miyazaki-u.ac.jp/E-application/login.php)が利用できます。"); 
             context.Wait(MessageReceived);
         }
         
