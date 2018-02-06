@@ -138,6 +138,8 @@ namespace Microsoft.Bot.Sample.LuisBot
 
                         }
 
+                        /*
+                         
                         //メニュー階層が1の場合
                         else if (MenuState == 1)
                         {
@@ -217,10 +219,12 @@ namespace Microsoft.Bot.Sample.LuisBot
                             }
                         }
 
+                        */
+
                         //ボタンで設定していないワードがきたときはLUISに渡す。
                         else
                         {
-                            await LUIS(activity);
+                          //  await LUIS(activity);
                         }
                     }
 
@@ -259,7 +263,7 @@ namespace Microsoft.Bot.Sample.LuisBot
 
 
 
-
+        /*
         private async Task LUIS(Activity activity)
         {
             try
@@ -289,6 +293,8 @@ namespace Microsoft.Bot.Sample.LuisBot
 
         }
 
+
+        */
 
 
         private Activity Greeting(Activity activity)
