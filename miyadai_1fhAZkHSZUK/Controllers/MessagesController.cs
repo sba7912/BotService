@@ -234,7 +234,7 @@ namespace Microsoft.Bot.Sample.LuisBot
 
 
 
-                }
+                
                 catch (HttpOperationException err)
                 {
                     // handle precondition failed error if someone else has modified your object
