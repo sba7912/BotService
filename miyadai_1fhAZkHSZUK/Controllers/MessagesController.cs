@@ -137,90 +137,102 @@ namespace Microsoft.Bot.Sample.LuisBot
 
                         }
 
-                       /*
-                         
-                        //メニュー階層が1の場合
-                        else if (MenuState == 1)
+                        else if (activity.Text == "あはは")
                         {
-                            bool buttonflag = false;
                             Activity replyToConversation = activity;
-                            await LUIS(activity);
-                            replyToConversation = menuFunc2(activity, getcustomer1List());
-
-                            //メニュー階層を2にする
-                            userData.SetProperty<int>("MenuState", 2);
+                            //メニュー階層1で何番を選んだか取り出し
+                            int Menu1Select = userData.GetProperty<int>("Menu1Select");
+                            replyToConversation = menuFunc(activity, getcustomer2List(Menu1Select));
+                            await connector.Conversations.ReplyToActivityAsync(replyToConversation);
+                            userData.SetProperty<int>("MenuState", 3);
                             await stateClient.BotState.SetUserDataAsync(activity.ChannelId, activity.From.Id, userData);
-                        }
-                        //メニュー階層が2の場合
-                        else if (MenuState == 2)
-                        {
-                            bool buttonflag = false;
 
-                            Activity replyToConversation = activity;
-                            replyToConversation = menuFunc2(activity, getcustomer1List());
-                            buttonflag = true;
-
-                            //ボタンが押されなかった時はLUISを呼ぶ
-                            if (buttonflag != true)
-                            {
-                                await LUIS(activity);
-
-                            }
-                            else
-                            {
-                                await connector.Conversations.ReplyToActivityAsync(replyToConversation);
-
-                                //メニュー階層を3にする
-                                userData.SetProperty<int>("MenuState", 3);
-                                await stateClient.BotState.SetUserDataAsync(activity.ChannelId, activity.From.Id, userData);
-
-
-                                //このサンプルでは階層３までで終わりのため、UsrDataを削除する
-                                //await stateClient.BotState.DeleteStateForUserAsync(activity.ChannelId, activity.From.Id);
-                            }
-                        }
-                        //メニュー階層が3の場合
-                        else if (MenuState == 3)
-                        {
-                            bool buttonflag = false;
-
-
-                            Activity replyToConversation = activity;
-
-                            foreach (var item in getcustomer1List().Select((v, i) => new { v, i }))
-                            {
-                                if (activity.Text == item.v)
-                                {
-                                    replyToConversation = menuFunc2(activity, getcustomer2List(item.i));
-                                    //メニュー階層2で何番を選んだか保存
-                                    userData.SetProperty<int>("Menu2Select", item.i);
-
-                                    buttonflag = true;
-                                    break;
-                                }
-                            }
-
-                            //ボタンが押されなかった時はLUISを呼ぶ
-                            if (buttonflag != true)
-                            {
-                                //await LUIS(activity);
-
-                            }
-                            else
-                            {
-                                await connector.Conversations.ReplyToActivityAsync(replyToConversation);
-
-                                await stateClient.BotState.SetUserDataAsync(activity.ChannelId, activity.From.Id, userData);
-
-
-                                //このサンプルでは階層３までで終わりのため、UsrDataを削除する
-                                //await stateClient.BotState.DeleteStateForUserAsync(activity.ChannelId, activity.From.Id);
-                            }
                         }
 
+                        /*
 
-                        */
-                        
+                         //メニュー階層が1の場合
+                         else if (MenuState == 1)
+                         {
+                             bool buttonflag = false;
+                             Activity replyToConversation = activity;
+                             await LUIS(activity);
+                             replyToConversation = menuFunc2(activity, getcustomer1List());
+
+                             //メニュー階層を2にする
+                             userData.SetProperty<int>("MenuState", 2);
+                             await stateClient.BotState.SetUserDataAsync(activity.ChannelId, activity.From.Id, userData);
+                         }
+                         //メニュー階層が2の場合
+                         else if (MenuState == 2)
+                         {
+                             bool buttonflag = false;
+
+                             Activity replyToConversation = activity;
+                             replyToConversation = menuFunc2(activity, getcustomer1List());
+                             buttonflag = true;
+
+                             //ボタンが押されなかった時はLUISを呼ぶ
+                             if (buttonflag != true)
+                             {
+                                 await LUIS(activity);
+
+                             }
+                             else
+                             {
+                                 await connector.Conversations.ReplyToActivityAsync(replyToConversation);
+
+                                 //メニュー階層を3にする
+                                 userData.SetProperty<int>("MenuState", 3);
+                                 await stateClient.BotState.SetUserDataAsync(activity.ChannelId, activity.From.Id, userData);
+
+
+                                 //このサンプルでは階層３までで終わりのため、UsrDataを削除する
+                                 //await stateClient.BotState.DeleteStateForUserAsync(activity.ChannelId, activity.From.Id);
+                             }
+                         }
+                         //メニュー階層が3の場合
+                         else if (MenuState == 3)
+                         {
+                             bool buttonflag = false;
+
+
+                             Activity replyToConversation = activity;
+
+                             foreach (var item in getcustomer1List().Select((v, i) => new { v, i }))
+                             {
+                                 if (activity.Text == item.v)
+                                 {
+                                     replyToConversation = menuFunc2(activity, getcustomer2List(item.i));
+                                     //メニュー階層2で何番を選んだか保存
+                                     userData.SetProperty<int>("Menu2Select", item.i);
+
+                                     buttonflag = true;
+                                     break;
+                                 }
+                             }
+
+                             //ボタンが押されなかった時はLUISを呼ぶ
+                             if (buttonflag != true)
+                             {
+                                 //await LUIS(activity);
+
+                             }
+                             else
+                             {
+                                 await connector.Conversations.ReplyToActivityAsync(replyToConversation);
+
+                                 await stateClient.BotState.SetUserDataAsync(activity.ChannelId, activity.From.Id, userData);
+
+
+                                 //このサンプルでは階層３までで終わりのため、UsrDataを削除する
+                                 //await stateClient.BotState.DeleteStateForUserAsync(activity.ChannelId, activity.From.Id);
+                             }
+                         }
+
+
+                         */
+
 
                         //ボタンで設定していないワードがきたときはLUISに渡す。
                         else
