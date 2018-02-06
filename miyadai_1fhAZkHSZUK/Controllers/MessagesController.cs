@@ -138,7 +138,7 @@ namespace Microsoft.Bot.Sample.LuisBot
 
                         }
 
-                       
+                       /*
                          
                         //メニュー階層が1の場合
                         else if (MenuState == 1)
@@ -219,6 +219,8 @@ namespace Microsoft.Bot.Sample.LuisBot
                             }
                         }
 
+
+                        */
                         
 
                         //ボタンで設定していないワードがきたときはLUISに渡す。
