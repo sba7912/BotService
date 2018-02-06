@@ -393,7 +393,7 @@ namespace Microsoft.Bot.Sample.LuisBot
         }
 
 
-
+        /*
 
         private Activity menuFunc3(Activity activity, List<string> MenuList)
         {
@@ -401,7 +401,7 @@ namespace Microsoft.Bot.Sample.LuisBot
 
             return replyToConversation;
         }
-
+        */
 
         private async Task stateSentGreeting(Activity activity, StateClient stateClient, BotData userData)
         {
