@@ -215,7 +215,7 @@ namespace Microsoft.Bot.Sample.LuisBot
                                 //このサンプルでは階層３までで終わりのため、UsrDataを削除する
                                 //await stateClient.BotState.DeleteStateForUserAsync(activity.ChannelId, activity.From.Id);
                             }
-                        
+                        }
 
                         //ボタンで設定していないワードがきたときはLUISに渡す。
                         else
