@@ -87,7 +87,7 @@ namespace Microsoft.Bot.Sample.LuisBot
 
 
         [LuisIntent("情報基盤センター＿申請")]
-        public async Task Center_overview(IDialogContext context, LuisResult result)
+        public async Task Center_appli(IDialogContext context, LuisResult result)
         {
             await context.PostAsync($"新規・廃止：" +
                 $"情報基盤センターオンライン申請【学内制限】(http://himuka.cc.miyazaki-u.ac.jp/E-application/login.php)が利用できます。\r\n" +
@@ -381,7 +381,7 @@ namespace Microsoft.Bot.Sample.LuisBot
 
 
         [LuisIntent("Solidworks 3DCAD")]
-        public async Task Microsoft_lisence(IDialogContext context, LuisResult result)
+        public async Task 3DCAD(IDialogContext context, LuisResult result)
         {
             await context.PostAsync($"詳しくは" +
                 $"こちら(http://www.cc.miyazaki-u.ac.jp/solidworks/)");
@@ -834,7 +834,7 @@ namespace Microsoft.Bot.Sample.LuisBot
 
 
         [LuisIntent("Web会議システム＿概要")]
-        public async Task WebMeeting(IDialogContext context, LuisResult result)
+        public async Task WebMeeting_overview(IDialogContext context, LuisResult result)
         {
             await context.PostAsync($"マルチデバイス（PC、タブレット、スマートフォン）に対応したWeb会議システム（Vidyo）を提供しています。\r\n" +
             $"基本的には専用ソフトウェアをインストールすることで会議を行いますが、TV会議専用装置を使用して接続することも可能です。\r\n" +
@@ -846,7 +846,7 @@ namespace Microsoft.Bot.Sample.LuisBot
 
 
         [LuisIntent("Web会議システム＿利用")]
-        public async Task WebMeeting(IDialogContext context, LuisResult result)
+        public async Task WebMeeting_use(IDialogContext context, LuisResult result)
         {
             await context.PostAsync($"パソコン等に専用ソフトウェアのインストールが必要です。\r\n" +
                 $"初回接続時にインストールを求められるのでインストールしてください。\r\n" +
