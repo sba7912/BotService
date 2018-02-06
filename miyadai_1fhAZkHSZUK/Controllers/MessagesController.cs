@@ -134,6 +134,8 @@ namespace Microsoft.Bot.Sample.LuisBot
                            
                             replyToConversation = menuFunc3(activity, getcustomer1List());
                             await connector.Conversations.ReplyToActivityAsync(replyToConversation);
+                            userData.SetProperty<int>("MenuState", 2);
+                            await stateClient.BotState.SetUserDataAsync(activity.ChannelId, activity.From.Id, userData);
 
                         }
 
