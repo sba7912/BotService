@@ -25,7 +25,7 @@ namespace Microsoft.Bot.Sample.LuisBot
         public async Task MID_overview(IDialogContext context, LuisResult result)
         {
             await context.PostAsync($"利用者の利便性向上を図るために異なる情報システムにおいて統一的に利用できる認証基盤として宮崎大学統一認証アカウント（通称：ＭＩＤ）の運用を行っています。\r\n" +
-            $"平成２２年度より運用を開始しており、本学における全学的な情報システムの利用者認証について、ほとんどの情報システムでＭＩＤ認証を利用しています。"); 
+            $"平成２２年度より運用を開始しており、本学における全学的な情報システムの利用者認証について、ほとんどの情報システムでＭＩＤ認証を利用しています。");
             context.Wait(MessageReceived);
         }
 
@@ -36,7 +36,7 @@ namespace Microsoft.Bot.Sample.LuisBot
             await context.PostAsync($"大学所属の教職員および学生の新規発行の申請は不要です。人事情報・教務情報を元に自動的に発行します。\r\n" +
             $"もし採用・入学後にＭＩＤが届かない場合は、お手数ですが情報基盤センターまでお問い合わせ下さい。\r\n" +
             $"大学所属以外の方についても、本学システムの利用など、発行が必要と認められた場合に限り、ＭＩＤを発行いたします。\r\n" +
-            $"申請書および職名を証明できる書類等の写しを添付の上、情報基盤センターに提出してください。"); 
+            $"申請書および職名を証明できる書類等の写しを添付の上、情報基盤センターに提出してください。");
             context.Wait(MessageReceived);
         }
 
@@ -45,7 +45,7 @@ namespace Microsoft.Bot.Sample.LuisBot
         public async Task MID_forgetPass(IDialogContext context, LuisResult result)
         {
             await context.PostAsync($"教職員については、情報基盤センターもしくは医学部医療情報部にお問い合わせください。\r\n" +
-            $"学生の方がパスワードを忘れた際は、パスワード再発行の申請が必要です。申請書に記入の上、情報基盤センターまでお越しください。"); 
+            $"学生の方がパスワードを忘れた際は、パスワード再発行の申請が必要です。申請書に記入の上、情報基盤センターまでお越しください。");
             context.Wait(MessageReceived);
         }
 
@@ -58,7 +58,7 @@ namespace Microsoft.Bot.Sample.LuisBot
             $"本アカウントは以下の情報システムで利用できます。\r\n" +
             $"•電子メール（＠cc）、Webサイトの開設、演算サーバ（Linux）\r\n" +
             $"•木花キャンパスのネットワーク認証（有線・無線）\r\n" +
-            $"また、すでに宮崎大学統一認証アカウント（ＭＩＤ）を保有されている教職員の方で、Webサイトの開設を希望される方は本申請で受け付けています。"); 
+            $"また、すでに宮崎大学統一認証アカウント（ＭＩＤ）を保有されている教職員の方で、Webサイトの開設を希望される方は本申請で受け付けています。");
             context.Wait(MessageReceived);
         }
 
@@ -70,7 +70,7 @@ namespace Microsoft.Bot.Sample.LuisBot
                 $"•本学の教職員\r\n" +
                 $"•情報基盤センター長が適当と認めた方（学外者）\r\n" +
                 $"【受入先担当者／代表者】\r\n" +
-                $"•本学の教職員"); 
+                $"•本学の教職員");
             context.Wait(MessageReceived);
         }
 
@@ -81,7 +81,7 @@ namespace Microsoft.Bot.Sample.LuisBot
         {
             await context.PostAsync($"本学の教職員：在職中は継続して利用できます。\r\n" +
                 $"情報基盤センター長が適当と認めた方（学外者）：申請年度内に限ります。\r\n" +
-                $"翌年度も続けて利用される場合は【情報基盤センター利用申請書【学内制限】】を提出してください。"); 
+                $"翌年度も続けて利用される場合は【情報基盤センター利用申請書【学内制限】】を提出してください。");
             context.Wait(MessageReceived);
         }
 
@@ -102,7 +102,7 @@ namespace Microsoft.Bot.Sample.LuisBot
         {
             await context.PostAsync($"学認認証フェデレーションとは、学術e-リソースを利用する大学、学術e-リソースを提供する機関・出版社等から構成された連合体のことです。\r\n" +
             $"各機関はフェデレーションが定めた規定（ポリシー）を信頼しあうことで、相互に認証連携を実現することが可能となります。（学認サイトより引用）\r\n" +
-            $"宮崎大学は学認認証フェデレーションに参加しており、情報基盤センターが発行する学認IDを取得することで、各機関が提供する電子ジャーナル、多地点接続などの各種サービスを受けることができます。"); 
+            $"宮崎大学は学認認証フェデレーションに参加しており、情報基盤センターが発行する学認IDを取得することで、各機関が提供する電子ジャーナル、多地点接続などの各種サービスを受けることができます。");
             context.Wait(MessageReceived);
         }
 
@@ -120,7 +120,7 @@ namespace Microsoft.Bot.Sample.LuisBot
             $"【学生】\r\n" +
             $"入学時に発行される情報基盤センター発行のメールアドレス（@student）を用意してください。\r\n" +
             $"詳しくは" +
-            $"こちら(http://www.cc.miyazaki-u.ac.jp/gakunin/GakuNin.html"); 
+            $"こちら(http://www.cc.miyazaki-u.ac.jp/gakunin/GakuNin.html)"); 
             context.Wait(MessageReceived);
         }
 
@@ -134,7 +134,7 @@ namespace Microsoft.Bot.Sample.LuisBot
         {
             await context.PostAsync($"有線LANには情報コンセントごとにユニークな管理番号が振られています。各情報コンセントには運用責任者が設けられており、接続する際は運用責任者の承認を受けて利用してください。\r\n" +
                 $"研究室を初めて割り当てられた方や、引越しなどにより居室が変更になった場合は情報コンセント運用責任者の申請を行なってください。\r\n" +
-                $"情報コンセントを新設・移設したい場合などは、情報基盤センター基盤部門までご相談ください"); 
+                $"情報コンセントを新設・移設したい場合などは、情報基盤センター基盤部門までご相談ください");
             context.Wait(MessageReceived);
         }
 
@@ -151,7 +151,7 @@ namespace Microsoft.Bot.Sample.LuisBot
                 $"•情報基盤センター利用者アカウント\r\n" +
                 $"•ゲストネットワーク用アカウント\r\n" +
                 $"無通信時間が１時間\r\n" +
-                $"•最初の認証から１２時間経過"); 
+                $"•最初の認証から１２時間経過");
             context.Wait(MessageReceived);
         }
 
@@ -164,7 +164,7 @@ namespace Microsoft.Bot.Sample.LuisBot
                 $"利用に関しては情報基盤センターへの申請は不要です。\r\n" +
                 $"情報コンセント運用責任者については、以下のいずれかで申請して下さい。\r\n" +
                 $"情報基盤センターオンライン申請(http://himuka.cc.miyazaki-u.ac.jp/E-application/login.php)\r\n" +
-                $"情報コンセント運用責任者申請提出"); 
+                $"情報コンセント運用責任者申請提出");
             context.Wait(MessageReceived);
         }
 
@@ -175,7 +175,7 @@ namespace Microsoft.Bot.Sample.LuisBot
         {
             await context.PostAsync($"情報基盤センターは、木花キャンパスにおける無線ネットワークの管理・運用を行なっています。\r\n" +
                 $"情報基盤センターが管理する無線LANは" +
-                $"こちら(https://www.cc.miyazaki-u.ac.jp/service/internal/wlan.php)"); 
+                $"こちら(https://www.cc.miyazaki-u.ac.jp/service/internal/wlan.php)");
             context.Wait(MessageReceived);
         }
 
@@ -202,7 +202,7 @@ namespace Microsoft.Bot.Sample.LuisBot
         [LuisIntent("固定IPアドレス＿概要")]
         public async Task IPadress_overview(IDialogContext context, LuisResult result)
         {
-            await context.PostAsync($"プリンターなどのネットワーク認証ができない機器やサーバ用途などで固定IPアドレスが必要な機器などについては、固定IPアドレスを発行しています。"); 
+            await context.PostAsync($"プリンターなどのネットワーク認証ができない機器やサーバ用途などで固定IPアドレスが必要な機器などについては、固定IPアドレスを発行しています。");
             context.Wait(MessageReceived);
         }
 
@@ -231,7 +231,7 @@ namespace Microsoft.Bot.Sample.LuisBot
                 $"•外部業者がリモートから学内機器のメンテナンスを行う\r\n" +
                 $"•学外者と学内のネットワーク会議システムを使ってTV会議を行う\r\n" +
                 $"•学外者に研究室設置のNASや演算サーバを利用させる\r\n" +
-                $"なお、学内の機器については固定IPアドレスを事前に取得してください。"); 
+                $"なお、学内の機器については固定IPアドレスを事前に取得してください。");
             context.Wait(MessageReceived);
         }
 
@@ -245,7 +245,7 @@ namespace Microsoft.Bot.Sample.LuisBot
                 $"•サービスポート(ポート番号 / プロトコル)\r\n" +
                 $"•利用用途\r\n" +
                 $"申請は" +
-                $"こちら(http://himuka.cc.miyazaki-u.ac.jp/E-application/login.php)"); 
+                $"こちら(http://himuka.cc.miyazaki-u.ac.jp/E-application/login.php)");
             context.Wait(MessageReceived);
         }
 
@@ -255,7 +255,7 @@ namespace Microsoft.Bot.Sample.LuisBot
         {
             await context.PostAsync($"SSL-VPNサービスは学外から木花キャンパスにある情報システムに対してセキュアにアクセスする手段です。\r\n" +
             $"これにより、宮崎大学の学内専用Webサイトの閲覧や情報基盤センターのオンラインストレージ等をSSL-VPNを経由して利用できます。\r\n" +
-            $"ただし、事務シンクライアントシステムおよび附属図書館が提供する電子ジャーナルにはアクセスできません。"); 
+            $"ただし、事務シンクライアントシステムおよび附属図書館が提供する電子ジャーナルにはアクセスできません。");
             context.Wait(MessageReceived);
         }
 
@@ -269,7 +269,7 @@ namespace Microsoft.Bot.Sample.LuisBot
                 $"Windows7/8/8.1 32/64bit(https://www.cc.miyazaki-u.ac.jp/software/sslvpnclient_win.exe)\r\n" +
                 $"Windows10 32bit(https://www.cc.miyazaki-u.ac.jp/software/FortiClientSetup_5.4.3.0870.exe)\r\n" +
                 $"Windows10 64bit(https://www.cc.miyazaki-u.ac.jp/software/FortiClientSetup_5.4.3.0870_x64.exe)\r\n" +
-                $"利用できるIDは宮崎大学統一認証アカウント（MID）です。"); 
+                $"利用できるIDは宮崎大学統一認証アカウント（MID）です。");
             context.Wait(MessageReceived);
         }
 
@@ -295,7 +295,7 @@ namespace Microsoft.Bot.Sample.LuisBot
             $"利用の１週間前までに申請を行って下さい。アカウント数によっては、発行が遅くなる場合があります。\r\n" +
             $"〇利用にあたって：\r\n" +
             $"申請者の責任の下でアカウントの管理およびネットワーク接続を行って下さい。" +
-            $"情報基盤センターオンライン申請【学内制限】(http://himuka.cc.miyazaki-u.ac.jp/E-application/login.php)が利用できます。"); 
+            $"情報基盤センターオンライン申請【学内制限】(http://himuka.cc.miyazaki-u.ac.jp/E-application/login.php)が利用できます。");
             context.Wait(MessageReceived);
         }
 
@@ -309,7 +309,7 @@ namespace Microsoft.Bot.Sample.LuisBot
                 $"これにより、本学の教職員、学生がeduroamに参加している機関へ出張した際は、出張先の無線LAN「eduroam」が利用できます。\r\n" +
                 $"また、eduroamに参加している機関の方が本学木花キャンパスに来学した場合にも、申請なしに無線LANを利用できます。\r\n" +
                 $"本学で開催する学会や研究会、共同研究などの参加者へのネットワーク提供にご利用ください。\r\n" +
-                $"※「eduroam」のネットワークは、学内ネットワークとは別のネットワークです。"); 
+                $"※「eduroam」のネットワークは、学内ネットワークとは別のネットワークです。");
             context.Wait(MessageReceived);
         }
 
@@ -322,7 +322,7 @@ namespace Microsoft.Bot.Sample.LuisBot
             $"○ＳＳＩＤ：「eduroam」\r\n" +
             $"○ＩＤ／パスワード：\r\n" +
             $"【教職員】@ccメールアドレス／MIDのパスワード\r\n" +
-            $"【学生】@studentメールアドレス／MIDのパスワード"); 
+            $"【学生】@studentメールアドレス／MIDのパスワード");
             context.Wait(MessageReceived);
         }
 
@@ -335,7 +335,7 @@ namespace Microsoft.Bot.Sample.LuisBot
         {
             await context.PostAsync($"木花キャンパスの無線LANでユーザ認証を必要としないFreeSpotを提供しています。\r\n" +
                 $"学会や研究会、共同研究などの来学者へのネットワーク提供にご利用ください。\r\n" +
-                $"なお、本学の学内ネットワークとは別のネットワークに接続しますので、本学が運用する学内制限がかかった情報システムには接続できません。"); 
+                $"なお、本学の学内ネットワークとは別のネットワークに接続しますので、本学が運用する学内制限がかかった情報システムには接続できません。");
             context.Wait(MessageReceived);
         }
 
@@ -345,7 +345,7 @@ namespace Microsoft.Bot.Sample.LuisBot
         {
             await context.PostAsync($"木花キャンパス無線LANの以下のSSIDで利用可能です。\r\n" +
                 $"○ＳＳＩＤ：「FreeSpot」\r\n" +
-                $"申請は不要ですが、利用規約を承諾する必要があります。"); 
+                $"申請は不要ですが、利用規約を承諾する必要があります。");
             context.Wait(MessageReceived);
         }
 
@@ -373,7 +373,7 @@ namespace Microsoft.Bot.Sample.LuisBot
         $"【利用可能な端末の範囲】\r\n" +
         $" •大学内の端末\r\n" +
         $"•附属学校内の端末\r\n" +
-        $"•上記構成員が所有する端末"); 
+        $"•上記構成員が所有する端末");
             context.Wait(MessageReceived);
         }
 
@@ -400,7 +400,7 @@ namespace Microsoft.Bot.Sample.LuisBot
                 $"ただし、情報漏えいを防ぐため学外への公開はできません。(SSL - VPNを介して学外から接続は可能)\r\n" +
                 $"保存容量は30GB / 人で世代管理機能を有しており、3世代まで保存できます。\r\n" +
                 $"本ストレージ内のファイルは、学外のデータセンターに設置する情報基盤センター資産のストレージにバックアップをしており、災害等に対してデータを保護します。\r\n" +
-                $"組織用（グループ利用）としてのID発行も可能です。"); 
+                $"組織用（グループ利用）としてのID発行も可能です。");
             context.Wait(MessageReceived);
         }
 
@@ -438,7 +438,7 @@ namespace Microsoft.Bot.Sample.LuisBot
         {
             await context.PostAsync($"1人1年間に印刷できる枚数には上限が設定されており、各印刷上限枚数は各学部ごとに決定されています。\r\n" +
                 $"詳しくは" +
-                $"こちら(https://www.cc.miyazaki-u.ac.jp/service/dokopri.php)"); 
+                $"こちら(https://www.cc.miyazaki-u.ac.jp/service/dokopri.php)");
             context.Wait(MessageReceived);
         }
 
@@ -471,7 +471,7 @@ namespace Microsoft.Bot.Sample.LuisBot
                 $"なお、サーバ上に保存できる容量は以下のとおりです。\r\n" +
                 $"•教職員：2GB\r\n" +
                 $"•学生：1GB\r\n" +
-                $"教職員は、メール保存容量増量申請(学内制限)を行うことで、最大5GBまで増量ができます。"); 
+                $"教職員は、メール保存容量増量申請(学内制限)を行うことで、最大5GBまで増量ができます。");
             context.Wait(MessageReceived);
         }
 
@@ -483,7 +483,7 @@ namespace Microsoft.Bot.Sample.LuisBot
         {
             await context.PostAsync($"メールソフト(Outlook,Thunderbirdなど)での送受信以外に、Webブラウザで送受信可能なWebメールも利用可能です。\r\n" +
             $"教職員用メール(https://wm.cc.miyazaki-u.ac.jp/cgi-bin/index.cgi)\r\n" +
-            $"学生用メール(https://wm.student.miyazaki-u.ac.jp/cgi-bin/index.cgi)"); 
+            $"学生用メール(https://wm.student.miyazaki-u.ac.jp/cgi-bin/index.cgi)");
             context.Wait(MessageReceived);
         }
 
@@ -494,7 +494,7 @@ namespace Microsoft.Bot.Sample.LuisBot
         public async Task Mail_change(IDialogContext context, LuisResult result)
         {
             await context.PostAsync($"本学教職員については、一度のみ自身でのメールアドレスの変更が可能です。\r\n" +
-                $"変更はMID情報変更サイト(https://mauth-ap.cc.miyazaki-u.ac.jp/webmtn/LoginServlet)から変更してください。"); 
+                $"変更はMID情報変更サイト(https://mauth-ap.cc.miyazaki-u.ac.jp/webmtn/LoginServlet)から変更してください。");
             context.Wait(MessageReceived);
         }
 
@@ -505,7 +505,7 @@ namespace Microsoft.Bot.Sample.LuisBot
         {
             await context.PostAsync($"本学教職員(2014年以降採用)もしくは学生に関しては申請は不要です。\r\n" +
                 $"それ以外の教職員、学外者もしくは組織に関しては、" +
-                $"情報基盤センター利用申請(https://www.cc.miyazaki-u.ac.jp/service/ccid.php)から申請してください。"); 
+                $"情報基盤センター利用申請(https://www.cc.miyazaki-u.ac.jp/service/ccid.php)から申請してください。");
             context.Wait(MessageReceived);
         }
 
@@ -524,7 +524,7 @@ namespace Microsoft.Bot.Sample.LuisBot
             $"Microsoft Office\r\n" +
             $"Adobe Design Std CS5\r\n" +
             $"SolidWorks 2014\r\n" +
-            $"Visual Studio2013"); 
+            $"Visual Studio2013");
             context.Wait(MessageReceived);
         }
 
@@ -536,7 +536,7 @@ namespace Microsoft.Bot.Sample.LuisBot
             await context.PostAsync($"授業で利用される場合は、" +
                 $"実習室利用申請(http://himuka.cc.miyazaki-u.ac.jp/E-application/login.php)を行なってください。\r\n" +
                 $"授業以外で利用される場合は、授業が入っていない間は利用可能です。\r\n" +
-                $"時間割を確認して利用してください。"); 
+                $"時間割を確認して利用してください。");
             context.Wait(MessageReceived);
         }
 
@@ -548,7 +548,7 @@ namespace Microsoft.Bot.Sample.LuisBot
         {
             await context.PostAsync($"ある特定の宛先に電子メールを送ると、その電子メールはあらかじめ登録されている人全員に配送されるサービスです。\r\n" +
                 $"メーリングリスト申請者（管理者）は教職員に限りますが、利用者の追加・削除はWeb管理画面から自由に行えます。\r\n" +
-                $"メール投稿について、制限を設けることができるため、問い合わせ用や学生への一斉配信用、グループ内だけの投稿など様々な用途に利用できます。"); 
+                $"メール投稿について、制限を設けることができるため、問い合わせ用や学生への一斉配信用、グループ内だけの投稿など様々な用途に利用できます。");
             context.Wait(MessageReceived);
         }
 
@@ -562,7 +562,7 @@ namespace Microsoft.Bot.Sample.LuisBot
                 $"メーリングリスト管理方法（簡易版）(学内制限)(https://www.cc.miyazaki-u.ac.jp/document/manual/internal/ML-manual.pdf)\r\n" +
                 $"メーリングリスト管理方法（詳細版）(学内制限)(https://www.cc.miyazaki-u.ac.jp/document/manual/internal/DEEPML-UsersManual.pdf)\r\n" +
                 $"また、申請者（管理者）は学内の教職員に限ります。\r\n" +
-                $"情報基盤センターオンライン申請(http://himuka.cc.miyazaki-u.ac.jp/E-application/login.php)"); 
+                $"情報基盤センターオンライン申請(http://himuka.cc.miyazaki-u.ac.jp/E-application/login.php)");
             context.Wait(MessageReceived);
         }
 
@@ -579,12 +579,12 @@ namespace Microsoft.Bot.Sample.LuisBot
                 $"年度末（3月上旬）に情報基盤センターからメーリングリスト管理者宛にメーリングリストを続けるかどうかの問い合わせメールを送ります。\r\n" +
                 $"希望するメーリングリスト名を、3つ記入してください。\r\n" +
                 $"•メーリングリスト名には先頭を英小文字とする4文字以上の英小文字、数字、記号[-(マイナス)、_(下線)]が使えます。1(イチ)、l(エル)、0(ゼロ)、o(オー)など紛らわしくないように記入してください。\r\n" +
-                $"メーリングリスト名は、すでに存在するメールアドレスやSYSTEMで予め予約されている名前は使用出来ません。"); 
+                $"メーリングリスト名は、すでに存在するメールアドレスやSYSTEMで予め予約されている名前は使用出来ません。");
             context.Wait(MessageReceived);
         }
 
 
-       
+
 
 
 
@@ -596,7 +596,7 @@ namespace Microsoft.Bot.Sample.LuisBot
         public async Task AllStudentMail_overview(IDialogContext context, LuisResult result)
         {
             await context.PostAsync($"@student保有の全学部生・院生に対してシステムから一斉にメール配信するサービスです。\r\n" +
-                $"学生に対して通知を行いたい場合などに利用できます。"); 
+                $"学生に対して通知を行いたい場合などに利用できます。");
             context.Wait(MessageReceived);
         }
 
@@ -607,7 +607,7 @@ namespace Microsoft.Bot.Sample.LuisBot
         public async Task AllStudentMail_use(IDialogContext context, LuisResult result)
         {
             await context.PostAsync($"添付ファイルをつけることができません。\r\n" +
-                $"ウェブサイト上に添付ファイルを設置し、URLを本文中に記載するようにしてください。"); 
+                $"ウェブサイト上に添付ファイルを設置し、URLを本文中に記載するようにしてください。");
             context.Wait(MessageReceived);
         }
 
@@ -665,7 +665,7 @@ namespace Microsoft.Bot.Sample.LuisBot
         {
             await context.PostAsync($"大判プリンタ（EPSON, MAXART F10000）１台を導入しており、光沢紙、マット紙、普通紙の印刷が可能です。\r\n" +
                 $"なお、予算振替が可能な方、もしくは申請者が許可した方も利用可能ですが、その場合は申請者から利用料が徴収されます。\r\n" +
-                $"なお、毎年6月、9月、12月及び3月の四半期毎に当該期間の合計額を翌月に請求します。"); 
+                $"なお、毎年6月、9月、12月及び3月の四半期毎に当該期間の合計額を翌月に請求します。");
             context.Wait(MessageReceived);
         }
 
@@ -738,10 +738,10 @@ namespace Microsoft.Bot.Sample.LuisBot
                 $"•UPKI電子証明書自動発行支援システムサーバ証明書インストールマニュアルTomcat編(https://certs.nii.ac.jp/?action=repository_uri&item_id=6&file_id=22&file_no=3)\r\n" +
                 $"TSVファイルに問題がなければ、数日中にダウンロードサイトのURLが記載されたメールが届きます。\r\n" +
                 $"各自でアクセスして証明書をダウンロードしてサーバ等にインストールしてください。");
-              //  $"情報基盤センターオンライン申請(http://himuka.cc.miyazaki-u.ac.jp/E-application/login.php)が利用できます。"); 
+              //  $"情報基盤センターオンライン申請(http://himuka.cc.miyazaki-u.ac.jp/E-application/login.php)が利用できます。");
             context.Wait(MessageReceived);
         }
-        
+
 
 
 
@@ -758,7 +758,7 @@ namespace Microsoft.Bot.Sample.LuisBot
             $"Name Server：CNS1.CC.MIYAZAKI-U.AC.JP\r\n" +
             $"CNS1.CC.MIYAZAKI-U.JP\r\n" +
             $"CNS2.CC.MIYAZAKI-U.AC.JP\r\n" +
-            $"CNS2.CC.MIYAZAKI-U.JP"); 
+            $"CNS2.CC.MIYAZAKI-U.JP");
             context.Wait(MessageReceived);
         }
 
@@ -772,7 +772,7 @@ namespace Microsoft.Bot.Sample.LuisBot
                 $"ウイルスメールやスパムメールと判定された電子メールは利用者には配送されず削除されます。\r\n" +
                 $"ただし、最新のウイルスや暗号化されたファイルが添付されているものは検査できませんので、電子メール利用者は細心の注意を図り利用するようお願いします。\r\n" +
                 $"メールゲートウェイ経由となっているサブドメインのメールサーバは" +
-                $"こちら(https://www.cc.miyazaki-u.ac.jp/service/mailgw.php)"); 
+                $"こちら(https://www.cc.miyazaki-u.ac.jp/service/mailgw.php)");
             context.Wait(MessageReceived);
         }
 
@@ -783,7 +783,7 @@ namespace Microsoft.Bot.Sample.LuisBot
         {
             await context.PostAsync($"情報基盤センターでは、情報セキュリティに関する様々な脅威に対応するため、情報基盤センターが管理する各種情報システムについて、下記の日時で定期メンテナンスを行なっています。\r\n" +
                 $"実施予定日時：毎月第3土曜9:00 - 16:00\r\n" +
-                $"メンテナンスに際して、サービス停止を発生させずに実施する予定ですが、メンテナンス内容によっては断続的に停止する可能性がありますのでご了承願います。"); 
+                $"メンテナンスに際して、サービス停止を発生させずに実施する予定ですが、メンテナンス内容によっては断続的に停止する可能性がありますのでご了承願います。");
             context.Wait(MessageReceived);
         }
 
