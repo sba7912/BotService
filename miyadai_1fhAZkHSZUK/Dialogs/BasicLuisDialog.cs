@@ -24,8 +24,7 @@ namespace Microsoft.Bot.Sample.LuisBot
         [LuisIntent("MID_概要")]
         public async Task MID_overview(IDialogContext context, LuisResult result)
         {
-            await context.PostAsync($"利用者の利便性向上を図るために異なる情報システムにおいて統一的に利用できる認証基盤として宮崎大学統一認証アカウント（通称：ＭＩＤ）の運用を行っています。\r\n" +
-            $"平成２２年度より運用を開始しており、本学における全学的な情報システムの利用者認証について、ほとんどの情報システムでＭＩＤ認証を利用しています。"); 
+            await context.PostAsync($"宮崎大学統一認証アカウント(MID)は、利用者の利便性向上を図るために異なる情報システムにおいて統一的に利用できる認証基盤です。"); 
             context.Wait(MessageReceived);
         }
 
@@ -379,7 +378,6 @@ namespace Microsoft.Bot.Sample.LuisBot
 
 
 
-/*
         [LuisIntent("Solidworks 3DCAD")]
         public async Task 3DCAD(IDialogContext context, LuisResult result)
         {
@@ -389,7 +387,7 @@ namespace Microsoft.Bot.Sample.LuisBot
         }
 
 
-        */
+       
 
 
 
