@@ -19,7 +19,7 @@ namespace Microsoft.Bot.Sample.LuisBot
         {
         }
 
-    [LuisIntent("MID_概要")]
+    [LuisIntent("MID＿概要")]
     public async Task MID_overview(IDialogContext context, LuisResult result)
     {
       await context.PostAsync($"利用者の利便性向上を図るために異なる情報システムにおいて統一的に利用できる認証基盤として宮崎大学統一認証アカウント（通称：ＭＩＤ）の運用を行っています。\r\n" +
@@ -27,7 +27,7 @@ namespace Microsoft.Bot.Sample.LuisBot
       context.Wait(MessageReceived);
     }
 
-    [LuisIntent("MID_新規発行")]
+    [LuisIntent("MID＿新規発行")]
     public async Task MID_issue(IDialogContext context, LuisResult result)
     {
       await context.PostAsync($"大学所属の教職員および学生の新規発行の申請は不要です。人事情報・教務情報を元に自動的に発行します。\r\n" +
@@ -37,7 +37,7 @@ namespace Microsoft.Bot.Sample.LuisBot
       context.Wait(MessageReceived);
     }
 
-    [LuisIntent("MID_パスワード忘れ")]
+    [LuisIntent("MID＿パスワード忘れ")]
     public async Task MID_forgetPass(IDialogContext context, LuisResult result)
     {
       await context.PostAsync($"教職員については、情報基盤センターもしくは医学部医療情報部にお問い合わせください。\r\n" +
@@ -94,7 +94,7 @@ namespace Microsoft.Bot.Sample.LuisBot
       context.Wait(MessageReceived);
     }
 
-    [LuisIntent("学認ID_申請")]
+    [LuisIntent("学認ID＿申請")]
     public async Task ID_appli(IDialogContext context, LuisResult result)
     {
       await context.PostAsync($"学認IDの利用は本学の教職員・学生に限ります。\r\n" +
@@ -107,7 +107,7 @@ namespace Microsoft.Bot.Sample.LuisBot
       context.Wait(MessageReceived);
     }
 
-    [LuisIntent("有線ネットワーク_概要")]
+    [LuisIntent("有線ネットワーク＿概要")]
     public async Task WiredNetwork_overview(IDialogContext context, LuisResult result)
     {
       await context.PostAsync($"有線LANには情報コンセントごとにユニークな管理番号が振られています。各情報コンセントには運用責任者が設けられており、接続する際は運用責任者の承認を受けて利用してください。\r\n" +
@@ -116,7 +116,7 @@ namespace Microsoft.Bot.Sample.LuisBot
       context.Wait(MessageReceived);
     }
 
-    [LuisIntent("有線ネットワーク_利用方法")]
+    [LuisIntent("有線ネットワーク＿利用方法")]
     public async Task WiredNetwork_how(IDialogContext context, LuisResult result)
     {
       await context.PostAsync($"情報コンセントとパソコンなどの端末を接続すると、DHCPサーバにより自動的にIPアドレスを取得してネットワーク接続が行われます。\r\n" +
@@ -130,7 +130,7 @@ namespace Microsoft.Bot.Sample.LuisBot
       context.Wait(MessageReceived);
     }
 
-    [LuisIntent("有線ネットワーク_申請")]
+    [LuisIntent("有線ネットワーク＿申請")]
     public async Task WiredNetwork_appli(IDialogContext context, LuisResult result)
     {
       await context.PostAsync($"有線LANは情報コンセント運用責任者のみ申請が必要です。\r\n" +
