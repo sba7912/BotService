@@ -12,11 +12,12 @@ namespace Microsoft.Bot.Sample.LuisBot
   [Serializable]
   public class BasicLuisDialog : LuisDialog<object>
   {
-    public BasicLuisDialog() : base(new LuisService(new LuisModelAttribute(
-    ConfigurationManager.AppSettings["LuisAppId"],
-    ConfigurationManager.AppSettings["LuisAPIKey"]
-    )))
-    {
+        public BasicLuisDialog() : base(new LuisService(new LuisModelAttribute(
+        ConfigurationManager.AppSettings["LuisAppId"],
+        ConfigurationManager.AppSettings["LuisAPIKey"]
+        )))
+        {
+        }
 
     [LuisIntent("MID_概要")]
     public async Task MID_overview(IDialogContext context, LuisResult result)
@@ -316,7 +317,7 @@ namespace Microsoft.Bot.Sample.LuisBot
     }
 
     [LuisIntent("Solidworks 3DCAD")]
-    public async Task 3DCAD(IDialogContext context, LuisResult result)
+    public async Task Solidworks(IDialogContext context, LuisResult result)
     {
       await context.PostAsync($"詳しくは" +
       $"こちら(http://www.cc.miyazaki-u.ac.jp/solidworks/)");
